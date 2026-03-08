@@ -131,6 +131,15 @@ If you're unsure where to start, look for items marked in the roadmap above or o
 ![Editions Table](screenshots/Screen%20Shot%202022-04-19%20at%207.56.08%20AM.png)
 ![Addons Table](screenshots/Screen%20Shot%202022-04-19%20at%207.55.32%20AM.png)
 
+## Related Projects
+
+- [Quran Lumen API](https://github.com/AbdullahGhanem/quran-lumen-api) — Laravel Lumen API
+- [Quran Vue](https://github.com/adibemohamed/quranaho)
+
+## Sponsor
+
+[Become a Sponsor](https://github.com/sponsors/AbdullahGhanem)
+
 ## License
 
 This project is open source. The Quran text is in the public domain.
