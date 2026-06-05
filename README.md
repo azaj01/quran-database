@@ -1,58 +1,102 @@
 # Quran Database
 
-A comprehensive MySQL database containing the complete Quran text with multiple translations and editions.
+A comprehensive MySQL and SQLite database containing the complete Quran text with multiple translations and editions.
 
 ## Contents
 
-The repository includes a `quran.sql.zip` file (~187 MB uncompressed) that contains the full database dump.
+| File | Format | Size | Description |
+| ---- | ------ | ---- | ----------- |
+| `quran.sql.zip` | MySQL dump | ~187 MB uncompressed | Full database dump for MySQL |
+| `quran.db.gz` | SQLite database | ~208 MB uncompressed | Full database for SQLite |
+| `convert_to_sqlite.py` | Python script | — | Converts `quran.sql` to `quran.db` |
 
 ## Database Schema
 
-### `quran_surahs`
+The actual schema (dynamically extracted from the MySQL dump):
+
+### `surahs`
 
 Stores metadata for all 114 surahs.
 
-| Column             | Description                          |
-| ------------------ | ------------------------------------ |
-| `id`               | Surah number                         |
-| `name_ar`          | Surah name in Arabic (e.g. الفاتحة) |
-| `name_en`          | Surah name transliterated (e.g. Al-Fatiha) |
+| Column | Description |
+| --- | --- |
+| `id` | Surah number |
+| `number` | Surah number |
+| `name_ar` | Surah name in Arabic (e.g. الفاتحة) |
+| `name_en` | Surah name transliterated (e.g. Al-Fatiha) |
 | `name_en_translation` | English meaning (e.g. The Opening) |
-| `type`             | Revelation type (Meccan / Medinan)   |
+| `type` | Revelation type (Meccan / Medinan) |
 
-### `quran_ayahs`
+### `ayahs`
 
-Contains the original Arabic text of every ayah.
+Contains the original Arabic text of every ayah (6,236 verses).
 
-| Column     | Description              |
-| ---------- | ------------------------ |
-| `id`       | Unique ayah ID           |
-| `surah_id` | Reference to surah       |
-| `ayah_id`  | Ayah number within surah |
-| `text`     | Ayah text in Arabic      |
+| Column | Description |
+| --- | --- |
+| `id` | Unique ayah ID (1–6236) |
+| `number` | Global ayah number |
+| `text` | Ayah text in Arabic |
+| `number_in_surah` | Ayah number within its surah |
+| `page` | Mushaf page number |
+| `surah_id` | Reference to surah |
+| `hizb_id` | Reference to hizb (1–60) |
+| `juz_id` | Reference to juz (1–30) |
+| `sajda` | Prostration marker (0/1) — 15 ayahs |
 
-### `quran_ayat_edition`
+### `editions`
 
-Contains ayah text across different editions and translations.
+Available translations and editions (134 entries).
 
-| Column     | Description                        |
-| ---------- | ---------------------------------- |
-| `id`       | Unique ID                          |
-| `surah_id` | Reference to surah                 |
-| `ayah_id`  | Ayah number within surah           |
-| `text`     | Ayah text in the given edition     |
+| Column | Description |
+| --- | --- |
+| `id` | Unique ID |
+| `identifier` | Unique identifier (e.g. `en.sahih`) |
+| `language` | Language code |
+| `name` | Edition name in native language |
+| `english_name` | Edition name in English |
+| `format` | Format (`text`) |
+| `type` | Type (`translation`, `tafsir`) |
 
-### `quran_addons`
+### `ayah_edition`
 
-Additional metadata and author/scholar information.
+Ayah-by-ayah translations (835,624 rows — 6,236 ayahs × 134 editions).
 
-| Column  | Description          |
-| ------- | -------------------- |
-| `id`    | Unique ID            |
-| `name`  | Name (Arabic)        |
-| `author`| Author / scholar name|
+| Column | Description |
+| --- | --- |
+| `id` | Unique ID |
+| `ayah_id` | Reference to ayah |
+| `edition_id` | Reference to edition |
+| `data` | Translated/annotated text |
+| `is_audio` | Audio flag |
+
+### `juzs` (SQLite only — new)
+
+30 juz (parts) with ayah ranges.
+
+| Column | Description |
+| --- | --- |
+| `id` | Juz ID (1–30) |
+| `juz_number` | Juz number |
+| `name_ar` | Arabic name (e.g. الجزء الأول) |
+| `start_ayah_id` | First ayah in this juz |
+| `end_ayah_id` | Last ayah in this juz |
+
+### `hizbs` (SQLite only — new)
+
+60 hizbs (half-parts) with ayah ranges and juz references.
+
+| Column | Description |
+| --- | --- |
+| `id` | Hizb ID (1–60) |
+| `hizb_number` | Hizb number |
+| `juz_id` | Parent juz |
+| `name_ar` | Arabic name |
+| `start_ayah_id` | First ayah in this hizb |
+| `end_ayah_id` | Last ayah in this hizb |
 
 ## Setup
+
+### MySQL
 
 1. Extract the SQL file:
    ```bash
@@ -64,19 +108,53 @@ Additional metadata and author/scholar information.
    mysql -u <username> -p <database_name> < quran.sql
    ```
 
+### SQLite
+
+1. Extract the database:
+   ```bash
+   gunzip quran.db.gz
+   ```
+
+2. Open with any SQLite client:
+   ```bash
+   sqlite3 quran.db
+   ```
+
+   Or use in Python:
+   ```python
+   import sqlite3
+   db = sqlite3.connect("quran.db")
+   # Get Surah Al-Fatiha
+   rows = db.execute("SELECT * FROM ayahs WHERE surah_id = 1").fetchall()
+   # Get ayah with translation
+   rows = db.execute("SELECT arabic, translation FROM ayah_with_translation WHERE surah_id = 1 AND language = 'en'").fetchall()
+   ```
+
+3. To regenerate from the MySQL dump:
+   ```bash
+   unzip quran.sql.zip
+   python3 convert_to_sqlite.py
+   ```
+
+The SQLite version adds:
+- Proper **foreign key constraints** and **CHECK constraints**
+- **Indexes** on commonly queried columns (surah_id, juz_id, hizb_id, page, number_in_surah, sajda)
+- Pre-populated **`juzs`** and **`hizbs`** lookup tables with ayah ranges
+- Views: `surah_stats` (ayat counts per surah), `ayah_with_translation` (joined ayah + translation)
+
 ## Roadmap
 
 We welcome contributions! Here's the planned roadmap for this project. Pick any item and submit a PR.
 
 ### Database Improvements
-- [ ] Add proper indexes for faster queries
-- [ ] Add `juz` (parts) table with ayah ranges
-- [ ] Add `hizb` and `rub` (quarter) divisions
+- [x] Add proper indexes for faster queries
+- [x] Add `juz` (parts) table with ayah ranges
+- [x] Add `hizb` and `rub` (quarter) divisions
 - [ ] Add `pages` table (Mushaf page mapping)
 - [ ] Add word-by-word breakdown table (Arabic root, morphology)
-- [ ] Add sajdah (prostration) markers
-- [ ] Support PostgreSQL and SQLite exports
-- [ ] Add foreign key constraints and proper normalization
+- [x] Add sajdah (prostration) markers
+- [x] Support ~~PostgreSQL and~~ SQLite exports
+- [x] Add foreign key constraints and proper normalization
 
 ### Data Expansion
 - [ ] Add more translations (Urdu, French, Turkish, Indonesian, etc.)
