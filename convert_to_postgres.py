@@ -17,11 +17,11 @@ from __future__ import annotations
 import os
 import re
 from collections.abc import Iterator
+from pathlib import Path
 from typing import TypeAlias
 
 import psycopg2
-from psycopg2.extensions import connection as Connection
-from psycopg2.extensions import cursor as Cursor
+from psycopg2.extensions import connection as Connection, cursor as Cursor
 
 SQL_FILE: str = "quran.sql"
 
@@ -43,91 +43,94 @@ SqlRow: TypeAlias = tuple[SqlValue, ...]
 def create_postgres_schema(db: Connection) -> None:
     """Create the improved PostgreSQL schema."""
     cur: Cursor = db.cursor()
-    cur.execute("""
-        DROP TABLE IF EXISTS ayah_edition CASCADE;
-        DROP TABLE IF EXISTS editions CASCADE;
-        DROP TABLE IF EXISTS ayahs CASCADE;
-        DROP TABLE IF EXISTS hizbs CASCADE;
-        DROP TABLE IF EXISTS juzs CASCADE;
-        DROP TABLE IF EXISTS surahs CASCADE;
-        DROP VIEW IF EXISTS surah_stats CASCADE;
-        DROP VIEW IF EXISTS ayah_with_translation CASCADE;
+    try:
+        cur.execute("""
+            DROP TABLE IF EXISTS ayah_edition CASCADE;
+            DROP TABLE IF EXISTS editions CASCADE;
+            DROP TABLE IF EXISTS ayahs CASCADE;
+            DROP TABLE IF EXISTS hizbs CASCADE;
+            DROP TABLE IF EXISTS juzs CASCADE;
+            DROP TABLE IF EXISTS surahs CASCADE;
+            DROP VIEW IF EXISTS surah_stats CASCADE;
+            DROP VIEW IF EXISTS ayah_with_translation CASCADE;
 
-        CREATE TABLE surahs (
-            id INTEGER PRIMARY KEY,
-            number INTEGER NOT NULL,
-            name_ar TEXT NOT NULL,
-            name_en TEXT NOT NULL,
-            name_en_translation TEXT NOT NULL,
-            type TEXT NOT NULL CHECK(type IN ('meccan', 'medinan', 'Meccan', 'Medinan')),
-            created_at TIMESTAMP,
-            updated_at TIMESTAMP
-        );
+            CREATE TABLE surahs (
+                id INTEGER PRIMARY KEY,
+                number INTEGER NOT NULL,
+                name_ar TEXT NOT NULL,
+                name_en TEXT NOT NULL,
+                name_en_translation TEXT NOT NULL,
+                type TEXT NOT NULL CHECK(type IN ('meccan', 'medinan', 'Meccan', 'Medinan')),
+                created_at TIMESTAMP,
+                updated_at TIMESTAMP
+            );
 
-        CREATE TABLE juzs (
-            id INTEGER PRIMARY KEY,
-            juz_number INTEGER NOT NULL UNIQUE,
-            name_ar TEXT NOT NULL,
-            start_ayah_id INTEGER NOT NULL,
-            end_ayah_id INTEGER NOT NULL
-        );
+            CREATE TABLE juzs (
+                id INTEGER PRIMARY KEY,
+                juz_number INTEGER NOT NULL UNIQUE,
+                name_ar TEXT NOT NULL,
+                start_ayah_id INTEGER NOT NULL,
+                end_ayah_id INTEGER NOT NULL
+            );
 
-        CREATE TABLE hizbs (
-            id INTEGER PRIMARY KEY,
-            hizb_number INTEGER NOT NULL UNIQUE,
-            juz_id INTEGER NOT NULL,
-            name_ar TEXT NOT NULL,
-            start_ayah_id INTEGER NOT NULL,
-            end_ayah_id INTEGER NOT NULL
-        );
+            CREATE TABLE hizbs (
+                id INTEGER PRIMARY KEY,
+                hizb_number INTEGER NOT NULL UNIQUE,
+                juz_id INTEGER NOT NULL REFERENCES juzs(id),
+                name_ar TEXT NOT NULL,
+                start_ayah_id INTEGER NOT NULL,
+                end_ayah_id INTEGER NOT NULL
+            );
 
-        CREATE TABLE ayahs (
-            id INTEGER PRIMARY KEY,
-            number INTEGER NOT NULL,
-            text TEXT NOT NULL,
-            number_in_surah INTEGER NOT NULL,
-            page INTEGER NOT NULL,
-            surah_id INTEGER NOT NULL REFERENCES surahs(id),
-            hizb_id INTEGER NOT NULL,
-            juz_id INTEGER NOT NULL,
-            sajda SMALLINT NOT NULL DEFAULT 0 CHECK(sajda IN (0, 1)),
-            created_at TIMESTAMP,
-            updated_at TIMESTAMP
-        );
+            CREATE TABLE ayahs (
+                id INTEGER PRIMARY KEY,
+                number INTEGER NOT NULL,
+                text TEXT NOT NULL,
+                number_in_surah INTEGER NOT NULL,
+                page INTEGER NOT NULL,
+                surah_id INTEGER NOT NULL REFERENCES surahs(id),
+                -- Source values are rub el hizb IDs (1-240), not hizbs IDs (1-60).
+                hizb_id INTEGER NOT NULL,
+                juz_id INTEGER NOT NULL REFERENCES juzs(id),
+                sajda SMALLINT NOT NULL DEFAULT 0 CHECK(sajda IN (0, 1)),
+                created_at TIMESTAMP,
+                updated_at TIMESTAMP
+            );
 
-        CREATE TABLE editions (
-            id INTEGER PRIMARY KEY,
-            identifier TEXT NOT NULL UNIQUE,
-            language TEXT NOT NULL,
-            name TEXT NOT NULL,
-            english_name TEXT NOT NULL,
-            format TEXT NOT NULL,
-            type TEXT NOT NULL,
-            created_at TIMESTAMP,
-            updated_at TIMESTAMP
-        );
+            CREATE TABLE editions (
+                id INTEGER PRIMARY KEY,
+                identifier TEXT NOT NULL UNIQUE,
+                language TEXT NOT NULL,
+                name TEXT NOT NULL,
+                english_name TEXT NOT NULL,
+                format TEXT NOT NULL,
+                type TEXT NOT NULL,
+                created_at TIMESTAMP,
+                updated_at TIMESTAMP
+            );
 
-        CREATE TABLE ayah_edition (
-            id INTEGER PRIMARY KEY,
-            ayah_id INTEGER NOT NULL REFERENCES ayahs(id),
-            edition_id INTEGER NOT NULL REFERENCES editions(id),
-            data TEXT NOT NULL,
-            is_audio SMALLINT NOT NULL DEFAULT 0 CHECK(is_audio IN (0, 1)),
-            created_at TIMESTAMP,
-            updated_at TIMESTAMP
-        );
+            CREATE TABLE ayah_edition (
+                id INTEGER PRIMARY KEY,
+                ayah_id INTEGER NOT NULL REFERENCES ayahs(id),
+                edition_id INTEGER NOT NULL REFERENCES editions(id),
+                data TEXT NOT NULL,
+                is_audio SMALLINT NOT NULL DEFAULT 0 CHECK(is_audio IN (0, 1)),
+                created_at TIMESTAMP,
+                updated_at TIMESTAMP
+            );
 
-        CREATE INDEX idx_ayahs_surah_id ON ayahs(surah_id);
-        CREATE INDEX idx_ayahs_juz_id ON ayahs(juz_id);
-        CREATE INDEX idx_ayahs_hizb_id ON ayahs(hizb_id);
-        CREATE INDEX idx_ayahs_page ON ayahs(page);
-        CREATE INDEX idx_ayahs_number_in_surah ON ayahs(surah_id, number_in_surah);
-        CREATE INDEX idx_ayahs_sajda ON ayahs(sajda) WHERE sajda = 1;
-        CREATE INDEX idx_ayah_edition_ayah ON ayah_edition(ayah_id);
-        CREATE INDEX idx_ayah_edition_edition ON ayah_edition(edition_id);
-        CREATE INDEX idx_ayah_edition_lookup ON ayah_edition(ayah_id, edition_id);
-    """)
-    db.commit()
+            CREATE INDEX idx_ayahs_surah_id ON ayahs(surah_id);
+            CREATE INDEX idx_ayahs_juz_id ON ayahs(juz_id);
+            CREATE INDEX idx_ayahs_hizb_id ON ayahs(hizb_id);
+            CREATE INDEX idx_ayahs_page ON ayahs(page);
+            CREATE INDEX idx_ayahs_number_in_surah ON ayahs(surah_id, number_in_surah);
+            CREATE INDEX idx_ayahs_sajda ON ayahs(sajda) WHERE sajda = 1;
+            CREATE INDEX idx_ayah_edition_ayah ON ayah_edition(ayah_id);
+            CREATE INDEX idx_ayah_edition_edition ON ayah_edition(edition_id);
+            CREATE INDEX idx_ayah_edition_lookup ON ayah_edition(ayah_id, edition_id);
+        """)
+    finally:
+        cur.close()
 
 
 def parse_sql_value(v: str) -> SqlValue:
@@ -389,15 +392,36 @@ def populate_lookup_tables(db: Connection) -> None:
         (60, 60, 30, "الحزب الستون", 5416, 6236),
     ]
     cur: Cursor = db.cursor()
-    cur.executemany("INSERT INTO juzs VALUES (%s,%s,%s,%s,%s)", juzs_data)
-    cur.executemany("INSERT INTO hizbs VALUES (%s,%s,%s,%s,%s,%s)", hizbs_data)
-    db.commit()
+    try:
+        cur.executemany("INSERT INTO juzs VALUES (%s,%s,%s,%s,%s)", juzs_data)
+        cur.executemany("INSERT INTO hizbs VALUES (%s,%s,%s,%s,%s,%s)", hizbs_data)
+    finally:
+        cur.close()
 
 
 TABLE_ORDER: list[str] = ["surahs", "ayahs", "editions", "ayah_edition"]
 
 
+def stream_inserts_in_dependency_order(filepath: str) -> Iterator[InsertBatch]:
+    """Yield supported INSERT batches in foreign-key dependency order.
+
+    The MySQL dump places child tables before their parents. Re-reading the
+    streaming source once per table keeps memory bounded while allowing
+    PostgreSQL to enforce its foreign keys throughout the import.
+    """
+    for target_table in TABLE_ORDER:
+        for table, columns, rows in stream_inserts(filepath):
+            if table == target_table:
+                yield table, columns, rows
+
+
 def convert() -> None:
+    source = Path(SQL_FILE)
+    if not source.is_file():
+        raise FileNotFoundError(
+            f"MySQL dump not found: {source}. Extract data/quran.sql.zip first."
+        )
+
     print("Connecting to PostgreSQL...")
     db: Connection = psycopg2.connect(
         host=PG_CONFIG["host"],
@@ -407,86 +431,89 @@ def convert() -> None:
         dbname=PG_CONFIG["dbname"],
     )
 
-    print("Creating PostgreSQL database with improved schema...")
-    create_postgres_schema(db)
+    try:
+        print("Creating PostgreSQL database with improved schema...")
+        create_postgres_schema(db)
+        print("  Populating juzs and hizbs lookup tables...")
+        populate_lookup_tables(db)
 
-    cur: Cursor = db.cursor()
-    # Defer FK constraint checks during import (like the SQLite version's PRAGMA OFF)
-    cur.execute("SET CONSTRAINTS ALL DEFERRED")
+        cur: Cursor = db.cursor()
+        try:
+            table_counts: dict[str, int] = {t: 0 for t in TABLE_ORDER}
 
-    table_counts: dict[str, int] = {t: 0 for t in TABLE_ORDER}
+            print(f"Reading {source}...")
+            for table, columns, rows in stream_inserts_in_dependency_order(
+                str(source)
+            ):
+                if rows:
+                    placeholders: str = ",".join(["%s"] * len(columns))
+                    insert_sql: str = (
+                        f"INSERT INTO {table} VALUES ({placeholders})"
+                    )
 
-    print(f"Reading {SQL_FILE}...")
+                    cur.executemany(insert_sql, rows)
+                    table_counts[table] += len(rows)
+                    if (
+                        table_counts[table] <= len(rows)
+                        or table_counts[table] % 5000 == 0
+                    ):
+                        print(f"  {table}: {table_counts[table]} rows...")
 
-    for table, columns, rows in stream_inserts(SQL_FILE):
-        if table in TABLE_ORDER and rows:
-            ncols: int = len(columns)
-            placeholders: str = ",".join(["%s"] * ncols)
-            insert_sql: str = f"INSERT INTO {table} VALUES ({placeholders})"
+            cur.execute("""
+                CREATE OR REPLACE VIEW surah_stats AS
+                SELECT s.id, s.name_ar, s.name_en, s.name_en_translation, s.type,
+                       COUNT(a.id) as ayat_count,
+                       MIN(a.id) as start_ayah_id,
+                       MAX(a.id) as end_ayah_id
+                FROM surahs s
+                JOIN ayahs a ON a.surah_id = s.id
+                GROUP BY s.id
+            """)
 
-            cur.executemany(insert_sql, rows)
-            table_counts[table] += len(rows)
-            if table_counts[table] <= len(rows) or table_counts[table] % 5000 == 0:
-                print(f"  {table}: {table_counts[table]} rows...")
+            cur.execute("""
+                CREATE OR REPLACE VIEW ayah_with_translation AS
+                SELECT a.id, a.surah_id, a.number_in_surah, a.text as arabic,
+                       ae.data as translation, e.language, e.name as edition_name
+                FROM ayahs a
+                JOIN ayah_edition ae ON ae.ayah_id = a.id
+                JOIN editions e ON e.id = ae.edition_id
+            """)
 
-    db.commit()
+            print(
+                f"\nDatabase populated: {PG_CONFIG['dbname']} @ "
+                f"{PG_CONFIG['host']}:{PG_CONFIG['port']}"
+            )
+            for table in TABLE_ORDER:
+                cur.execute(f"SELECT COUNT(*) FROM {table}")
+                result: tuple[int] | None = cur.fetchone()
+                assert result is not None
+                print(f"  {table}: {result[0]} rows")
 
-    # Populate lookup tables after data
-    print("  Populating juzs and hizbs lookup tables...")
-    populate_lookup_tables(db)
+            cur.execute("SELECT COUNT(*) FROM ayahs WHERE sajda = 1")
+            sajdah_result: tuple[int] | None = cur.fetchone()
+            assert sajdah_result is not None
 
-    # Create views
-    cur.execute("""
-        CREATE OR REPLACE VIEW surah_stats AS
-        SELECT s.id, s.name_ar, s.name_en, s.name_en_translation, s.type,
-               COUNT(a.id) as ayat_count,
-               MIN(a.id) as start_ayah_id,
-               MAX(a.id) as end_ayah_id
-        FROM surahs s
-        JOIN ayahs a ON a.surah_id = s.id
-        GROUP BY s.id
-    """)
+            cur.execute("SELECT COUNT(*) FROM juzs")
+            juz_result: tuple[int] | None = cur.fetchone()
+            assert juz_result is not None
 
-    cur.execute("""
-        CREATE OR REPLACE VIEW ayah_with_translation AS
-        SELECT a.id, a.surah_id, a.number_in_surah, a.text as arabic,
-               ae.data as translation, e.language, e.name as edition_name
-        FROM ayahs a
-        JOIN ayah_edition ae ON ae.ayah_id = a.id
-        JOIN editions e ON e.id = ae.edition_id
-    """)
+            cur.execute("SELECT COUNT(*) FROM hizbs")
+            hizb_result: tuple[int] | None = cur.fetchone()
+            assert hizb_result is not None
 
-    db.commit()
+            print(
+                f"  Sajdah ayahs: {sajdah_result[0]}, "
+                f"Juzs: {juz_result[0]}, Hizbs: {hizb_result[0]}"
+            )
+            db.commit()
+        finally:
+            cur.close()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
 
-    print(
-        f"\nDatabase populated: {PG_CONFIG['dbname']} @ {PG_CONFIG['host']}:{PG_CONFIG['port']}"
-    )
-    for table in TABLE_ORDER:
-        cur.execute(f"SELECT COUNT(*) FROM {table}")
-        result: tuple[int] | None = cur.fetchone()
-        assert result is not None
-        count: int = result[0]
-        print(f"  {table}: {count} rows")
-
-    cur.execute("SELECT COUNT(*) FROM ayahs WHERE sajda = 1")
-    sajdah_result: tuple[int] | None = cur.fetchone()
-    assert sajdah_result is not None
-    sajdah_count: int = sajdah_result[0]
-
-    cur.execute("SELECT COUNT(*) FROM juzs")
-    juz_result: tuple[int] | None = cur.fetchone()
-    assert juz_result is not None
-    juz_count: int = juz_result[0]
-
-    cur.execute("SELECT COUNT(*) FROM hizbs")
-    hizb_result: tuple[int] | None = cur.fetchone()
-    assert hizb_result is not None
-    hizb_count: int = hizb_result[0]
-
-    print(f"  Sajdah ayahs: {sajdah_count}, Juzs: {juz_count}, Hizbs: {hizb_count}")
-
-    cur.close()
-    db.close()
     print("\nDone!")
 
 

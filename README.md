@@ -1,6 +1,6 @@
 # Quran Database
 
-A comprehensive MySQL and SQLite database containing the complete Quran text with multiple translations and editions.
+A comprehensive Quran database for MySQL, PostgreSQL, and SQLite containing the complete text with multiple translations and editions.
 
 ## Contents
 
@@ -8,6 +8,7 @@ A comprehensive MySQL and SQLite database containing the complete Quran text wit
 | ---- | ------ | ---- | ----------- |
 | `data/quran.sql.zip` | MySQL dump | ~187 MB uncompressed | Full database dump for MySQL |
 | `quran.db.gz` | SQLite database | ~208 MB uncompressed | Full database for SQLite |
+| `convert_to_postgres.py` | Python script | — | Imports `quran.sql` into PostgreSQL |
 | `convert_to_sqlite.py` | Python script | — | Converts `quran.sql` to `quran.db` |
 | `convert_to_postgres.py` | Python script | — | Converts `quran.sql` into a PostgreSQL database |
 
@@ -177,6 +178,32 @@ The SQLite version adds:
 - **Indexes** on commonly queried columns (surah_id, juz_id, hizb_id, page, number_in_surah, sajda)
 - Pre-populated **`juzs`** and **`hizbs`** lookup tables with ayah ranges
 - Views: `surah_stats` (ayat counts per surah), `ayah_with_translation` (joined ayah + translation)
+
+### PostgreSQL
+
+1. Install the PostgreSQL driver and extract the source dump:
+   ```bash
+   python3 -m pip install psycopg2-binary
+   unzip data/quran.sql.zip
+   ```
+
+2. Create the target database:
+   ```bash
+   createdb quran
+   ```
+
+3. Run the converter:
+   ```bash
+   PGDATABASE=quran python3 convert_to_postgres.py
+   ```
+
+Connection settings can be supplied through `PGHOST`, `PGPORT`, `PGUSER`, `PGPASSWORD`, and `PGDATABASE`. The converter validates the input before connecting, loads tables in foreign-key dependency order, and recreates the schema in one transaction so a failed import rolls back cleanly.
+
+Run the converter tests with:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -v
+```
 
 ## Roadmap
 
