@@ -99,11 +99,13 @@ Ayah-by-ayah translations (835,624 rows — 6,236 ayahs × 134 editions).
 ### MySQL
 
 1. Extract the SQL file:
+
    ```bash
    unzip quran.sql.zip
    ```
 
 2. Import into MySQL:
+
    ```bash
    mysql -u <username> -p <database_name> < quran.sql
    ```
@@ -111,16 +113,19 @@ Ayah-by-ayah translations (835,624 rows — 6,236 ayahs × 134 editions).
 ### SQLite
 
 1. Extract the database:
+
    ```bash
    gunzip quran.db.gz
    ```
 
 2. Open with any SQLite client:
+
    ```bash
    sqlite3 quran.db
    ```
 
    Or use in Python:
+
    ```python
    import sqlite3
    db = sqlite3.connect("quran.db")
@@ -131,12 +136,14 @@ Ayah-by-ayah translations (835,624 rows — 6,236 ayahs × 134 editions).
    ```
 
 3. To regenerate from the MySQL dump:
+
    ```bash
    unzip quran.sql.zip
    python3 convert_to_sqlite.py
    ```
 
 The SQLite version adds:
+
 - Proper **foreign key constraints** and **CHECK constraints**
 - **Indexes** on commonly queried columns (surah_id, juz_id, hizb_id, page, number_in_surah, sajda)
 - Pre-populated **`juzs`** and **`hizbs`** lookup tables with ayah ranges
@@ -147,6 +154,7 @@ The SQLite version adds:
 We welcome contributions! Here's the planned roadmap for this project. Pick any item and submit a PR.
 
 ### Database Improvements
+
 - [x] Add proper indexes for faster queries
 - [x] Add `juz` (parts) table with ayah ranges
 - [x] Add `hizb` and `rub` (quarter) divisions
@@ -157,6 +165,7 @@ We welcome contributions! Here's the planned roadmap for this project. Pick any 
 - [x] Add foreign key constraints and proper normalization
 
 ### Data Expansion
+
 - [ ] Add more translations (Urdu, French, Turkish, Indonesian, etc.)
 - [ ] Add Tafsir (exegesis) data — Ibn Kathir, Al-Tabari, Al-Sa'di, etc.
 - [ ] Add audio recitation references (Mishary, Al-Husary, Abdul Basit, etc.)
@@ -166,6 +175,7 @@ We welcome contributions! Here's the planned roadmap for this project. Pick any 
 - [ ] Add dua (supplication) extractions from the Quran
 
 ### API / Backend
+
 - [ ] Build a RESTful API (Node.js or Python)
 - [ ] GraphQL endpoint for flexible queries
 - [ ] Search endpoint with full-text Arabic search
@@ -175,6 +185,7 @@ We welcome contributions! Here's the planned roadmap for this project. Pick any 
 - [ ] API documentation (Swagger / OpenAPI)
 
 ### Frontend / App
+
 - [ ] Web app for browsing surahs and ayahs
 - [ ] Ayah-by-ayah reader with translation toggle
 - [ ] Audio player integration with reciter selection
@@ -194,6 +205,7 @@ Contributions are welcome and encouraged! Here's how you can help:
 5. **Open** a Pull Request
 
 ### Contribution Guidelines
+
 - Follow the existing database schema conventions
 - Include sample queries or screenshots for database changes
 - Add tests for API endpoints
