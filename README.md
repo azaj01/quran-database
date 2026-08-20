@@ -266,6 +266,39 @@ Both the SQLite and PostgreSQL versions add:
 
 Connection settings can be supplied through `PGHOST`, `PGPORT`, `PGUSER`, `PGPASSWORD`, and `PGDATABASE`. The converter validates the input before connecting, loads tables in foreign-key dependency order, and recreates the schema in one transaction so a failed import rolls back cleanly.
 
+### Docker
+
+Build and initialize all three database targets from the tracked MySQL dump:
+
+```bash
+just docker-up
+```
+
+This starts MySQL 8.4 and PostgreSQL 16 with persistent named volumes and writes
+the enriched SQLite database to `output/quran.db`. Set `SQLITE_OUTPUT_DIR` to
+write it elsewhere. The `just` recipes pass your local UID/GID to the SQLite
+exporter so its generated file remains writable on the host. MySQL retains the
+supplied source schema; SQLite and PostgreSQL use the enriched `rub_id` model.
+The MySQL and PostgreSQL health checks wait for all 835,624 `ayah_edition`
+rows, so a listening server is not reported ready before its import has
+finished.
+
+The development defaults are `MYSQL_ROOT_PASSWORD=quran`,
+`POSTGRES_USER=postgres`, and `POSTGRES_PASSWORD=quran`; override them (and the
+host ports) with environment variables before exposing either service:
+
+```bash
+MYSQL_ROOT_PASSWORD=change-me POSTGRES_PASSWORD=change-me just docker-up
+```
+
+Useful commands:
+
+```bash
+just docker-check   # validate Compose and initialization scripts
+just docker-logs    # follow imports and service logs
+just docker-down    # stop services, retaining their volumes
+```
+
 ## Development
 
 ```bash
@@ -333,7 +366,7 @@ We welcome contributions! Here's the planned roadmap for this project. Pick any 
 - [ ] Search endpoint with full-text Arabic search
 - [ ] Pagination and filtering support
 - [ ] API rate limiting and authentication
-- [ ] Docker setup for easy deployment
+- [x] Docker setup for easy deployment
 - [ ] API documentation (Swagger / OpenAPI)
 
 ### Frontend / App

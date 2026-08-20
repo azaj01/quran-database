@@ -1,0 +1,15 @@
+.git
+.github
+.agents
+.project
+__pycache__/
+*.py[cod]
+docs/
+manifest/
+output/
+quran.db
+quran.db.gz
+quran.sql
+schema/
+screenshots/
+tests/
