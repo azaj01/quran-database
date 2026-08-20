@@ -161,7 +161,19 @@ mangle the text. SQLite and PostgreSQL copies are UTF-8 as well.
 2. Import into MySQL:
 
    ```bash
-   mysql -u <username> -p <database_name> < quran.sql
+   mysql --default-character-set=utf8mb4 -u <username> -p <database_name> < quran.sql
+   ```
+
+3. Optionally drop the Laravel leftovers:
+
+   The dump came from a Laravel application, so it also creates `users`,
+   `password_resets`, and `migrations`. They are unused here — `users` and
+   `password_resets` are empty definitions, and `migrations` holds only the eight
+   2018 migration filenames. No account or credential is in this repository.
+   The SQLite and PostgreSQL converters skip all three; for a direct MySQL import:
+
+   ```sql
+   DROP TABLE IF EXISTS users, password_resets, migrations;
    ```
 
 ### SQLite

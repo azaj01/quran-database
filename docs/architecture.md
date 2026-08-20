@@ -45,6 +45,9 @@ rather than assumed to be byte-for-byte or DDL-equivalent.
 | `convert_to_sqlite.py` | MySQL-dump parser and SQLite schema/import pipeline |
 | `convert_to_postgres.py` | MySQL-dump parser and PostgreSQL schema/import pipeline |
 | `schema/<database>/schema.sql` | Reserved database-specific schema references |
+| `manifest/quran-arabic.manifest.json` | Verse-level SHA-256 hashes of the Arabic text |
+| `scripts/checksum_text.py` | Generates and verifies that manifest |
+| `tests/` | Unit tests for the converters and the checksum tooling |
 | `docs/` | Design and operational documentation |
 | `output/` | Ignored location reserved for generated output |
 
@@ -120,6 +123,22 @@ partially initialized database after a failed import. Import order matters
 because the source dump does not necessarily list tables in foreign-key
 dependency order.
 
+### Tables not carried forward
+
+The dump was taken from a Laravel application, so it also contains `users`,
+`password_resets`, and `migrations`. Only `migrations` holds rows — the eight
+migration filenames that built the schema in 2018. `users` and `password_resets`
+are empty definitions; no account, email, or credential has ever been in this
+repository.
+
+Both converters load from an explicit allow-list (`TABLE_ORDER`), so the SQLite
+and PostgreSQL targets never see these three tables. A direct `mysql < quran.sql`
+import does create them, harmlessly; see the README for the one-line drop.
+
+Widening `TABLE_ORDER` is how a table becomes part of the enriched model. It is
+an allow-list on purpose: an unrecognised table in a future dump is skipped
+rather than silently imported.
+
 ## Architectural boundaries
 
 - The repository does not currently expose an application API.
@@ -128,6 +147,9 @@ dependency order.
 - Translations are modeled as editions and per-ayah edition text; structured
   qira'at or riwayat transmission metadata is not yet modeled.
 - Generated databases are delivery artifacts, not hand-edited sources.
+- The Arabic text is checksum-verified in CI against
+  `manifest/quran-arabic.manifest.json`; see [`provenance.md`](provenance.md).
+  Translations carry no such guarantee — no checksum makes a translation correct.
 - Changes to Quranic content require explicit provenance and review; see
   [`CONTRIBUTING.md`](../CONTRIBUTING.md).
 
