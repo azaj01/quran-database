@@ -24,7 +24,7 @@ spent on an implementation.
 2. Add the canonical repository as `upstream`:
 
    ```bash
-   git remote add upstream https://github.com/AbdullahGhanem/quran-database.git
+   git remote add upstream https://github.com/gaitco/quran-database.git
    git fetch upstream
    ```
 
@@ -111,7 +111,7 @@ fix: preserve Arabic text during PostgreSQL import
 ```
 
 Push the branch to your fork and open a pull request against
-`AbdullahGhanem/quran-database:main`. The pull request should include:
+`gaitco/quran-database:main`. The pull request should include:
 
 - the problem and the chosen approach;
 - the scope and any intentional omissions;

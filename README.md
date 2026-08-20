@@ -9,6 +9,7 @@ A comprehensive MySQL and SQLite database containing the complete Quran text wit
 | `data/quran.sql.zip` | MySQL dump | ~187 MB uncompressed | Full database dump for MySQL |
 | `quran.db.gz` | SQLite database | ~208 MB uncompressed | Full database for SQLite |
 | `convert_to_sqlite.py` | Python script | — | Converts `quran.sql` to `quran.db` |
+| `convert_to_postgres.py` | Python script | — | Converts `quran.sql` into a PostgreSQL database |
 
 ## Database Schema
 
@@ -39,9 +40,14 @@ Contains the original Arabic text of every ayah (6,236 verses).
 | `number_in_surah` | Ayah number within its surah |
 | `page` | Mushaf page number |
 | `surah_id` | Reference to surah |
-| `hizb_id` | Reference to hizb (1–60) |
+| `hizb_id` | Rubʿ al-hizb — quarter-hizb segment (**1–240**) |
 | `juz_id` | Reference to juz (1–30) |
 | `sajda` | Prostration marker (0/1) — 15 ayahs |
+
+> **Note on `hizb_id` (1–240).** The Quran has 30 juz, each split into 2 hizb (60 total),
+> and each hizb into 4 rubʿ al-hizb (quarters) — 60 × 4 = **240**. Despite its name, this
+> column stores the quarter number, so it does **not** join to the 60-row `hizbs` lookup
+> table. To derive the hizb (1–60), use `FLOOR((hizb_id - 1) / 4) + 1`.
 
 ### `editions`
 
@@ -69,7 +75,7 @@ Ayah-by-ayah translations (835,624 rows — 6,236 ayahs × 134 editions).
 | `data` | Translated/annotated text |
 | `is_audio` | Audio flag |
 
-### `juzs` (SQLite only — new)
+### `juzs` (SQLite & PostgreSQL — added by the converters)
 
 30 juz (parts) with ayah ranges.
 
@@ -81,9 +87,9 @@ Ayah-by-ayah translations (835,624 rows — 6,236 ayahs × 134 editions).
 | `start_ayah_id` | First ayah in this juz |
 | `end_ayah_id` | Last ayah in this juz |
 
-### `hizbs` (SQLite only — new)
+### `hizbs` (SQLite & PostgreSQL — added by the converters)
 
-60 hizbs (half-parts) with ayah ranges and juz references.
+60 hizb (half-juz) with ayah ranges and juz references. Not referenced by `ayahs.hizb_id` — see the note above.
 
 | Column | Description |
 | --- | --- |
@@ -112,6 +118,13 @@ just extract  # Extract quran.sql when it is not already present
 just sqlite   # Generate quran.db from the MySQL dump
 just check    # Validate the Python converter syntax
 ```
+
+### Text encoding
+
+All text is **UTF-8**. The dump declares `SET NAMES utf8mb4` and every text column is
+`utf8mb4_unicode_ci`, so Arabic is stored with full tashkeel and no escaping. Import with a
+`utf8mb4` connection (`mysql --default-character-set=utf8mb4`) — using `utf8`/`latin1` will
+mangle the text. SQLite and PostgreSQL copies are UTF-8 as well.
 
 ### MySQL
 
@@ -241,6 +254,17 @@ If you're unsure where to start, look for items marked in the roadmap above or o
 
 - [Quran Lumen API](https://github.com/AbdullahGhanem/quran-lumen-api) — Laravel Lumen API
 - [Quran Vue](https://github.com/adibemohamed/quranaho)
+
+### Community ports
+
+Built from this database by the community:
+
+- [quran-database-malay](https://github.com/C-Fu/quran-database-malay) — Bahasa Melayu edition,
+  cross-checked against the official Malaysian translation, with a SQLite + WASM search page.
+- [quranchecksum](https://github.com/spqrxi/quranchecksum) — verse-level SHA-256 manifest for
+  verifying an imported copy of the Quran text.
+
+Ported or built something? Open an issue and we'll list it.
 
 ## Sponsor
 
