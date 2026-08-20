@@ -11,6 +11,28 @@ A comprehensive Quran database for MySQL, PostgreSQL, and SQLite containing the 
 | `convert_to_postgres.py` | Python script | — | Imports `quran.sql` into PostgreSQL |
 | `convert_to_sqlite.py` | Python script | — | Converts `quran.sql` to `quran.db` |
 | `convert_to_postgres.py` | Python script | — | Converts `quran.sql` into a PostgreSQL database |
+| `manifest/quran-arabic.manifest.json` | SHA-256 manifest | — | Verse-level checksums for the Arabic text |
+
+## Provenance
+
+The Arabic text is the Tanzil Project's Uthmani transcription, manually verified
+verse-by-verse against the KFGQPC Madinah Mushaf, distributed via alquran.cloud
+(edition `quran-uthmani`) and dumped here on **2018-06-07**:
+
+> KFGQPC Madinah Mushaf → Tanzil → alquran.cloud → this repository
+
+Re-checked against a fresh Tanzil download in August 2026: **5,927 of 6,236 verses
+(95.0%) are byte-identical**, and the remaining 309 differ only in character
+carriers (`ء` vs `ـٔ`) and word spacing — no letter and no diacritic differs.
+
+Verify your own copy at any time:
+
+```bash
+just verify
+```
+
+Full details, the exact Tanzil export options, and the limits of this claim are in
+[`docs/provenance.md`](docs/provenance.md).
 
 ## Database Schema
 
@@ -117,7 +139,8 @@ The main commands are:
 just doctor   # Check required local tools
 just extract  # Extract quran.sql when it is not already present
 just sqlite   # Generate quran.db from the MySQL dump
-just check    # Validate the Python converter syntax
+just verify   # Check the Arabic text against the SHA-256 manifest
+just check    # Validate the converters and run the test suite
 ```
 
 ### Text encoding
