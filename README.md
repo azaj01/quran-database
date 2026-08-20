@@ -6,7 +6,7 @@ A comprehensive MySQL and SQLite database containing the complete Quran text wit
 
 | File | Format | Size | Description |
 | ---- | ------ | ---- | ----------- |
-| `quran.sql.zip` | MySQL dump | ~187 MB uncompressed | Full database dump for MySQL |
+| `data/quran.sql.zip` | MySQL dump | ~187 MB uncompressed | Full database dump for MySQL |
 | `quran.db.gz` | SQLite database | ~208 MB uncompressed | Full database for SQLite |
 | `convert_to_sqlite.py` | Python script | — | Converts `quran.sql` to `quran.db` |
 
@@ -96,12 +96,29 @@ Ayah-by-ayah translations (835,624 rows — 6,236 ayahs × 134 editions).
 
 ## Setup
 
+### Project commands
+
+This repository uses [`just`](https://just.systems/) to provide a small set of consistent project commands. After installing `just`, run:
+
+```bash
+just
+```
+
+The main commands are:
+
+```bash
+just doctor   # Check required local tools
+just extract  # Extract quran.sql when it is not already present
+just sqlite   # Generate quran.db from the MySQL dump
+just check    # Validate the Python converter syntax
+```
+
 ### MySQL
 
 1. Extract the SQL file:
 
    ```bash
-   unzip quran.sql.zip
+   just extract
    ```
 
 2. Import into MySQL:
@@ -138,8 +155,7 @@ Ayah-by-ayah translations (835,624 rows — 6,236 ayahs × 134 editions).
 3. To regenerate from the MySQL dump:
 
    ```bash
-   unzip quran.sql.zip
-   python3 convert_to_sqlite.py
+   just sqlite
    ```
 
 The SQLite version adds:
