@@ -2,3 +2,7 @@
 output/
 quran.sql
 quran.db
+
+# Python
+__pycache__/
+*.py[cod]
