@@ -182,19 +182,22 @@ The SQLite version adds:
 ### PostgreSQL
 
 1. Install the PostgreSQL driver and extract the source dump:
+
    ```bash
    python3 -m pip install psycopg2-binary
-   unzip data/quran.sql.zip
+   just extract
    ```
 
 2. Create the target database:
+
    ```bash
    createdb quran
    ```
 
 3. Run the converter:
+
    ```bash
-   PGDATABASE=quran python3 convert_to_postgres.py
+   PGDATABASE=quran just postgres
    ```
 
 Connection settings can be supplied through `PGHOST`, `PGPORT`, `PGUSER`, `PGPASSWORD`, and `PGDATABASE`. The converter validates the input before connecting, loads tables in foreign-key dependency order, and recreates the schema in one transaction so a failed import rolls back cleanly.
