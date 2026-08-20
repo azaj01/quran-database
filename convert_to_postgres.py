@@ -402,6 +402,30 @@ def populate_lookup_tables(db: Connection) -> None:
 
 TABLE_ORDER: list[str] = ["surahs", "ayahs", "editions", "ayah_edition"]
 
+# Columns the enriched model renames on the way in. Stating them here is what
+# lets the INSERT name its columns instead of relying on the dump listing them
+# in the same order as CREATE TABLE.
+COLUMN_RENAMES: dict[str, str] = {
+    "hizb_id": "rub_id",  # values are rub' al-hizb quarters, 1-240
+    "englishName": "english_name",
+}
+
+IDENTIFIER = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
+
+
+def target_columns(table: str, columns: list[str]) -> list[str]:
+    """Map dump column names onto target ones, rejecting anything unusable.
+
+    The names are interpolated into SQL, so they are validated rather than
+    trusted: a malformed or hostile dump fails here instead of producing a
+    statement nobody intended.
+    """
+    mapped = [COLUMN_RENAMES.get(c, c) for c in columns]
+    bad = [c for c in mapped if not IDENTIFIER.match(c)]
+    if bad:
+        raise ValueError(f"invalid column name(s) for {table}: {bad}")
+    return mapped
+
 
 def stream_inserts_in_dependency_order(filepath: str) -> Iterator[InsertBatch]:
     """Yield supported INSERT batches in foreign-key dependency order.
@@ -447,9 +471,11 @@ def convert() -> None:
                 str(source)
             ):
                 if rows:
-                    placeholders: str = ",".join(["%s"] * len(columns))
+                    target: list[str] = target_columns(table, columns)
+                    placeholders: str = ",".join(["%s"] * len(target))
                     insert_sql: str = (
-                        f"INSERT INTO {table} VALUES ({placeholders})"
+                        f"INSERT INTO {table} ({','.join(target)}) "
+                        f"VALUES ({placeholders})"
                     )
 
                     cur.executemany(insert_sql, rows)

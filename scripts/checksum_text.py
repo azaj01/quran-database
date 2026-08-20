@@ -23,6 +23,7 @@ import json
 import sqlite3
 import sys
 import unicodedata
+from contextlib import closing
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -45,7 +46,9 @@ def digest(text: str) -> str:
 def read_verses(db_path: Path) -> dict[str, str]:
     if not db_path.exists():
         sys.exit(f"{db_path} not found — run `just extract && just sqlite`, or `gunzip -k quran.db.gz`")
-    with sqlite3.connect(f"file:{db_path}?mode=ro", uri=True) as db:
+    # closing(), not `with sqlite3.connect(...)`: the connection context
+    # manager commits the transaction but leaves the handle open.
+    with closing(sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)) as db:
         rows = db.execute(
             "SELECT surah_id, number_in_surah, text FROM ayahs "
             "ORDER BY surah_id, number_in_surah"

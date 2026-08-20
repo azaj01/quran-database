@@ -6,6 +6,7 @@ import sqlite3
 import tempfile
 import types
 import unittest
+from contextlib import closing
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -79,7 +80,7 @@ class ReadVersesTests(unittest.TestCase):
     def test_reads_ayahs_in_canonical_order(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "quran.db"
-            with sqlite3.connect(path) as db:
+            with closing(sqlite3.connect(path)) as db:
                 db.execute(
                     "CREATE TABLE ayahs (surah_id INT, number_in_surah INT, text TEXT)"
                 )
@@ -87,6 +88,7 @@ class ReadVersesTests(unittest.TestCase):
                     "INSERT INTO ayahs VALUES (?, ?, ?)",
                     [(1, 2, VERSES["1:2"]), (1, 1, VERSES["1:1"])],
                 )
+                db.commit()
             self.assertEqual(list(checksum.read_verses(path)), ["1:1", "1:2"])
 
 

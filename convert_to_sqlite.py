@@ -345,6 +345,30 @@ def populate_lookup_tables(db):
 
 TABLE_ORDER = ['surahs', 'ayahs', 'editions', 'ayah_edition']
 
+# Columns the enriched model renames on the way in. Stating them here is what
+# lets the INSERT name its columns instead of relying on the dump listing them
+# in the same order as CREATE TABLE.
+COLUMN_RENAMES = {
+    'hizb_id': 'rub_id',        # values are rub' al-hizb quarters, 1-240
+    'englishName': 'english_name',
+}
+
+IDENTIFIER = re.compile(r'^[A-Za-z_][A-Za-z0-9_]*$')
+
+
+def target_columns(table, columns):
+    """Map dump column names onto target ones, rejecting anything unusable.
+
+    The names are interpolated into SQL, so they are validated rather than
+    trusted: a malformed or hostile dump fails here instead of producing a
+    statement nobody intended.
+    """
+    mapped = [COLUMN_RENAMES.get(c, c) for c in columns]
+    bad = [c for c in mapped if not IDENTIFIER.match(c)]
+    if bad:
+        raise ValueError(f"invalid column name(s) for {table}: {bad}")
+    return mapped
+
 
 def convert():
     print("Creating SQLite database with improved schema...")
@@ -353,82 +377,90 @@ def convert():
         os.remove(DB_FILE)
 
     db = sqlite3.connect(DB_FILE)
-    create_sqlite_schema(db)
+    try:
+        create_sqlite_schema(db)
     
-    # Disable FK checks during import for speed and to handle cross-references
-    db.execute("PRAGMA foreign_keys = OFF")
+        # Disable FK checks during import for speed and to handle cross-references
+        db.execute("PRAGMA foreign_keys = OFF")
     
-    table_counts = {t: 0 for t in TABLE_ORDER}
+        table_counts = {t: 0 for t in TABLE_ORDER}
     
-    print(f"Reading {SQL_FILE}...")
+        print(f"Reading {SQL_FILE}...")
     
-    for table, columns, rows in stream_inserts(SQL_FILE):
-        if table in TABLE_ORDER:
-            ncols = len(columns)
-            placeholders = ','.join(['?'] * ncols)
-            insert_sql = f"INSERT INTO {table} VALUES ({placeholders})"
+        for table, columns, rows in stream_inserts(SQL_FILE):
+            if table in TABLE_ORDER:
+                target = target_columns(table, columns)
+                placeholders = ','.join(['?'] * len(target))
+                insert_sql = (
+                    f"INSERT INTO {table} ({','.join(target)}) "
+                    f"VALUES ({placeholders})"
+                )
             
-            db.executemany(insert_sql, rows)
-            table_counts[table] += len(rows)
-            if table_counts[table] <= len(rows) or table_counts[table] % 5000 == 0:
-                print(f"  {table}: {table_counts[table]} rows...")
+                db.executemany(insert_sql, rows)
+                table_counts[table] += len(rows)
+                if table_counts[table] <= len(rows) or table_counts[table] % 5000 == 0:
+                    print(f"  {table}: {table_counts[table]} rows...")
     
-    # Re-enable FK checks
-    db.execute("PRAGMA foreign_keys = ON")
-    db.execute("PRAGMA foreign_key_check")
-    db.commit()
+        # Re-enable FK checks
+        db.execute("PRAGMA foreign_keys = ON")
+        db.execute("PRAGMA foreign_key_check")
+        db.commit()
     
-    db.commit()
+        db.commit()
     
-    # Populate lookup tables after data
-    print("  Populating juzs and hizbs lookup tables...")
-    populate_lookup_tables(db)
+        # Populate lookup tables after data
+        print("  Populating juzs and hizbs lookup tables...")
+        populate_lookup_tables(db)
     
-    # Create views
-    db.execute("""
-        CREATE VIEW IF NOT EXISTS surah_stats AS
-        SELECT s.id, s.name_ar, s.name_en, s.name_en_translation, s.type,
-               COUNT(a.id) as ayat_count,
-               MIN(a.id) as start_ayah_id,
-               MAX(a.id) as end_ayah_id
-        FROM surahs s
-        JOIN ayahs a ON a.surah_id = s.id
-        GROUP BY s.id
-    """)
+        # Create views
+        db.execute("""
+            CREATE VIEW IF NOT EXISTS surah_stats AS
+            SELECT s.id, s.name_ar, s.name_en, s.name_en_translation, s.type,
+                   COUNT(a.id) as ayat_count,
+                   MIN(a.id) as start_ayah_id,
+                   MAX(a.id) as end_ayah_id
+            FROM surahs s
+            JOIN ayahs a ON a.surah_id = s.id
+            GROUP BY s.id
+        """)
     
-    db.execute("""
-        CREATE VIEW IF NOT EXISTS ayah_with_translation AS
-        SELECT a.id, a.surah_id, a.number_in_surah, a.text as arabic,
-               ae.data as translation, e.language, e.name as edition_name
-        FROM ayahs a
-        JOIN ayah_edition ae ON ae.ayah_id = a.id
-        JOIN editions e ON e.id = ae.edition_id
-    """)
+        db.execute("""
+            CREATE VIEW IF NOT EXISTS ayah_with_translation AS
+            SELECT a.id, a.surah_id, a.number_in_surah, a.text as arabic,
+                   ae.data as translation, e.language, e.name as edition_name
+            FROM ayahs a
+            JOIN ayah_edition ae ON ae.ayah_id = a.id
+            JOIN editions e ON e.id = ae.edition_id
+        """)
     
-    db.commit()
+        db.commit()
 
-    # ANALYZE builds the sqlite_stat tables the query planner uses to pick
-    # between the indexes above; without it a fresh copy plans worse than the
-    # published one. VACUUM then compacts the free pages left by the import.
-    print("  Analyzing and compacting...")
-    db.execute("ANALYZE")
-    db.commit()
-    db.execute("VACUUM")
+        # ANALYZE builds the sqlite_stat tables the query planner uses to pick
+        # between the indexes above; without it a fresh copy plans worse than the
+        # published one. VACUUM then compacts the free pages left by the import.
+        print("  Analyzing and compacting...")
+        db.execute("ANALYZE")
+        db.commit()
+        db.execute("VACUUM")
 
-    print(f"\nDatabase created: {DB_FILE}")
-    for table in TABLE_ORDER:
-        count = db.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
-        print(f"  {table}: {count} rows")
+        print(f"\nDatabase created: {DB_FILE}")
+        for table in TABLE_ORDER:
+            count = db.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
+            print(f"  {table}: {count} rows")
     
-    sajdah_count = db.execute("SELECT COUNT(*) FROM ayahs WHERE sajda = 1").fetchone()[0]
-    juz_count = db.execute("SELECT COUNT(*) FROM juzs").fetchone()[0]
-    hizb_count = db.execute("SELECT COUNT(*) FROM hizbs").fetchone()[0]
-    print(f"  Sajdah ayahs: {sajdah_count}, Juzs: {juz_count}, Hizbs: {hizb_count}")
+        sajdah_count = db.execute("SELECT COUNT(*) FROM ayahs WHERE sajda = 1").fetchone()[0]
+        juz_count = db.execute("SELECT COUNT(*) FROM juzs").fetchone()[0]
+        hizb_count = db.execute("SELECT COUNT(*) FROM hizbs").fetchone()[0]
+        print(f"  Sajdah ayahs: {sajdah_count}, Juzs: {juz_count}, Hizbs: {hizb_count}")
     
-    db_size = os.path.getsize(DB_FILE) / (1024 * 1024)
-    print(f"  Database size: {db_size:.1f} MB")
+        db_size = os.path.getsize(DB_FILE) / (1024 * 1024)
+        print(f"  Database size: {db_size:.1f} MB")
     
-    db.close()
+    finally:
+        # Close on the failure path too, matching the PostgreSQL converter:
+        # a rejected column or a bad row should not leave a handle open on a
+        # half-written database.
+        db.close()
     print("\nDone!")
 
 
