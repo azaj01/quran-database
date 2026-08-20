@@ -1,0 +1,136 @@
+# Architecture
+
+Quran Database is currently a data distribution and conversion repository. Its
+core asset is a MySQL dump; two Python converters derive enriched SQLite and
+PostgreSQL databases from that dump. An API and container orchestration are
+roadmap items, not part of the current architecture.
+
+## Data flow
+
+```text
+data/quran.sql.zip
+        |
+        | extract to repository-root quran.sql
+        |
+        +----------------------+-------------------------+
+        |                      |                         |
+        v                      v                         v
+ direct MySQL import   convert_to_sqlite.py    convert_to_postgres.py
+        |                      |                         |
+        v                      v                         v
+ MySQL source model       quran.db             PostgreSQL database
+                       enriched model           enriched model
+
+quran.db.gz
+    prebuilt compressed SQLite distribution
+```
+
+The converters use a line-oriented parser so the large SQL dump can be
+processed without reading the whole file into memory. Both expect the extracted
+file at `./quran.sql`. SQLite writes `./quran.db`; PostgreSQL connects to an
+existing database using the standard `PGHOST`, `PGPORT`, `PGUSER`,
+`PGPASSWORD`, and `PGDATABASE` environment variables.
+
+The MySQL dump is the input format as supplied. The SQLite and PostgreSQL
+converters create a related, enriched model with lookup tables, indexes,
+constraints, and views. These models should therefore be compared deliberately
+rather than assumed to be byte-for-byte or DDL-equivalent.
+
+## Repository layout
+
+| Path | Responsibility |
+| --- | --- |
+| `data/quran.sql.zip` | Versioned source dump used for conversion |
+| `quran.db.gz` | Prebuilt compressed SQLite distribution |
+| `convert_to_sqlite.py` | MySQL-dump parser and SQLite schema/import pipeline |
+| `convert_to_postgres.py` | MySQL-dump parser and PostgreSQL schema/import pipeline |
+| `schema/<database>/schema.sql` | Reserved database-specific schema references |
+| `docs/` | Design and operational documentation |
+| `output/` | Ignored location reserved for generated output |
+
+The schema reference files are currently placeholders. Until a generation
+workflow is merged, the executable schema definitions in the converter scripts
+are authoritative for SQLite and PostgreSQL.
+
+## Enriched data model
+
+```text
+juzs                 surahs
+  |                     |
+  | descriptive         | 1
+  | ranges              |
+  v                     | many
+hizbs                ayahs 1 -------- many ayah_edition many -------- 1 editions
+                        |
+                        +-- page, juz_id, hizb_id, sajda
+```
+
+The enriched SQLite and PostgreSQL targets contain six tables:
+
+| Table | Purpose | Expected rows |
+| --- | --- | ---: |
+| `surahs` | Surah identity, Arabic and English names, revelation type | 114 |
+| `ayahs` | Arabic ayah text and navigation metadata | 6,236 |
+| `editions` | Translation or edition metadata | 134 |
+| `ayah_edition` | Text for each ayah and edition pairing | 835,624 |
+| `juzs` | Thirty juz lookup records with ayah ranges | 30 |
+| `hizbs` | Sixty hizb lookup records with ayah ranges | 60 |
+
+`ayah_edition` is the high-volume junction between `ayahs` and `editions`.
+Indexes support common navigation by surah, juz, hizb, page, ayah number, and
+sajdah status, plus translation lookups by ayah and edition.
+
+Two convenience views sit above the tables:
+
+- `surah_stats` aggregates ayah counts and ID ranges per surah.
+- `ayah_with_translation` joins Arabic ayahs to edition text and metadata.
+
+## Relationships and domain caveats
+
+The enforced relationships in the current enriched schema are:
+
+- `ayahs.surah_id` to `surahs.id`;
+- `ayah_edition.ayah_id` to `ayahs.id`;
+- `ayah_edition.edition_id` to `editions.id`.
+
+The `juzs` and `hizbs` tables contain navigation ranges, but not every apparent
+relationship is enforced as a foreign key. In particular, the source field
+named `ayahs.hizb_id` spans 1–240 and represents rub-el-hizb quarter segments.
+It must not be constrained to the 60-row `hizbs` lookup without first correcting
+the domain model or mapping the values. `ayahs.juz_id` spans 1–30 and corresponds
+to the `juzs` lookup.
+
+Range endpoints such as `start_ayah_id` and `end_ayah_id` are descriptive data.
+Changes to these values should be validated against the source and should not
+be inferred solely from table names.
+
+## Import lifecycle
+
+At a high level, each converter:
+
+1. creates or recreates its target schema;
+2. streams and parses supported `INSERT` statements from `quran.sql`;
+3. loads `surahs`, `ayahs`, `editions`, and `ayah_edition`;
+4. populates the `juzs` and `hizbs` lookup tables;
+5. creates the convenience views;
+6. prints row counts for inspection.
+
+Changes to this lifecycle should preserve referential integrity and leave no
+partially initialized database after a failed import. Import order matters
+because the source dump does not necessarily list tables in foreign-key
+dependency order.
+
+## Architectural boundaries
+
+- The repository does not currently expose an application API.
+- It does not currently manage user accounts, bookmarks, audio, search, or
+  client applications.
+- Translations are modeled as editions and per-ayah edition text; structured
+  qira'at or riwayat transmission metadata is not yet modeled.
+- Generated databases are delivery artifacts, not hand-edited sources.
+- Changes to Quranic content require explicit provenance and review; see
+  [`CONTRIBUTING.md`](../CONTRIBUTING.md).
+
+Future Docker, API, search, or riwayat work should be added as separate layers
+around this conversion core. Planned components should remain clearly marked
+until their implementation and verification are merged.
