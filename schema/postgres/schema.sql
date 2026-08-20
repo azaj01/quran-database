@@ -36,8 +36,9 @@ CREATE TABLE ayahs (
     number_in_surah INTEGER NOT NULL,
     page INTEGER NOT NULL,
     surah_id INTEGER NOT NULL REFERENCES surahs(id),
-    -- Source values are rub el hizb IDs (1-240), not hizbs IDs (1-60).
-    hizb_id INTEGER NOT NULL,
+    -- Quarter of a hizb (rub' al-hizb), 1-240. The source dump
+    -- misnames this after the hizb, of which there are only 60.
+    rub_id INTEGER NOT NULL CHECK(rub_id BETWEEN 1 AND 240),
     juz_id INTEGER NOT NULL REFERENCES juzs(id),
     sajda SMALLINT NOT NULL DEFAULT 0 CHECK(sajda IN (0, 1)),
     created_at TIMESTAMP,
@@ -70,7 +71,7 @@ CREATE INDEX idx_ayahs_surah_id ON ayahs(surah_id);
 
 CREATE INDEX idx_ayahs_juz_id ON ayahs(juz_id);
 
-CREATE INDEX idx_ayahs_hizb_id ON ayahs(hizb_id);
+CREATE INDEX idx_ayahs_rub_id ON ayahs(rub_id);
 
 CREATE INDEX idx_ayahs_page ON ayahs(page);
 

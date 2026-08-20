@@ -112,7 +112,19 @@ class ConversionSafetyTests(unittest.TestCase):
         self.assertGreaterEqual(
             schema_sql.count("juz_id INTEGER NOT NULL REFERENCES juzs(id)"), 2
         )
-        self.assertNotIn("hizb_id INTEGER NOT NULL REFERENCES hizbs(id)", schema_sql)
+        self.assertNotIn("rub_id INTEGER NOT NULL REFERENCES hizbs(id)", schema_sql)
+
+    def test_ayahs_names_the_quarter_column_rub_id(self) -> None:
+        # The source dump calls this hizb_id, which is wrong: the values run
+        # 1-240 (rub' al-hizb quarters) while there are only 60 hizbs. The
+        # enriched model must not carry that name forward.
+        database = mock.Mock()
+
+        converter.create_postgres_schema(database)
+
+        schema_sql = database.cursor.return_value.execute.call_args.args[0]
+        self.assertIn("rub_id INTEGER NOT NULL CHECK(rub_id BETWEEN 1 AND 240)", schema_sql)
+        self.assertNotIn("hizb_id", schema_sql)
 
     def test_insert_failure_rolls_back_and_closes_connection(self) -> None:
         database = mock.Mock()

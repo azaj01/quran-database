@@ -51,6 +51,22 @@ class GeneratedSqliteSchemaTests(unittest.TestCase):
     def test_creates_the_documented_views(self) -> None:
         self.assertEqual(self.objects("view"), EXPECTED_VIEWS)
 
+    def test_quarter_column_is_named_rub_id(self) -> None:
+        columns = {
+            row[1]
+            for row in self.db.execute("PRAGMA table_info(ayahs)").fetchall()
+        }
+        self.assertIn("rub_id", columns)
+        self.assertNotIn("hizb_id", columns)
+
+    def test_rub_id_rejects_values_outside_the_quarter_range(self) -> None:
+        self.db.execute("INSERT INTO surahs VALUES (1,1,'a','a','a','Meccan',NULL,NULL)")
+        row = "INSERT INTO ayahs VALUES (?,1,'t',1,1,1,?,1,0,NULL,NULL)"
+        self.db.execute(row, (1, 240))  # the highest legal quarter
+        for bad in (0, 241):
+            with self.subTest(rub_id=bad), self.assertRaises(sqlite3.IntegrityError):
+                self.db.execute(row, (bad + 100, bad))
+
     def test_carries_no_drop_statements(self) -> None:
         # A reference someone might paste into a live database must not open
         # by dropping their tables.

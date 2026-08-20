@@ -14,6 +14,14 @@ A comprehensive Quran database for MySQL, PostgreSQL, and SQLite containing the 
 | `manifest/quran-arabic.manifest.json` | SHA-256 manifest | — | Verse-level checksums for the Arabic text |
 | `schema/<database>/schema.sql` | SQL | — | Readable schema reference for MySQL, PostgreSQL, and SQLite |
 
+> **Breaking change — August 2026.** In the SQLite and PostgreSQL databases,
+> `ayahs.hizb_id` is now **`ayahs.rub_id`**. It always held rubʿ al-hizb quarters
+> (1–240), never hizbs (1–60), so the old name invited a join that silently
+> returned wrong rows. Queries using `hizb_id` now fail loudly instead. Rename the
+> column in your queries, or derive the real hizb with
+> `FLOOR((rub_id - 1) / 4) + 1`. The MySQL dump is unchanged and still says
+> `hizb_id`. See [#18](https://github.com/gaitco/quran-database/issues/18).
+
 ## Provenance
 
 The Arabic text is the Tanzil Project's Uthmani transcription, manually verified
@@ -64,14 +72,15 @@ Contains the original Arabic text of every ayah (6,236 verses).
 | `number_in_surah` | Ayah number within its surah |
 | `page` | Mushaf page number |
 | `surah_id` | Reference to surah |
-| `hizb_id` | Rubʿ al-hizb — quarter-hizb segment (**1–240**) |
+| `rub_id` | Rubʿ al-hizb — quarter-hizb segment (**1–240**); `hizb_id` in the MySQL dump |
 | `juz_id` | Reference to juz (1–30) |
 | `sajda` | Prostration marker (0/1) — 15 ayahs |
 
-> **Note on `hizb_id` (1–240).** The Quran has 30 juz, each split into 2 hizb (60 total),
-> and each hizb into 4 rubʿ al-hizb (quarters) — 60 × 4 = **240**. Despite its name, this
-> column stores the quarter number, so it does **not** join to the 60-row `hizbs` lookup
-> table. To derive the hizb (1–60), use `FLOOR((hizb_id - 1) / 4) + 1`.
+> **Note on `rub_id` (1–240).** The Quran has 30 juz, each split into 2 hizb (60 total),
+> and each hizb into 4 rubʿ al-hizb (quarters) — 60 × 4 = **240**. The column therefore
+> does **not** join to the 60-row `hizbs` lookup table. To derive the hizb (1–60), use
+> `FLOOR((rub_id - 1) / 4) + 1`. The MySQL dump calls this column `hizb_id`; the
+> converters rename it, and enforce `CHECK(rub_id BETWEEN 1 AND 240)`.
 
 ### `editions`
 
@@ -113,7 +122,7 @@ Ayah-by-ayah translations (835,624 rows — 6,236 ayahs × 134 editions).
 
 ### `hizbs` (SQLite & PostgreSQL — added by the converters)
 
-60 hizb (half-juz) with ayah ranges and juz references. Not referenced by `ayahs.hizb_id` — see the note above.
+60 hizb (half-juz) with ayah ranges and juz references. Not referenced by `ayahs.rub_id` — see the note above.
 
 | Column | Description |
 | --- | --- |
@@ -212,9 +221,10 @@ mangle the text. SQLite and PostgreSQL copies are UTF-8 as well.
 The SQLite version adds:
 
 - Proper **foreign key constraints** and **CHECK constraints**
-- **Indexes** on commonly queried columns (surah_id, juz_id, hizb_id, page, number_in_surah, sajda)
+- **Indexes** on commonly queried columns (surah_id, juz_id, rub_id, page, number_in_surah, sajda)
 - Pre-populated **`juzs`** and **`hizbs`** lookup tables with ayah ranges
 - Views: `surah_stats` (ayat counts per surah), `ayah_with_translation` (joined ayah + translation)
+- `ANALYZE` statistics for the query planner, and a `VACUUM`ed file
 
 ### PostgreSQL
 

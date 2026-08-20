@@ -6,3 +6,5 @@ quran.db
 # Python
 __pycache__/
 *.py[cod]
+quran.db-shm
+quran.db-wal

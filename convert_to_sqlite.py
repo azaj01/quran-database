@@ -54,7 +54,9 @@ def create_sqlite_schema(db):
             number_in_surah INTEGER NOT NULL,
             page INTEGER NOT NULL,
             surah_id INTEGER NOT NULL REFERENCES surahs(id),
-            hizb_id INTEGER NOT NULL,
+            -- Quarter of a hizb (rub' al-hizb), 1-240. The source dump misnames
+            -- this column after the hizb, of which there are only 60.
+            rub_id INTEGER NOT NULL CHECK(rub_id BETWEEN 1 AND 240),
             juz_id INTEGER NOT NULL,
             sajda INTEGER NOT NULL DEFAULT 0 CHECK(sajda IN (0, 1)),
             created_at TEXT,
@@ -85,7 +87,7 @@ def create_sqlite_schema(db):
 
         CREATE INDEX IF NOT EXISTS idx_ayahs_surah_id ON ayahs(surah_id);
         CREATE INDEX IF NOT EXISTS idx_ayahs_juz_id ON ayahs(juz_id);
-        CREATE INDEX IF NOT EXISTS idx_ayahs_hizb_id ON ayahs(hizb_id);
+        CREATE INDEX IF NOT EXISTS idx_ayahs_rub_id ON ayahs(rub_id);
         CREATE INDEX IF NOT EXISTS idx_ayahs_page ON ayahs(page);
         CREATE INDEX IF NOT EXISTS idx_ayahs_number_in_surah ON ayahs(surah_id, number_in_surah);
         CREATE INDEX IF NOT EXISTS idx_ayahs_sajda ON ayahs(sajda) WHERE sajda = 1;
@@ -404,7 +406,15 @@ def convert():
     """)
     
     db.commit()
-    
+
+    # ANALYZE builds the sqlite_stat tables the query planner uses to pick
+    # between the indexes above; without it a fresh copy plans worse than the
+    # published one. VACUUM then compacts the free pages left by the import.
+    print("  Analyzing and compacting...")
+    db.execute("ANALYZE")
+    db.commit()
+    db.execute("VACUUM")
+
     print(f"\nDatabase created: {DB_FILE}")
     for table in TABLE_ORDER:
         count = db.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]

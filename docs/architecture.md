@@ -67,7 +67,7 @@ juzs                 surahs
   v                     | many
 hizbs                ayahs 1 -------- many ayah_edition many -------- 1 editions
                         |
-                        +-- page, juz_id, hizb_id, sajda
+                        +-- page, juz_id, rub_id, sajda
 ```
 
 The enriched SQLite and PostgreSQL targets contain six tables:
@@ -99,11 +99,13 @@ The enforced relationships in the current enriched schema are:
 - `ayah_edition.edition_id` to `editions.id`.
 
 The `juzs` and `hizbs` tables contain navigation ranges, but not every apparent
-relationship is enforced as a foreign key. In particular, the source field
-named `ayahs.hizb_id` spans 1–240 and represents rub-el-hizb quarter segments.
-It must not be constrained to the 60-row `hizbs` lookup without first correcting
-the domain model or mapping the values. `ayahs.juz_id` spans 1–30 and corresponds
-to the `juzs` lookup.
+relationship is enforced as a foreign key. The source dump has a field named
+`ayahs.hizb_id` that in fact spans 1–240 and holds rub-el-hizb quarter segments.
+The converters rename it to `ayahs.rub_id` and constrain it with
+`CHECK(rub_id BETWEEN 1 AND 240)`, so the enriched model no longer suggests a
+join that would return wrong rows. Derive the hizb with
+`FLOOR((rub_id - 1) / 4) + 1` when you need the 60-row lookup.
+`ayahs.juz_id` spans 1–30 and does correspond to the `juzs` lookup.
 
 Range endpoints such as `start_ayah_id` and `end_ayah_id` are descriptive data.
 Changes to these values should be validated against the source and should not
