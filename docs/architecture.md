@@ -157,9 +157,8 @@ rather than silently imported.
 - Changes to Quranic content require explicit provenance and review; see
   [`CONTRIBUTING.md`](../CONTRIBUTING.md).
 
-Future Docker, API, search, or riwayat work should be added as separate layers
-around this conversion core. Planned components should remain clearly marked
-until their implementation and verification are merged — as working files, not
-empty ones. An empty `docker-compose.yaml` fails on `docker compose up` instead
-of saying it is not ready, so the Docker placeholders were removed rather than
-left in the tree.
+Docker is a separate, verified layer around this conversion core: Compose builds
+the source MySQL database and the enriched PostgreSQL and SQLite outputs from
+the same tracked dump. API, search, and riwayat work remain future layers.
+Planned components should remain clearly marked until their implementation and
+verification are merged — as working files, not empty ones.

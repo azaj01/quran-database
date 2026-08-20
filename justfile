@@ -43,3 +43,34 @@ check: doctor
     unzip -tqq data/quran.sql.zip
     python3 -c 'from pathlib import Path; [compile(Path(p).read_bytes(), p, "exec") for p in ("convert_to_sqlite.py", "convert_to_postgres.py", "scripts/checksum_text.py", "scripts/export_schema.py")]'
     python3 -m unittest discover -s tests
+
+# Check that Docker and Docker Compose are available.
+docker-doctor:
+    @command -v docker >/dev/null
+    @docker compose version >/dev/null
+    @echo "Docker and Docker Compose are available."
+
+# Validate the Compose model and database initialization scripts.
+docker-check: docker-doctor
+    docker compose config --quiet
+    bash -n docker/mysql/install.sh docker/postgres/install.sh docker/sqlite/install.sh
+
+# Build all database images.
+docker-build: docker-doctor
+    docker compose build
+
+# Start MySQL and PostgreSQL and generate output/quran.db.
+docker-up: docker-doctor
+    LOCAL_UID="$$(id -u)" LOCAL_GID="$$(id -g)" docker compose up --build --detach
+
+# Follow logs from all database services.
+docker-logs: docker-doctor
+    docker compose logs --follow
+
+# Generate only output/quran.db in a temporary container.
+docker-sqlite: docker-doctor
+    LOCAL_UID="$$(id -u)" LOCAL_GID="$$(id -g)" docker compose run --build --rm sqlite
+
+# Stop the Docker services while preserving database volumes.
+docker-down: docker-doctor
+    docker compose down
