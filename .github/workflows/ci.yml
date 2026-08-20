@@ -45,7 +45,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Compile Python sources
-        run: python -m compileall -q convert_to_sqlite.py convert_to_postgres.py scripts/checksum_text.py
+        run: python -m compileall -q convert_to_sqlite.py convert_to_postgres.py scripts/checksum_text.py scripts/export_schema.py
 
       - name: Run tests
         run: python -m unittest discover -s tests -v
@@ -67,3 +67,8 @@ jobs:
         run: |
           gunzip --keep quran.db.gz
           python3 scripts/checksum_text.py
+
+      - name: Check the schema references are up to date
+        run: |
+          python3 scripts/export_schema.py
+          git diff --exit-code -- schema/

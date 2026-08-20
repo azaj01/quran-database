@@ -44,16 +44,18 @@ rather than assumed to be byte-for-byte or DDL-equivalent.
 | `quran.db.gz` | Prebuilt compressed SQLite distribution |
 | `convert_to_sqlite.py` | MySQL-dump parser and SQLite schema/import pipeline |
 | `convert_to_postgres.py` | MySQL-dump parser and PostgreSQL schema/import pipeline |
-| `schema/<database>/schema.sql` | Reserved database-specific schema references |
+| `schema/<database>/schema.sql` | Generated, readable schema reference per database |
+| `scripts/export_schema.py` | Regenerates those references |
 | `manifest/quran-arabic.manifest.json` | Verse-level SHA-256 hashes of the Arabic text |
 | `scripts/checksum_text.py` | Generates and verifies that manifest |
 | `tests/` | Unit tests for the converters and the checksum tooling |
 | `docs/` | Design and operational documentation |
 | `output/` | Ignored location reserved for generated output |
 
-The schema reference files are currently placeholders. Until a generation
-workflow is merged, the executable schema definitions in the converter scripts
-are authoritative for SQLite and PostgreSQL.
+The schema reference files are generated, never hand-edited. `schema/sqlite` and
+`schema/postgres` are extracted from the converters, which remain authoritative;
+`schema/mysql` is extracted from the source dump. Run `just schema` after changing
+a converter — CI regenerates them and fails on any diff.
 
 ## Enriched data model
 
@@ -155,4 +157,7 @@ rather than silently imported.
 
 Future Docker, API, search, or riwayat work should be added as separate layers
 around this conversion core. Planned components should remain clearly marked
-until their implementation and verification are merged.
+until their implementation and verification are merged — as working files, not
+empty ones. An empty `docker-compose.yaml` fails on `docker compose up` instead
+of saying it is not ready, so the Docker placeholders were removed rather than
+left in the tree.

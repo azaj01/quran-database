@@ -12,6 +12,7 @@ A comprehensive Quran database for MySQL, PostgreSQL, and SQLite containing the 
 | `convert_to_sqlite.py` | Python script | — | Converts `quran.sql` to `quran.db` |
 | `convert_to_postgres.py` | Python script | — | Converts `quran.sql` into a PostgreSQL database |
 | `manifest/quran-arabic.manifest.json` | SHA-256 manifest | — | Verse-level checksums for the Arabic text |
+| `schema/<database>/schema.sql` | SQL | — | Readable schema reference for MySQL, PostgreSQL, and SQLite |
 
 ## Provenance
 
@@ -140,6 +141,7 @@ just doctor   # Check required local tools
 just extract  # Extract quran.sql when it is not already present
 just sqlite   # Generate quran.db from the MySQL dump
 just verify   # Check the Arabic text against the SHA-256 manifest
+just schema   # Regenerate the readable schema references
 just check    # Validate the converters and run the test suite
 ```
 

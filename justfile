@@ -26,6 +26,10 @@ sqlite: extract
 postgres: extract
     python3 convert_to_postgres.py
 
+# Regenerate the readable schema references under schema/.
+schema:
+    python3 scripts/export_schema.py
+
 # Check the Arabic text in quran.db against the shipped SHA-256 manifest.
 verify:
     python3 scripts/checksum_text.py
@@ -37,5 +41,5 @@ manifest:
 # Validate the Python converters and run the test suite.
 check: doctor
     unzip -tqq data/quran.sql.zip
-    python3 -c 'from pathlib import Path; [compile(Path(p).read_bytes(), p, "exec") for p in ("convert_to_sqlite.py", "convert_to_postgres.py", "scripts/checksum_text.py")]'
+    python3 -c 'from pathlib import Path; [compile(Path(p).read_bytes(), p, "exec") for p in ("convert_to_sqlite.py", "convert_to_postgres.py", "scripts/checksum_text.py", "scripts/export_schema.py")]'
     python3 -m unittest discover -s tests
