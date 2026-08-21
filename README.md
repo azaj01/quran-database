@@ -7,12 +7,13 @@ A comprehensive Quran database for MySQL, PostgreSQL, and SQLite containing the 
 | File | Format | Size | Description |
 | ---- | ------ | ---- | ----------- |
 | `data/quran.sql.zip` | MySQL dump | ~187 MB uncompressed | Full database dump for MySQL |
+| `data/rukus.json` | JSON | ~92 KB | 558 sourced Ruku boundaries (Quran Foundation convention) |
 | `quran.db.gz` | SQLite database | ~208 MB uncompressed | Full database for SQLite |
 | `convert_to_sqlite.py` | Python script | — | Converts `quran.sql` to `quran.db` |
 | `convert_to_postgres.py` | Python script | — | Imports `quran.sql` into PostgreSQL |
 | `manifest/quran-arabic.manifest.json` | SHA-256 manifest | ~490 KB | Verse-level checksums for the Arabic text |
 | `schema/<database>/schema.sql` | SQL | — | Generated, readable schema reference per database |
-| `scripts/` | Python | — | `checksum_text.py` (verify the text), `export_schema.py` |
+| `scripts/` | Python | — | Text verification, schema export, and Ruku data export tools |
 | `tests/` | Python | — | Unit tests for the converters and tooling |
 | `docs/` | Markdown | — | [architecture](docs/architecture.md), [provenance](docs/provenance.md) |
 
