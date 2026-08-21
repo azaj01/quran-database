@@ -45,6 +45,14 @@ CREATE TABLE ayahs (
     updated_at TIMESTAMP
 );
 
+CREATE TABLE pages (
+    id INTEGER PRIMARY KEY CHECK(id BETWEEN 1 AND 604),
+    page_number INTEGER NOT NULL UNIQUE CHECK(page_number BETWEEN 1 AND 604),
+    start_ayah_id INTEGER NOT NULL REFERENCES ayahs(id),
+    end_ayah_id INTEGER NOT NULL REFERENCES ayahs(id),
+    CHECK(start_ayah_id <= end_ayah_id)
+);
+
 CREATE TABLE editions (
     id INTEGER PRIMARY KEY,
     identifier TEXT NOT NULL UNIQUE,

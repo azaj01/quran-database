@@ -63,6 +63,14 @@ def create_sqlite_schema(db):
             updated_at TEXT
         );
 
+        CREATE TABLE IF NOT EXISTS pages (
+            id INTEGER PRIMARY KEY CHECK(id BETWEEN 1 AND 604),
+            page_number INTEGER NOT NULL UNIQUE CHECK(page_number BETWEEN 1 AND 604),
+            start_ayah_id INTEGER NOT NULL REFERENCES ayahs(id),
+            end_ayah_id INTEGER NOT NULL REFERENCES ayahs(id),
+            CHECK(start_ayah_id <= end_ayah_id)
+        );
+
         CREATE TABLE IF NOT EXISTS editions (
             id INTEGER PRIMARY KEY,
             identifier TEXT NOT NULL UNIQUE,
@@ -343,6 +351,37 @@ def populate_lookup_tables(db):
     db.executemany("INSERT INTO hizbs VALUES (?,?,?,?,?,?)", hizbs_data)
 
 
+def populate_pages(db):
+    """Derive the 604-page Mushaf lookup from the source ayahs.page values."""
+    db.execute("""
+        INSERT INTO pages (id, page_number, start_ayah_id, end_ayah_id)
+        SELECT page, page, MIN(id), MAX(id)
+        FROM ayahs
+        GROUP BY page
+        ORDER BY page
+    """)
+
+
+def validate_page_mapping(db):
+    """Validate the complete source dump's 604-page Mushaf mapping.
+
+    Small fixture imports deliberately carry only a subset of ayahs, so they
+    retain their useful partial page map without claiming it is production.
+    """
+    ayah_count = db.execute("SELECT COUNT(*) FROM ayahs").fetchone()[0]
+    if ayah_count != 6236:
+        return
+    mapping = db.execute("""
+        SELECT COUNT(*), MIN(page_number), MAX(page_number), COUNT(DISTINCT page_number)
+        FROM pages
+    """).fetchone()
+    if mapping != (604, 1, 604, 604):
+        raise ValueError(
+            "expected a complete 604-page Mushaf mapping from ayahs.page, "
+            f"got {mapping}"
+        )
+
+
 TABLE_ORDER = ['surahs', 'ayahs', 'editions', 'ayah_edition']
 
 # Columns the enriched model renames on the way in. Stating them here is what
@@ -409,8 +448,10 @@ def convert():
         db.commit()
     
         # Populate lookup tables after data
-        print("  Populating juzs and hizbs lookup tables...")
+        print("  Populating juzs, hizbs, and pages lookup tables...")
         populate_lookup_tables(db)
+        populate_pages(db)
+        validate_page_mapping(db)
     
         # Create views
         db.execute("""
@@ -451,7 +492,11 @@ def convert():
         sajdah_count = db.execute("SELECT COUNT(*) FROM ayahs WHERE sajda = 1").fetchone()[0]
         juz_count = db.execute("SELECT COUNT(*) FROM juzs").fetchone()[0]
         hizb_count = db.execute("SELECT COUNT(*) FROM hizbs").fetchone()[0]
-        print(f"  Sajdah ayahs: {sajdah_count}, Juzs: {juz_count}, Hizbs: {hizb_count}")
+        page_count = db.execute("SELECT COUNT(*) FROM pages").fetchone()[0]
+        print(
+            f"  Sajdah ayahs: {sajdah_count}, Juzs: {juz_count}, "
+            f"Hizbs: {hizb_count}, Pages: {page_count}"
+        )
     
         db_size = os.path.getsize(DB_FILE) / (1024 * 1024)
         print(f"  Database size: {db_size:.1f} MB")

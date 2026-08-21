@@ -28,6 +28,16 @@ apart inside this repository.
 We are three hops from the printed Mushaf. None of those hops is us
 retyping the text.
 
+## Page mapping
+
+The `pages` lookup table in the SQLite and PostgreSQL exports is derived from
+the `ayahs.page` field in this repository's versioned MySQL dump. That field
+contains every integer from 1 through 604, the page count of the Madinah
+Mushaf. The converters group the imported ayahs by that supplied value and
+record each group's first and last ayah ID; they reject an incomplete or
+non-contiguous mapping. This is distribution metadata derived from this dump,
+not an independent verification of the printed page layout.
+
 ## What the text actually is
 
 Tanzil **Uthmani**, exported with pause marks, sajdah signs, rub-el-hizb
