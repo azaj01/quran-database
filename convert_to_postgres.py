@@ -47,6 +47,7 @@ def create_postgres_schema(db: Connection) -> None:
         cur.execute("""
             DROP TABLE IF EXISTS ayah_edition CASCADE;
             DROP TABLE IF EXISTS editions CASCADE;
+            DROP TABLE IF EXISTS pages CASCADE;
             DROP TABLE IF EXISTS ayahs CASCADE;
             DROP TABLE IF EXISTS hizbs CASCADE;
             DROP TABLE IF EXISTS juzs CASCADE;
@@ -96,6 +97,14 @@ def create_postgres_schema(db: Connection) -> None:
                 sajda SMALLINT NOT NULL DEFAULT 0 CHECK(sajda IN (0, 1)),
                 created_at TIMESTAMP,
                 updated_at TIMESTAMP
+            );
+
+            CREATE TABLE pages (
+                id INTEGER PRIMARY KEY CHECK(id BETWEEN 1 AND 604),
+                page_number INTEGER NOT NULL UNIQUE CHECK(page_number BETWEEN 1 AND 604),
+                start_ayah_id INTEGER NOT NULL REFERENCES ayahs(id),
+                end_ayah_id INTEGER NOT NULL REFERENCES ayahs(id),
+                CHECK(start_ayah_id <= end_ayah_id)
             );
 
             CREATE TABLE editions (
@@ -400,6 +409,37 @@ def populate_lookup_tables(db: Connection) -> None:
         cur.close()
 
 
+def populate_pages(db: Connection) -> None:
+    """Derive the 604-page Mushaf lookup from the source ayahs.page values."""
+    cur: Cursor = db.cursor()
+    try:
+        cur.execute("""
+            INSERT INTO pages (id, page_number, start_ayah_id, end_ayah_id)
+            SELECT page, page, MIN(id), MAX(id)
+            FROM ayahs
+            GROUP BY page
+            ORDER BY page
+        """)
+        cur.execute("SELECT COUNT(*) FROM ayahs")
+        ayah_count: tuple[int] | None = cur.fetchone()
+        assert ayah_count is not None
+        if ayah_count != (6236,):
+            return
+
+        cur.execute("""
+            SELECT COUNT(*), MIN(page_number), MAX(page_number), COUNT(DISTINCT page_number)
+            FROM pages
+        """)
+        mapping: tuple[int, int, int, int] | None = cur.fetchone()
+        if mapping != (604, 1, 604, 604):
+            raise ValueError(
+                "expected a complete 604-page Mushaf mapping from ayahs.page, "
+                f"got {mapping}"
+            )
+    finally:
+        cur.close()
+
+
 TABLE_ORDER: list[str] = ["surahs", "ayahs", "editions", "ayah_edition"]
 
 # Columns the enriched model renames on the way in. Stating them here is what
@@ -486,6 +526,9 @@ def convert() -> None:
                     ):
                         print(f"  {table}: {table_counts[table]} rows...")
 
+            print("  Populating pages lookup table...")
+            populate_pages(db)
+
             cur.execute("""
                 CREATE OR REPLACE VIEW surah_stats AS
                 SELECT s.id, s.name_ar, s.name_en, s.name_en_translation, s.type,
@@ -528,9 +571,14 @@ def convert() -> None:
             hizb_result: tuple[int] | None = cur.fetchone()
             assert hizb_result is not None
 
+            cur.execute("SELECT COUNT(*) FROM pages")
+            page_result: tuple[int] | None = cur.fetchone()
+            assert page_result is not None
+
             print(
                 f"  Sajdah ayahs: {sajdah_result[0]}, "
-                f"Juzs: {juz_result[0]}, Hizbs: {hizb_result[0]}"
+                f"Juzs: {juz_result[0]}, Hizbs: {hizb_result[0]}, "
+                f"Pages: {page_result[0]}"
             )
             db.commit()
 

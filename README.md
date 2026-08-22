@@ -138,6 +138,19 @@ Ayah-by-ayah translations (835,624 rows — 6,236 ayahs × 134 editions).
 | `start_ayah_id` | First ayah in this hizb |
 | `end_ayah_id` | Last ayah in this hizb |
 
+### `pages` (SQLite & PostgreSQL — added by the converters)
+
+The 604-page Madinah Mushaf navigation map. It is derived at import time from
+the `ayahs.page` metadata supplied in the versioned source dump, so its ayah
+boundaries stay aligned with the imported text.
+
+| Column | Description |
+| --- | --- |
+| `id` | Page ID (1–604) |
+| `page_number` | Mushaf page number (1–604) |
+| `start_ayah_id` | First ayah assigned to the page |
+| `end_ayah_id` | Last ayah assigned to the page |
+
 ## Setup
 
 ### Project commands
@@ -340,7 +353,7 @@ We welcome contributions! Here's the planned roadmap for this project. Pick any 
 - [x] Add proper indexes for faster queries
 - [x] Add `juz` (parts) table with ayah ranges
 - [x] Add `hizb` and `rub` (quarter) divisions
-- [ ] Add `pages` table (Mushaf page mapping)
+- [x] Add `pages` table (Mushaf page mapping)
 - [ ] Add word-by-word breakdown table (Arabic root, morphology)
 - [x] Add sajdah (prostration) markers
 - [x] Support PostgreSQL and SQLite exports

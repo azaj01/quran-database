@@ -68,9 +68,11 @@ juzs                 surahs
 hizbs                ayahs 1 -------- many ayah_edition many -------- 1 editions
                         |
                         +-- page, juz_id, rub_id, sajda
+                        |
+                        +-- pages (604 descriptive ayah ranges)
 ```
 
-The enriched SQLite and PostgreSQL targets contain six tables:
+The enriched SQLite and PostgreSQL targets contain seven tables:
 
 | Table | Purpose | Expected rows |
 | --- | --- | ---: |
@@ -80,6 +82,7 @@ The enriched SQLite and PostgreSQL targets contain six tables:
 | `ayah_edition` | Text for each ayah and edition pairing | 835,624 |
 | `juzs` | Thirty juz lookup records with ayah ranges | 30 |
 | `hizbs` | Sixty hizb lookup records with ayah ranges | 60 |
+| `pages` | Madinah Mushaf page lookup records with ayah ranges | 604 |
 
 `ayah_edition` is the high-volume junction between `ayahs` and `editions`.
 Indexes support common navigation by surah, juz, hizb, page, ayah number, and
@@ -106,6 +109,9 @@ The converters rename it to `ayahs.rub_id` and constrain it with
 join that would return wrong rows. Derive the hizb with
 `FLOOR((rub_id - 1) / 4) + 1` when you need the 60-row lookup.
 `ayahs.juz_id` spans 1–30 and does correspond to the `juzs` lookup.
+`ayahs.page` spans 1–604; the converters derive the `pages` table directly
+from that source field. The range endpoints describe the first and last ayah
+assigned to each page, rather than attempting to model a visual page layout.
 
 Range endpoints such as `start_ayah_id` and `end_ayah_id` are descriptive data.
 Changes to these values should be validated against the source and should not
@@ -118,7 +124,7 @@ At a high level, each converter:
 1. creates or recreates its target schema;
 2. streams and parses supported `INSERT` statements from `quran.sql`;
 3. loads `surahs`, `ayahs`, `editions`, and `ayah_edition`;
-4. populates the `juzs` and `hizbs` lookup tables;
+4. populates the `juzs`, `hizbs`, and `pages` lookup tables;
 5. creates the convenience views;
 6. prints row counts for inspection.
 
