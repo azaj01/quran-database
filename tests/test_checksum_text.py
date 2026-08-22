@@ -1,29 +1,17 @@
 from __future__ import annotations
 
-import importlib.util
 import json
 import sqlite3
 import tempfile
-import types
 import unittest
 from contextlib import closing
 from pathlib import Path
 
+from tests import load_script
+
 ROOT = Path(__file__).resolve().parents[1]
 
-
-def load_module() -> types.ModuleType:
-    spec = importlib.util.spec_from_file_location(
-        "checksum_text", ROOT / "scripts" / "checksum_text.py"
-    )
-    if spec is None or spec.loader is None:
-        raise RuntimeError("unable to load scripts/checksum_text.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-checksum = load_module()
+checksum = load_script("checksum_text")
 
 # Two real verses, enough to exercise hashing without shipping a fixture DB.
 VERSES = {

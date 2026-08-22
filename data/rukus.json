@@ -1,0 +1,4480 @@
+{
+  "meta": {
+    "format_version": "1.0",
+    "kind": "ruku-boundaries",
+    "convention": "Quran Foundation global Ruku numbering",
+    "source": "Quran Foundation Content API v4 verse metadata",
+    "source_endpoint": "https://api.quran.com/api/v4/verses/by_page/{page}",
+    "source_field": "ruku_number",
+    "source_terms": "https://api-docs.quran.foundation/legal/developer-terms/",
+    "retrieved": "2026-08-10",
+    "ruku_count": 558,
+    "ayah_count": 6236
+  },
+  "rukus": [
+    {
+      "number": 1,
+      "start_ayah_id": 1,
+      "start_ayah": "1:1",
+      "end_ayah_id": 7,
+      "end_ayah": "1:7",
+      "ayah_count": 7
+    },
+    {
+      "number": 2,
+      "start_ayah_id": 8,
+      "start_ayah": "2:1",
+      "end_ayah_id": 14,
+      "end_ayah": "2:7",
+      "ayah_count": 7
+    },
+    {
+      "number": 3,
+      "start_ayah_id": 15,
+      "start_ayah": "2:8",
+      "end_ayah_id": 27,
+      "end_ayah": "2:20",
+      "ayah_count": 13
+    },
+    {
+      "number": 4,
+      "start_ayah_id": 28,
+      "start_ayah": "2:21",
+      "end_ayah_id": 36,
+      "end_ayah": "2:29",
+      "ayah_count": 9
+    },
+    {
+      "number": 5,
+      "start_ayah_id": 37,
+      "start_ayah": "2:30",
+      "end_ayah_id": 46,
+      "end_ayah": "2:39",
+      "ayah_count": 10
+    },
+    {
+      "number": 6,
+      "start_ayah_id": 47,
+      "start_ayah": "2:40",
+      "end_ayah_id": 53,
+      "end_ayah": "2:46",
+      "ayah_count": 7
+    },
+    {
+      "number": 7,
+      "start_ayah_id": 54,
+      "start_ayah": "2:47",
+      "end_ayah_id": 66,
+      "end_ayah": "2:59",
+      "ayah_count": 13
+    },
+    {
+      "number": 8,
+      "start_ayah_id": 67,
+      "start_ayah": "2:60",
+      "end_ayah_id": 68,
+      "end_ayah": "2:61",
+      "ayah_count": 2
+    },
+    {
+      "number": 9,
+      "start_ayah_id": 69,
+      "start_ayah": "2:62",
+      "end_ayah_id": 78,
+      "end_ayah": "2:71",
+      "ayah_count": 10
+    },
+    {
+      "number": 10,
+      "start_ayah_id": 79,
+      "start_ayah": "2:72",
+      "end_ayah_id": 89,
+      "end_ayah": "2:82",
+      "ayah_count": 11
+    },
+    {
+      "number": 11,
+      "start_ayah_id": 90,
+      "start_ayah": "2:83",
+      "end_ayah_id": 93,
+      "end_ayah": "2:86",
+      "ayah_count": 4
+    },
+    {
+      "number": 12,
+      "start_ayah_id": 94,
+      "start_ayah": "2:87",
+      "end_ayah_id": 103,
+      "end_ayah": "2:96",
+      "ayah_count": 10
+    },
+    {
+      "number": 13,
+      "start_ayah_id": 104,
+      "start_ayah": "2:97",
+      "end_ayah_id": 110,
+      "end_ayah": "2:103",
+      "ayah_count": 7
+    },
+    {
+      "number": 14,
+      "start_ayah_id": 111,
+      "start_ayah": "2:104",
+      "end_ayah_id": 119,
+      "end_ayah": "2:112",
+      "ayah_count": 9
+    },
+    {
+      "number": 15,
+      "start_ayah_id": 120,
+      "start_ayah": "2:113",
+      "end_ayah_id": 128,
+      "end_ayah": "2:121",
+      "ayah_count": 9
+    },
+    {
+      "number": 16,
+      "start_ayah_id": 129,
+      "start_ayah": "2:122",
+      "end_ayah_id": 136,
+      "end_ayah": "2:129",
+      "ayah_count": 8
+    },
+    {
+      "number": 17,
+      "start_ayah_id": 137,
+      "start_ayah": "2:130",
+      "end_ayah_id": 148,
+      "end_ayah": "2:141",
+      "ayah_count": 12
+    },
+    {
+      "number": 18,
+      "start_ayah_id": 149,
+      "start_ayah": "2:142",
+      "end_ayah_id": 154,
+      "end_ayah": "2:147",
+      "ayah_count": 6
+    },
+    {
+      "number": 19,
+      "start_ayah_id": 155,
+      "start_ayah": "2:148",
+      "end_ayah_id": 159,
+      "end_ayah": "2:152",
+      "ayah_count": 5
+    },
+    {
+      "number": 20,
+      "start_ayah_id": 160,
+      "start_ayah": "2:153",
+      "end_ayah_id": 170,
+      "end_ayah": "2:163",
+      "ayah_count": 11
+    },
+    {
+      "number": 21,
+      "start_ayah_id": 171,
+      "start_ayah": "2:164",
+      "end_ayah_id": 174,
+      "end_ayah": "2:167",
+      "ayah_count": 4
+    },
+    {
+      "number": 22,
+      "start_ayah_id": 175,
+      "start_ayah": "2:168",
+      "end_ayah_id": 183,
+      "end_ayah": "2:176",
+      "ayah_count": 9
+    },
+    {
+      "number": 23,
+      "start_ayah_id": 184,
+      "start_ayah": "2:177",
+      "end_ayah_id": 189,
+      "end_ayah": "2:182",
+      "ayah_count": 6
+    },
+    {
+      "number": 24,
+      "start_ayah_id": 190,
+      "start_ayah": "2:183",
+      "end_ayah_id": 195,
+      "end_ayah": "2:188",
+      "ayah_count": 6
+    },
+    {
+      "number": 25,
+      "start_ayah_id": 196,
+      "start_ayah": "2:189",
+      "end_ayah_id": 203,
+      "end_ayah": "2:196",
+      "ayah_count": 8
+    },
+    {
+      "number": 26,
+      "start_ayah_id": 204,
+      "start_ayah": "2:197",
+      "end_ayah_id": 217,
+      "end_ayah": "2:210",
+      "ayah_count": 14
+    },
+    {
+      "number": 27,
+      "start_ayah_id": 218,
+      "start_ayah": "2:211",
+      "end_ayah_id": 223,
+      "end_ayah": "2:216",
+      "ayah_count": 6
+    },
+    {
+      "number": 28,
+      "start_ayah_id": 224,
+      "start_ayah": "2:217",
+      "end_ayah_id": 228,
+      "end_ayah": "2:221",
+      "ayah_count": 5
+    },
+    {
+      "number": 29,
+      "start_ayah_id": 229,
+      "start_ayah": "2:222",
+      "end_ayah_id": 235,
+      "end_ayah": "2:228",
+      "ayah_count": 7
+    },
+    {
+      "number": 30,
+      "start_ayah_id": 236,
+      "start_ayah": "2:229",
+      "end_ayah_id": 238,
+      "end_ayah": "2:231",
+      "ayah_count": 3
+    },
+    {
+      "number": 31,
+      "start_ayah_id": 239,
+      "start_ayah": "2:232",
+      "end_ayah_id": 242,
+      "end_ayah": "2:235",
+      "ayah_count": 4
+    },
+    {
+      "number": 32,
+      "start_ayah_id": 243,
+      "start_ayah": "2:236",
+      "end_ayah_id": 249,
+      "end_ayah": "2:242",
+      "ayah_count": 7
+    },
+    {
+      "number": 33,
+      "start_ayah_id": 250,
+      "start_ayah": "2:243",
+      "end_ayah_id": 255,
+      "end_ayah": "2:248",
+      "ayah_count": 6
+    },
+    {
+      "number": 34,
+      "start_ayah_id": 256,
+      "start_ayah": "2:249",
+      "end_ayah_id": 260,
+      "end_ayah": "2:253",
+      "ayah_count": 5
+    },
+    {
+      "number": 35,
+      "start_ayah_id": 261,
+      "start_ayah": "2:254",
+      "end_ayah_id": 264,
+      "end_ayah": "2:257",
+      "ayah_count": 4
+    },
+    {
+      "number": 36,
+      "start_ayah_id": 265,
+      "start_ayah": "2:258",
+      "end_ayah_id": 267,
+      "end_ayah": "2:260",
+      "ayah_count": 3
+    },
+    {
+      "number": 37,
+      "start_ayah_id": 268,
+      "start_ayah": "2:261",
+      "end_ayah_id": 273,
+      "end_ayah": "2:266",
+      "ayah_count": 6
+    },
+    {
+      "number": 38,
+      "start_ayah_id": 274,
+      "start_ayah": "2:267",
+      "end_ayah_id": 280,
+      "end_ayah": "2:273",
+      "ayah_count": 7
+    },
+    {
+      "number": 39,
+      "start_ayah_id": 281,
+      "start_ayah": "2:274",
+      "end_ayah_id": 288,
+      "end_ayah": "2:281",
+      "ayah_count": 8
+    },
+    {
+      "number": 40,
+      "start_ayah_id": 289,
+      "start_ayah": "2:282",
+      "end_ayah_id": 290,
+      "end_ayah": "2:283",
+      "ayah_count": 2
+    },
+    {
+      "number": 41,
+      "start_ayah_id": 291,
+      "start_ayah": "2:284",
+      "end_ayah_id": 293,
+      "end_ayah": "2:286",
+      "ayah_count": 3
+    },
+    {
+      "number": 42,
+      "start_ayah_id": 294,
+      "start_ayah": "3:1",
+      "end_ayah_id": 302,
+      "end_ayah": "3:9",
+      "ayah_count": 9
+    },
+    {
+      "number": 43,
+      "start_ayah_id": 303,
+      "start_ayah": "3:10",
+      "end_ayah_id": 313,
+      "end_ayah": "3:20",
+      "ayah_count": 11
+    },
+    {
+      "number": 44,
+      "start_ayah_id": 314,
+      "start_ayah": "3:21",
+      "end_ayah_id": 323,
+      "end_ayah": "3:30",
+      "ayah_count": 10
+    },
+    {
+      "number": 45,
+      "start_ayah_id": 324,
+      "start_ayah": "3:31",
+      "end_ayah_id": 334,
+      "end_ayah": "3:41",
+      "ayah_count": 11
+    },
+    {
+      "number": 46,
+      "start_ayah_id": 335,
+      "start_ayah": "3:42",
+      "end_ayah_id": 347,
+      "end_ayah": "3:54",
+      "ayah_count": 13
+    },
+    {
+      "number": 47,
+      "start_ayah_id": 348,
+      "start_ayah": "3:55",
+      "end_ayah_id": 356,
+      "end_ayah": "3:63",
+      "ayah_count": 9
+    },
+    {
+      "number": 48,
+      "start_ayah_id": 357,
+      "start_ayah": "3:64",
+      "end_ayah_id": 364,
+      "end_ayah": "3:71",
+      "ayah_count": 8
+    },
+    {
+      "number": 49,
+      "start_ayah_id": 365,
+      "start_ayah": "3:72",
+      "end_ayah_id": 373,
+      "end_ayah": "3:80",
+      "ayah_count": 9
+    },
+    {
+      "number": 50,
+      "start_ayah_id": 374,
+      "start_ayah": "3:81",
+      "end_ayah_id": 384,
+      "end_ayah": "3:91",
+      "ayah_count": 11
+    },
+    {
+      "number": 51,
+      "start_ayah_id": 385,
+      "start_ayah": "3:92",
+      "end_ayah_id": 394,
+      "end_ayah": "3:101",
+      "ayah_count": 10
+    },
+    {
+      "number": 52,
+      "start_ayah_id": 395,
+      "start_ayah": "3:102",
+      "end_ayah_id": 402,
+      "end_ayah": "3:109",
+      "ayah_count": 8
+    },
+    {
+      "number": 53,
+      "start_ayah_id": 403,
+      "start_ayah": "3:110",
+      "end_ayah_id": 413,
+      "end_ayah": "3:120",
+      "ayah_count": 11
+    },
+    {
+      "number": 54,
+      "start_ayah_id": 414,
+      "start_ayah": "3:121",
+      "end_ayah_id": 422,
+      "end_ayah": "3:129",
+      "ayah_count": 9
+    },
+    {
+      "number": 55,
+      "start_ayah_id": 423,
+      "start_ayah": "3:130",
+      "end_ayah_id": 436,
+      "end_ayah": "3:143",
+      "ayah_count": 14
+    },
+    {
+      "number": 56,
+      "start_ayah_id": 437,
+      "start_ayah": "3:144",
+      "end_ayah_id": 441,
+      "end_ayah": "3:148",
+      "ayah_count": 5
+    },
+    {
+      "number": 57,
+      "start_ayah_id": 442,
+      "start_ayah": "3:149",
+      "end_ayah_id": 448,
+      "end_ayah": "3:155",
+      "ayah_count": 7
+    },
+    {
+      "number": 58,
+      "start_ayah_id": 449,
+      "start_ayah": "3:156",
+      "end_ayah_id": 464,
+      "end_ayah": "3:171",
+      "ayah_count": 16
+    },
+    {
+      "number": 59,
+      "start_ayah_id": 465,
+      "start_ayah": "3:172",
+      "end_ayah_id": 473,
+      "end_ayah": "3:180",
+      "ayah_count": 9
+    },
+    {
+      "number": 60,
+      "start_ayah_id": 474,
+      "start_ayah": "3:181",
+      "end_ayah_id": 482,
+      "end_ayah": "3:189",
+      "ayah_count": 9
+    },
+    {
+      "number": 61,
+      "start_ayah_id": 483,
+      "start_ayah": "3:190",
+      "end_ayah_id": 493,
+      "end_ayah": "3:200",
+      "ayah_count": 11
+    },
+    {
+      "number": 62,
+      "start_ayah_id": 494,
+      "start_ayah": "4:1",
+      "end_ayah_id": 503,
+      "end_ayah": "4:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 63,
+      "start_ayah_id": 504,
+      "start_ayah": "4:11",
+      "end_ayah_id": 507,
+      "end_ayah": "4:14",
+      "ayah_count": 4
+    },
+    {
+      "number": 64,
+      "start_ayah_id": 508,
+      "start_ayah": "4:15",
+      "end_ayah_id": 515,
+      "end_ayah": "4:22",
+      "ayah_count": 8
+    },
+    {
+      "number": 65,
+      "start_ayah_id": 516,
+      "start_ayah": "4:23",
+      "end_ayah_id": 518,
+      "end_ayah": "4:25",
+      "ayah_count": 3
+    },
+    {
+      "number": 66,
+      "start_ayah_id": 519,
+      "start_ayah": "4:26",
+      "end_ayah_id": 526,
+      "end_ayah": "4:33",
+      "ayah_count": 8
+    },
+    {
+      "number": 67,
+      "start_ayah_id": 527,
+      "start_ayah": "4:34",
+      "end_ayah_id": 535,
+      "end_ayah": "4:42",
+      "ayah_count": 9
+    },
+    {
+      "number": 68,
+      "start_ayah_id": 536,
+      "start_ayah": "4:43",
+      "end_ayah_id": 543,
+      "end_ayah": "4:50",
+      "ayah_count": 8
+    },
+    {
+      "number": 69,
+      "start_ayah_id": 544,
+      "start_ayah": "4:51",
+      "end_ayah_id": 552,
+      "end_ayah": "4:59",
+      "ayah_count": 9
+    },
+    {
+      "number": 70,
+      "start_ayah_id": 553,
+      "start_ayah": "4:60",
+      "end_ayah_id": 563,
+      "end_ayah": "4:70",
+      "ayah_count": 11
+    },
+    {
+      "number": 71,
+      "start_ayah_id": 564,
+      "start_ayah": "4:71",
+      "end_ayah_id": 569,
+      "end_ayah": "4:76",
+      "ayah_count": 6
+    },
+    {
+      "number": 72,
+      "start_ayah_id": 570,
+      "start_ayah": "4:77",
+      "end_ayah_id": 580,
+      "end_ayah": "4:87",
+      "ayah_count": 11
+    },
+    {
+      "number": 73,
+      "start_ayah_id": 581,
+      "start_ayah": "4:88",
+      "end_ayah_id": 584,
+      "end_ayah": "4:91",
+      "ayah_count": 4
+    },
+    {
+      "number": 74,
+      "start_ayah_id": 585,
+      "start_ayah": "4:92",
+      "end_ayah_id": 589,
+      "end_ayah": "4:96",
+      "ayah_count": 5
+    },
+    {
+      "number": 75,
+      "start_ayah_id": 590,
+      "start_ayah": "4:97",
+      "end_ayah_id": 593,
+      "end_ayah": "4:100",
+      "ayah_count": 4
+    },
+    {
+      "number": 76,
+      "start_ayah_id": 594,
+      "start_ayah": "4:101",
+      "end_ayah_id": 597,
+      "end_ayah": "4:104",
+      "ayah_count": 4
+    },
+    {
+      "number": 77,
+      "start_ayah_id": 598,
+      "start_ayah": "4:105",
+      "end_ayah_id": 605,
+      "end_ayah": "4:112",
+      "ayah_count": 8
+    },
+    {
+      "number": 78,
+      "start_ayah_id": 606,
+      "start_ayah": "4:113",
+      "end_ayah_id": 608,
+      "end_ayah": "4:115",
+      "ayah_count": 3
+    },
+    {
+      "number": 79,
+      "start_ayah_id": 609,
+      "start_ayah": "4:116",
+      "end_ayah_id": 619,
+      "end_ayah": "4:126",
+      "ayah_count": 11
+    },
+    {
+      "number": 80,
+      "start_ayah_id": 620,
+      "start_ayah": "4:127",
+      "end_ayah_id": 627,
+      "end_ayah": "4:134",
+      "ayah_count": 8
+    },
+    {
+      "number": 81,
+      "start_ayah_id": 628,
+      "start_ayah": "4:135",
+      "end_ayah_id": 634,
+      "end_ayah": "4:141",
+      "ayah_count": 7
+    },
+    {
+      "number": 82,
+      "start_ayah_id": 635,
+      "start_ayah": "4:142",
+      "end_ayah_id": 645,
+      "end_ayah": "4:152",
+      "ayah_count": 11
+    },
+    {
+      "number": 83,
+      "start_ayah_id": 646,
+      "start_ayah": "4:153",
+      "end_ayah_id": 655,
+      "end_ayah": "4:162",
+      "ayah_count": 10
+    },
+    {
+      "number": 84,
+      "start_ayah_id": 656,
+      "start_ayah": "4:163",
+      "end_ayah_id": 664,
+      "end_ayah": "4:171",
+      "ayah_count": 9
+    },
+    {
+      "number": 85,
+      "start_ayah_id": 665,
+      "start_ayah": "4:172",
+      "end_ayah_id": 669,
+      "end_ayah": "4:176",
+      "ayah_count": 5
+    },
+    {
+      "number": 86,
+      "start_ayah_id": 670,
+      "start_ayah": "5:1",
+      "end_ayah_id": 674,
+      "end_ayah": "5:5",
+      "ayah_count": 5
+    },
+    {
+      "number": 87,
+      "start_ayah_id": 675,
+      "start_ayah": "5:6",
+      "end_ayah_id": 680,
+      "end_ayah": "5:11",
+      "ayah_count": 6
+    },
+    {
+      "number": 88,
+      "start_ayah_id": 681,
+      "start_ayah": "5:12",
+      "end_ayah_id": 688,
+      "end_ayah": "5:19",
+      "ayah_count": 8
+    },
+    {
+      "number": 89,
+      "start_ayah_id": 689,
+      "start_ayah": "5:20",
+      "end_ayah_id": 695,
+      "end_ayah": "5:26",
+      "ayah_count": 7
+    },
+    {
+      "number": 90,
+      "start_ayah_id": 696,
+      "start_ayah": "5:27",
+      "end_ayah_id": 703,
+      "end_ayah": "5:34",
+      "ayah_count": 8
+    },
+    {
+      "number": 91,
+      "start_ayah_id": 704,
+      "start_ayah": "5:35",
+      "end_ayah_id": 712,
+      "end_ayah": "5:43",
+      "ayah_count": 9
+    },
+    {
+      "number": 92,
+      "start_ayah_id": 713,
+      "start_ayah": "5:44",
+      "end_ayah_id": 719,
+      "end_ayah": "5:50",
+      "ayah_count": 7
+    },
+    {
+      "number": 93,
+      "start_ayah_id": 720,
+      "start_ayah": "5:51",
+      "end_ayah_id": 725,
+      "end_ayah": "5:56",
+      "ayah_count": 6
+    },
+    {
+      "number": 94,
+      "start_ayah_id": 726,
+      "start_ayah": "5:57",
+      "end_ayah_id": 735,
+      "end_ayah": "5:66",
+      "ayah_count": 10
+    },
+    {
+      "number": 95,
+      "start_ayah_id": 736,
+      "start_ayah": "5:67",
+      "end_ayah_id": 746,
+      "end_ayah": "5:77",
+      "ayah_count": 11
+    },
+    {
+      "number": 96,
+      "start_ayah_id": 747,
+      "start_ayah": "5:78",
+      "end_ayah_id": 755,
+      "end_ayah": "5:86",
+      "ayah_count": 9
+    },
+    {
+      "number": 97,
+      "start_ayah_id": 756,
+      "start_ayah": "5:87",
+      "end_ayah_id": 762,
+      "end_ayah": "5:93",
+      "ayah_count": 7
+    },
+    {
+      "number": 98,
+      "start_ayah_id": 763,
+      "start_ayah": "5:94",
+      "end_ayah_id": 769,
+      "end_ayah": "5:100",
+      "ayah_count": 7
+    },
+    {
+      "number": 99,
+      "start_ayah_id": 770,
+      "start_ayah": "5:101",
+      "end_ayah_id": 777,
+      "end_ayah": "5:108",
+      "ayah_count": 8
+    },
+    {
+      "number": 100,
+      "start_ayah_id": 778,
+      "start_ayah": "5:109",
+      "end_ayah_id": 784,
+      "end_ayah": "5:115",
+      "ayah_count": 7
+    },
+    {
+      "number": 101,
+      "start_ayah_id": 785,
+      "start_ayah": "5:116",
+      "end_ayah_id": 789,
+      "end_ayah": "5:120",
+      "ayah_count": 5
+    },
+    {
+      "number": 102,
+      "start_ayah_id": 790,
+      "start_ayah": "6:1",
+      "end_ayah_id": 799,
+      "end_ayah": "6:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 103,
+      "start_ayah_id": 800,
+      "start_ayah": "6:11",
+      "end_ayah_id": 809,
+      "end_ayah": "6:20",
+      "ayah_count": 10
+    },
+    {
+      "number": 104,
+      "start_ayah_id": 810,
+      "start_ayah": "6:21",
+      "end_ayah_id": 819,
+      "end_ayah": "6:30",
+      "ayah_count": 10
+    },
+    {
+      "number": 105,
+      "start_ayah_id": 820,
+      "start_ayah": "6:31",
+      "end_ayah_id": 830,
+      "end_ayah": "6:41",
+      "ayah_count": 11
+    },
+    {
+      "number": 106,
+      "start_ayah_id": 831,
+      "start_ayah": "6:42",
+      "end_ayah_id": 839,
+      "end_ayah": "6:50",
+      "ayah_count": 9
+    },
+    {
+      "number": 107,
+      "start_ayah_id": 840,
+      "start_ayah": "6:51",
+      "end_ayah_id": 844,
+      "end_ayah": "6:55",
+      "ayah_count": 5
+    },
+    {
+      "number": 108,
+      "start_ayah_id": 845,
+      "start_ayah": "6:56",
+      "end_ayah_id": 849,
+      "end_ayah": "6:60",
+      "ayah_count": 5
+    },
+    {
+      "number": 109,
+      "start_ayah_id": 850,
+      "start_ayah": "6:61",
+      "end_ayah_id": 859,
+      "end_ayah": "6:70",
+      "ayah_count": 10
+    },
+    {
+      "number": 110,
+      "start_ayah_id": 860,
+      "start_ayah": "6:71",
+      "end_ayah_id": 871,
+      "end_ayah": "6:82",
+      "ayah_count": 12
+    },
+    {
+      "number": 111,
+      "start_ayah_id": 872,
+      "start_ayah": "6:83",
+      "end_ayah_id": 879,
+      "end_ayah": "6:90",
+      "ayah_count": 8
+    },
+    {
+      "number": 112,
+      "start_ayah_id": 880,
+      "start_ayah": "6:91",
+      "end_ayah_id": 883,
+      "end_ayah": "6:94",
+      "ayah_count": 4
+    },
+    {
+      "number": 113,
+      "start_ayah_id": 884,
+      "start_ayah": "6:95",
+      "end_ayah_id": 889,
+      "end_ayah": "6:100",
+      "ayah_count": 6
+    },
+    {
+      "number": 114,
+      "start_ayah_id": 890,
+      "start_ayah": "6:101",
+      "end_ayah_id": 899,
+      "end_ayah": "6:110",
+      "ayah_count": 10
+    },
+    {
+      "number": 115,
+      "start_ayah_id": 900,
+      "start_ayah": "6:111",
+      "end_ayah_id": 910,
+      "end_ayah": "6:121",
+      "ayah_count": 11
+    },
+    {
+      "number": 116,
+      "start_ayah_id": 911,
+      "start_ayah": "6:122",
+      "end_ayah_id": 918,
+      "end_ayah": "6:129",
+      "ayah_count": 8
+    },
+    {
+      "number": 117,
+      "start_ayah_id": 919,
+      "start_ayah": "6:130",
+      "end_ayah_id": 929,
+      "end_ayah": "6:140",
+      "ayah_count": 11
+    },
+    {
+      "number": 118,
+      "start_ayah_id": 930,
+      "start_ayah": "6:141",
+      "end_ayah_id": 933,
+      "end_ayah": "6:144",
+      "ayah_count": 4
+    },
+    {
+      "number": 119,
+      "start_ayah_id": 934,
+      "start_ayah": "6:145",
+      "end_ayah_id": 939,
+      "end_ayah": "6:150",
+      "ayah_count": 6
+    },
+    {
+      "number": 120,
+      "start_ayah_id": 940,
+      "start_ayah": "6:151",
+      "end_ayah_id": 943,
+      "end_ayah": "6:154",
+      "ayah_count": 4
+    },
+    {
+      "number": 121,
+      "start_ayah_id": 944,
+      "start_ayah": "6:155",
+      "end_ayah_id": 954,
+      "end_ayah": "6:165",
+      "ayah_count": 11
+    },
+    {
+      "number": 122,
+      "start_ayah_id": 955,
+      "start_ayah": "7:1",
+      "end_ayah_id": 964,
+      "end_ayah": "7:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 123,
+      "start_ayah_id": 965,
+      "start_ayah": "7:11",
+      "end_ayah_id": 979,
+      "end_ayah": "7:25",
+      "ayah_count": 15
+    },
+    {
+      "number": 124,
+      "start_ayah_id": 980,
+      "start_ayah": "7:26",
+      "end_ayah_id": 985,
+      "end_ayah": "7:31",
+      "ayah_count": 6
+    },
+    {
+      "number": 125,
+      "start_ayah_id": 986,
+      "start_ayah": "7:32",
+      "end_ayah_id": 993,
+      "end_ayah": "7:39",
+      "ayah_count": 8
+    },
+    {
+      "number": 126,
+      "start_ayah_id": 994,
+      "start_ayah": "7:40",
+      "end_ayah_id": 1001,
+      "end_ayah": "7:47",
+      "ayah_count": 8
+    },
+    {
+      "number": 127,
+      "start_ayah_id": 1002,
+      "start_ayah": "7:48",
+      "end_ayah_id": 1007,
+      "end_ayah": "7:53",
+      "ayah_count": 6
+    },
+    {
+      "number": 128,
+      "start_ayah_id": 1008,
+      "start_ayah": "7:54",
+      "end_ayah_id": 1012,
+      "end_ayah": "7:58",
+      "ayah_count": 5
+    },
+    {
+      "number": 129,
+      "start_ayah_id": 1013,
+      "start_ayah": "7:59",
+      "end_ayah_id": 1018,
+      "end_ayah": "7:64",
+      "ayah_count": 6
+    },
+    {
+      "number": 130,
+      "start_ayah_id": 1019,
+      "start_ayah": "7:65",
+      "end_ayah_id": 1026,
+      "end_ayah": "7:72",
+      "ayah_count": 8
+    },
+    {
+      "number": 131,
+      "start_ayah_id": 1027,
+      "start_ayah": "7:73",
+      "end_ayah_id": 1038,
+      "end_ayah": "7:84",
+      "ayah_count": 12
+    },
+    {
+      "number": 132,
+      "start_ayah_id": 1039,
+      "start_ayah": "7:85",
+      "end_ayah_id": 1047,
+      "end_ayah": "7:93",
+      "ayah_count": 9
+    },
+    {
+      "number": 133,
+      "start_ayah_id": 1048,
+      "start_ayah": "7:94",
+      "end_ayah_id": 1053,
+      "end_ayah": "7:99",
+      "ayah_count": 6
+    },
+    {
+      "number": 134,
+      "start_ayah_id": 1054,
+      "start_ayah": "7:100",
+      "end_ayah_id": 1062,
+      "end_ayah": "7:108",
+      "ayah_count": 9
+    },
+    {
+      "number": 135,
+      "start_ayah_id": 1063,
+      "start_ayah": "7:109",
+      "end_ayah_id": 1080,
+      "end_ayah": "7:126",
+      "ayah_count": 18
+    },
+    {
+      "number": 136,
+      "start_ayah_id": 1081,
+      "start_ayah": "7:127",
+      "end_ayah_id": 1083,
+      "end_ayah": "7:129",
+      "ayah_count": 3
+    },
+    {
+      "number": 137,
+      "start_ayah_id": 1084,
+      "start_ayah": "7:130",
+      "end_ayah_id": 1095,
+      "end_ayah": "7:141",
+      "ayah_count": 12
+    },
+    {
+      "number": 138,
+      "start_ayah_id": 1096,
+      "start_ayah": "7:142",
+      "end_ayah_id": 1101,
+      "end_ayah": "7:147",
+      "ayah_count": 6
+    },
+    {
+      "number": 139,
+      "start_ayah_id": 1102,
+      "start_ayah": "7:148",
+      "end_ayah_id": 1105,
+      "end_ayah": "7:151",
+      "ayah_count": 4
+    },
+    {
+      "number": 140,
+      "start_ayah_id": 1106,
+      "start_ayah": "7:152",
+      "end_ayah_id": 1111,
+      "end_ayah": "7:157",
+      "ayah_count": 6
+    },
+    {
+      "number": 141,
+      "start_ayah_id": 1112,
+      "start_ayah": "7:158",
+      "end_ayah_id": 1116,
+      "end_ayah": "7:162",
+      "ayah_count": 5
+    },
+    {
+      "number": 142,
+      "start_ayah_id": 1117,
+      "start_ayah": "7:163",
+      "end_ayah_id": 1125,
+      "end_ayah": "7:171",
+      "ayah_count": 9
+    },
+    {
+      "number": 143,
+      "start_ayah_id": 1126,
+      "start_ayah": "7:172",
+      "end_ayah_id": 1135,
+      "end_ayah": "7:181",
+      "ayah_count": 10
+    },
+    {
+      "number": 144,
+      "start_ayah_id": 1136,
+      "start_ayah": "7:182",
+      "end_ayah_id": 1142,
+      "end_ayah": "7:188",
+      "ayah_count": 7
+    },
+    {
+      "number": 145,
+      "start_ayah_id": 1143,
+      "start_ayah": "7:189",
+      "end_ayah_id": 1160,
+      "end_ayah": "7:206",
+      "ayah_count": 18
+    },
+    {
+      "number": 146,
+      "start_ayah_id": 1161,
+      "start_ayah": "8:1",
+      "end_ayah_id": 1170,
+      "end_ayah": "8:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 147,
+      "start_ayah_id": 1171,
+      "start_ayah": "8:11",
+      "end_ayah_id": 1179,
+      "end_ayah": "8:19",
+      "ayah_count": 9
+    },
+    {
+      "number": 148,
+      "start_ayah_id": 1180,
+      "start_ayah": "8:20",
+      "end_ayah_id": 1188,
+      "end_ayah": "8:28",
+      "ayah_count": 9
+    },
+    {
+      "number": 149,
+      "start_ayah_id": 1189,
+      "start_ayah": "8:29",
+      "end_ayah_id": 1197,
+      "end_ayah": "8:37",
+      "ayah_count": 9
+    },
+    {
+      "number": 150,
+      "start_ayah_id": 1198,
+      "start_ayah": "8:38",
+      "end_ayah_id": 1204,
+      "end_ayah": "8:44",
+      "ayah_count": 7
+    },
+    {
+      "number": 151,
+      "start_ayah_id": 1205,
+      "start_ayah": "8:45",
+      "end_ayah_id": 1208,
+      "end_ayah": "8:48",
+      "ayah_count": 4
+    },
+    {
+      "number": 152,
+      "start_ayah_id": 1209,
+      "start_ayah": "8:49",
+      "end_ayah_id": 1218,
+      "end_ayah": "8:58",
+      "ayah_count": 10
+    },
+    {
+      "number": 153,
+      "start_ayah_id": 1219,
+      "start_ayah": "8:59",
+      "end_ayah_id": 1224,
+      "end_ayah": "8:64",
+      "ayah_count": 6
+    },
+    {
+      "number": 154,
+      "start_ayah_id": 1225,
+      "start_ayah": "8:65",
+      "end_ayah_id": 1229,
+      "end_ayah": "8:69",
+      "ayah_count": 5
+    },
+    {
+      "number": 155,
+      "start_ayah_id": 1230,
+      "start_ayah": "8:70",
+      "end_ayah_id": 1235,
+      "end_ayah": "8:75",
+      "ayah_count": 6
+    },
+    {
+      "number": 156,
+      "start_ayah_id": 1236,
+      "start_ayah": "9:1",
+      "end_ayah_id": 1241,
+      "end_ayah": "9:6",
+      "ayah_count": 6
+    },
+    {
+      "number": 157,
+      "start_ayah_id": 1242,
+      "start_ayah": "9:7",
+      "end_ayah_id": 1251,
+      "end_ayah": "9:16",
+      "ayah_count": 10
+    },
+    {
+      "number": 158,
+      "start_ayah_id": 1252,
+      "start_ayah": "9:17",
+      "end_ayah_id": 1259,
+      "end_ayah": "9:24",
+      "ayah_count": 8
+    },
+    {
+      "number": 159,
+      "start_ayah_id": 1260,
+      "start_ayah": "9:25",
+      "end_ayah_id": 1264,
+      "end_ayah": "9:29",
+      "ayah_count": 5
+    },
+    {
+      "number": 160,
+      "start_ayah_id": 1265,
+      "start_ayah": "9:30",
+      "end_ayah_id": 1272,
+      "end_ayah": "9:37",
+      "ayah_count": 8
+    },
+    {
+      "number": 161,
+      "start_ayah_id": 1273,
+      "start_ayah": "9:38",
+      "end_ayah_id": 1277,
+      "end_ayah": "9:42",
+      "ayah_count": 5
+    },
+    {
+      "number": 162,
+      "start_ayah_id": 1278,
+      "start_ayah": "9:43",
+      "end_ayah_id": 1294,
+      "end_ayah": "9:59",
+      "ayah_count": 17
+    },
+    {
+      "number": 163,
+      "start_ayah_id": 1295,
+      "start_ayah": "9:60",
+      "end_ayah_id": 1301,
+      "end_ayah": "9:66",
+      "ayah_count": 7
+    },
+    {
+      "number": 164,
+      "start_ayah_id": 1302,
+      "start_ayah": "9:67",
+      "end_ayah_id": 1307,
+      "end_ayah": "9:72",
+      "ayah_count": 6
+    },
+    {
+      "number": 165,
+      "start_ayah_id": 1308,
+      "start_ayah": "9:73",
+      "end_ayah_id": 1315,
+      "end_ayah": "9:80",
+      "ayah_count": 8
+    },
+    {
+      "number": 166,
+      "start_ayah_id": 1316,
+      "start_ayah": "9:81",
+      "end_ayah_id": 1324,
+      "end_ayah": "9:89",
+      "ayah_count": 9
+    },
+    {
+      "number": 167,
+      "start_ayah_id": 1325,
+      "start_ayah": "9:90",
+      "end_ayah_id": 1334,
+      "end_ayah": "9:99",
+      "ayah_count": 10
+    },
+    {
+      "number": 168,
+      "start_ayah_id": 1335,
+      "start_ayah": "9:100",
+      "end_ayah_id": 1345,
+      "end_ayah": "9:110",
+      "ayah_count": 11
+    },
+    {
+      "number": 169,
+      "start_ayah_id": 1346,
+      "start_ayah": "9:111",
+      "end_ayah_id": 1353,
+      "end_ayah": "9:118",
+      "ayah_count": 8
+    },
+    {
+      "number": 170,
+      "start_ayah_id": 1354,
+      "start_ayah": "9:119",
+      "end_ayah_id": 1357,
+      "end_ayah": "9:122",
+      "ayah_count": 4
+    },
+    {
+      "number": 171,
+      "start_ayah_id": 1358,
+      "start_ayah": "9:123",
+      "end_ayah_id": 1364,
+      "end_ayah": "9:129",
+      "ayah_count": 7
+    },
+    {
+      "number": 172,
+      "start_ayah_id": 1365,
+      "start_ayah": "10:1",
+      "end_ayah_id": 1374,
+      "end_ayah": "10:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 173,
+      "start_ayah_id": 1375,
+      "start_ayah": "10:11",
+      "end_ayah_id": 1384,
+      "end_ayah": "10:20",
+      "ayah_count": 10
+    },
+    {
+      "number": 174,
+      "start_ayah_id": 1385,
+      "start_ayah": "10:21",
+      "end_ayah_id": 1394,
+      "end_ayah": "10:30",
+      "ayah_count": 10
+    },
+    {
+      "number": 175,
+      "start_ayah_id": 1395,
+      "start_ayah": "10:31",
+      "end_ayah_id": 1404,
+      "end_ayah": "10:40",
+      "ayah_count": 10
+    },
+    {
+      "number": 176,
+      "start_ayah_id": 1405,
+      "start_ayah": "10:41",
+      "end_ayah_id": 1417,
+      "end_ayah": "10:53",
+      "ayah_count": 13
+    },
+    {
+      "number": 177,
+      "start_ayah_id": 1418,
+      "start_ayah": "10:54",
+      "end_ayah_id": 1424,
+      "end_ayah": "10:60",
+      "ayah_count": 7
+    },
+    {
+      "number": 178,
+      "start_ayah_id": 1425,
+      "start_ayah": "10:61",
+      "end_ayah_id": 1434,
+      "end_ayah": "10:70",
+      "ayah_count": 10
+    },
+    {
+      "number": 179,
+      "start_ayah_id": 1435,
+      "start_ayah": "10:71",
+      "end_ayah_id": 1446,
+      "end_ayah": "10:82",
+      "ayah_count": 12
+    },
+    {
+      "number": 180,
+      "start_ayah_id": 1447,
+      "start_ayah": "10:83",
+      "end_ayah_id": 1456,
+      "end_ayah": "10:92",
+      "ayah_count": 10
+    },
+    {
+      "number": 181,
+      "start_ayah_id": 1457,
+      "start_ayah": "10:93",
+      "end_ayah_id": 1467,
+      "end_ayah": "10:103",
+      "ayah_count": 11
+    },
+    {
+      "number": 182,
+      "start_ayah_id": 1468,
+      "start_ayah": "10:104",
+      "end_ayah_id": 1473,
+      "end_ayah": "10:109",
+      "ayah_count": 6
+    },
+    {
+      "number": 183,
+      "start_ayah_id": 1474,
+      "start_ayah": "11:1",
+      "end_ayah_id": 1481,
+      "end_ayah": "11:8",
+      "ayah_count": 8
+    },
+    {
+      "number": 184,
+      "start_ayah_id": 1482,
+      "start_ayah": "11:9",
+      "end_ayah_id": 1497,
+      "end_ayah": "11:24",
+      "ayah_count": 16
+    },
+    {
+      "number": 185,
+      "start_ayah_id": 1498,
+      "start_ayah": "11:25",
+      "end_ayah_id": 1508,
+      "end_ayah": "11:35",
+      "ayah_count": 11
+    },
+    {
+      "number": 186,
+      "start_ayah_id": 1509,
+      "start_ayah": "11:36",
+      "end_ayah_id": 1522,
+      "end_ayah": "11:49",
+      "ayah_count": 14
+    },
+    {
+      "number": 187,
+      "start_ayah_id": 1523,
+      "start_ayah": "11:50",
+      "end_ayah_id": 1533,
+      "end_ayah": "11:60",
+      "ayah_count": 11
+    },
+    {
+      "number": 188,
+      "start_ayah_id": 1534,
+      "start_ayah": "11:61",
+      "end_ayah_id": 1541,
+      "end_ayah": "11:68",
+      "ayah_count": 8
+    },
+    {
+      "number": 189,
+      "start_ayah_id": 1542,
+      "start_ayah": "11:69",
+      "end_ayah_id": 1556,
+      "end_ayah": "11:83",
+      "ayah_count": 15
+    },
+    {
+      "number": 190,
+      "start_ayah_id": 1557,
+      "start_ayah": "11:84",
+      "end_ayah_id": 1568,
+      "end_ayah": "11:95",
+      "ayah_count": 12
+    },
+    {
+      "number": 191,
+      "start_ayah_id": 1569,
+      "start_ayah": "11:96",
+      "end_ayah_id": 1582,
+      "end_ayah": "11:109",
+      "ayah_count": 14
+    },
+    {
+      "number": 192,
+      "start_ayah_id": 1583,
+      "start_ayah": "11:110",
+      "end_ayah_id": 1596,
+      "end_ayah": "11:123",
+      "ayah_count": 14
+    },
+    {
+      "number": 193,
+      "start_ayah_id": 1597,
+      "start_ayah": "12:1",
+      "end_ayah_id": 1602,
+      "end_ayah": "12:6",
+      "ayah_count": 6
+    },
+    {
+      "number": 194,
+      "start_ayah_id": 1603,
+      "start_ayah": "12:7",
+      "end_ayah_id": 1616,
+      "end_ayah": "12:20",
+      "ayah_count": 14
+    },
+    {
+      "number": 195,
+      "start_ayah_id": 1617,
+      "start_ayah": "12:21",
+      "end_ayah_id": 1625,
+      "end_ayah": "12:29",
+      "ayah_count": 9
+    },
+    {
+      "number": 196,
+      "start_ayah_id": 1626,
+      "start_ayah": "12:30",
+      "end_ayah_id": 1631,
+      "end_ayah": "12:35",
+      "ayah_count": 6
+    },
+    {
+      "number": 197,
+      "start_ayah_id": 1632,
+      "start_ayah": "12:36",
+      "end_ayah_id": 1638,
+      "end_ayah": "12:42",
+      "ayah_count": 7
+    },
+    {
+      "number": 198,
+      "start_ayah_id": 1639,
+      "start_ayah": "12:43",
+      "end_ayah_id": 1645,
+      "end_ayah": "12:49",
+      "ayah_count": 7
+    },
+    {
+      "number": 199,
+      "start_ayah_id": 1646,
+      "start_ayah": "12:50",
+      "end_ayah_id": 1653,
+      "end_ayah": "12:57",
+      "ayah_count": 8
+    },
+    {
+      "number": 200,
+      "start_ayah_id": 1654,
+      "start_ayah": "12:58",
+      "end_ayah_id": 1664,
+      "end_ayah": "12:68",
+      "ayah_count": 11
+    },
+    {
+      "number": 201,
+      "start_ayah_id": 1665,
+      "start_ayah": "12:69",
+      "end_ayah_id": 1675,
+      "end_ayah": "12:79",
+      "ayah_count": 11
+    },
+    {
+      "number": 202,
+      "start_ayah_id": 1676,
+      "start_ayah": "12:80",
+      "end_ayah_id": 1689,
+      "end_ayah": "12:93",
+      "ayah_count": 14
+    },
+    {
+      "number": 203,
+      "start_ayah_id": 1690,
+      "start_ayah": "12:94",
+      "end_ayah_id": 1700,
+      "end_ayah": "12:104",
+      "ayah_count": 11
+    },
+    {
+      "number": 204,
+      "start_ayah_id": 1701,
+      "start_ayah": "12:105",
+      "end_ayah_id": 1707,
+      "end_ayah": "12:111",
+      "ayah_count": 7
+    },
+    {
+      "number": 205,
+      "start_ayah_id": 1708,
+      "start_ayah": "13:1",
+      "end_ayah_id": 1714,
+      "end_ayah": "13:7",
+      "ayah_count": 7
+    },
+    {
+      "number": 206,
+      "start_ayah_id": 1715,
+      "start_ayah": "13:8",
+      "end_ayah_id": 1725,
+      "end_ayah": "13:18",
+      "ayah_count": 11
+    },
+    {
+      "number": 207,
+      "start_ayah_id": 1726,
+      "start_ayah": "13:19",
+      "end_ayah_id": 1733,
+      "end_ayah": "13:26",
+      "ayah_count": 8
+    },
+    {
+      "number": 208,
+      "start_ayah_id": 1734,
+      "start_ayah": "13:27",
+      "end_ayah_id": 1738,
+      "end_ayah": "13:31",
+      "ayah_count": 5
+    },
+    {
+      "number": 209,
+      "start_ayah_id": 1739,
+      "start_ayah": "13:32",
+      "end_ayah_id": 1744,
+      "end_ayah": "13:37",
+      "ayah_count": 6
+    },
+    {
+      "number": 210,
+      "start_ayah_id": 1745,
+      "start_ayah": "13:38",
+      "end_ayah_id": 1750,
+      "end_ayah": "13:43",
+      "ayah_count": 6
+    },
+    {
+      "number": 211,
+      "start_ayah_id": 1751,
+      "start_ayah": "14:1",
+      "end_ayah_id": 1756,
+      "end_ayah": "14:6",
+      "ayah_count": 6
+    },
+    {
+      "number": 212,
+      "start_ayah_id": 1757,
+      "start_ayah": "14:7",
+      "end_ayah_id": 1762,
+      "end_ayah": "14:12",
+      "ayah_count": 6
+    },
+    {
+      "number": 213,
+      "start_ayah_id": 1763,
+      "start_ayah": "14:13",
+      "end_ayah_id": 1771,
+      "end_ayah": "14:21",
+      "ayah_count": 9
+    },
+    {
+      "number": 214,
+      "start_ayah_id": 1772,
+      "start_ayah": "14:22",
+      "end_ayah_id": 1777,
+      "end_ayah": "14:27",
+      "ayah_count": 6
+    },
+    {
+      "number": 215,
+      "start_ayah_id": 1778,
+      "start_ayah": "14:28",
+      "end_ayah_id": 1784,
+      "end_ayah": "14:34",
+      "ayah_count": 7
+    },
+    {
+      "number": 216,
+      "start_ayah_id": 1785,
+      "start_ayah": "14:35",
+      "end_ayah_id": 1791,
+      "end_ayah": "14:41",
+      "ayah_count": 7
+    },
+    {
+      "number": 217,
+      "start_ayah_id": 1792,
+      "start_ayah": "14:42",
+      "end_ayah_id": 1802,
+      "end_ayah": "14:52",
+      "ayah_count": 11
+    },
+    {
+      "number": 218,
+      "start_ayah_id": 1803,
+      "start_ayah": "15:1",
+      "end_ayah_id": 1817,
+      "end_ayah": "15:15",
+      "ayah_count": 15
+    },
+    {
+      "number": 219,
+      "start_ayah_id": 1818,
+      "start_ayah": "15:16",
+      "end_ayah_id": 1827,
+      "end_ayah": "15:25",
+      "ayah_count": 10
+    },
+    {
+      "number": 220,
+      "start_ayah_id": 1828,
+      "start_ayah": "15:26",
+      "end_ayah_id": 1846,
+      "end_ayah": "15:44",
+      "ayah_count": 19
+    },
+    {
+      "number": 221,
+      "start_ayah_id": 1847,
+      "start_ayah": "15:45",
+      "end_ayah_id": 1862,
+      "end_ayah": "15:60",
+      "ayah_count": 16
+    },
+    {
+      "number": 222,
+      "start_ayah_id": 1863,
+      "start_ayah": "15:61",
+      "end_ayah_id": 1881,
+      "end_ayah": "15:79",
+      "ayah_count": 19
+    },
+    {
+      "number": 223,
+      "start_ayah_id": 1882,
+      "start_ayah": "15:80",
+      "end_ayah_id": 1901,
+      "end_ayah": "15:99",
+      "ayah_count": 20
+    },
+    {
+      "number": 224,
+      "start_ayah_id": 1902,
+      "start_ayah": "16:1",
+      "end_ayah_id": 1910,
+      "end_ayah": "16:9",
+      "ayah_count": 9
+    },
+    {
+      "number": 225,
+      "start_ayah_id": 1911,
+      "start_ayah": "16:10",
+      "end_ayah_id": 1922,
+      "end_ayah": "16:21",
+      "ayah_count": 12
+    },
+    {
+      "number": 226,
+      "start_ayah_id": 1923,
+      "start_ayah": "16:22",
+      "end_ayah_id": 1926,
+      "end_ayah": "16:25",
+      "ayah_count": 4
+    },
+    {
+      "number": 227,
+      "start_ayah_id": 1927,
+      "start_ayah": "16:26",
+      "end_ayah_id": 1935,
+      "end_ayah": "16:34",
+      "ayah_count": 9
+    },
+    {
+      "number": 228,
+      "start_ayah_id": 1936,
+      "start_ayah": "16:35",
+      "end_ayah_id": 1941,
+      "end_ayah": "16:40",
+      "ayah_count": 6
+    },
+    {
+      "number": 229,
+      "start_ayah_id": 1942,
+      "start_ayah": "16:41",
+      "end_ayah_id": 1951,
+      "end_ayah": "16:50",
+      "ayah_count": 10
+    },
+    {
+      "number": 230,
+      "start_ayah_id": 1952,
+      "start_ayah": "16:51",
+      "end_ayah_id": 1961,
+      "end_ayah": "16:60",
+      "ayah_count": 10
+    },
+    {
+      "number": 231,
+      "start_ayah_id": 1962,
+      "start_ayah": "16:61",
+      "end_ayah_id": 1966,
+      "end_ayah": "16:65",
+      "ayah_count": 5
+    },
+    {
+      "number": 232,
+      "start_ayah_id": 1967,
+      "start_ayah": "16:66",
+      "end_ayah_id": 1971,
+      "end_ayah": "16:70",
+      "ayah_count": 5
+    },
+    {
+      "number": 233,
+      "start_ayah_id": 1972,
+      "start_ayah": "16:71",
+      "end_ayah_id": 1977,
+      "end_ayah": "16:76",
+      "ayah_count": 6
+    },
+    {
+      "number": 234,
+      "start_ayah_id": 1978,
+      "start_ayah": "16:77",
+      "end_ayah_id": 1984,
+      "end_ayah": "16:83",
+      "ayah_count": 7
+    },
+    {
+      "number": 235,
+      "start_ayah_id": 1985,
+      "start_ayah": "16:84",
+      "end_ayah_id": 1990,
+      "end_ayah": "16:89",
+      "ayah_count": 6
+    },
+    {
+      "number": 236,
+      "start_ayah_id": 1991,
+      "start_ayah": "16:90",
+      "end_ayah_id": 2001,
+      "end_ayah": "16:100",
+      "ayah_count": 11
+    },
+    {
+      "number": 237,
+      "start_ayah_id": 2002,
+      "start_ayah": "16:101",
+      "end_ayah_id": 2011,
+      "end_ayah": "16:110",
+      "ayah_count": 10
+    },
+    {
+      "number": 238,
+      "start_ayah_id": 2012,
+      "start_ayah": "16:111",
+      "end_ayah_id": 2020,
+      "end_ayah": "16:119",
+      "ayah_count": 9
+    },
+    {
+      "number": 239,
+      "start_ayah_id": 2021,
+      "start_ayah": "16:120",
+      "end_ayah_id": 2029,
+      "end_ayah": "16:128",
+      "ayah_count": 9
+    },
+    {
+      "number": 240,
+      "start_ayah_id": 2030,
+      "start_ayah": "17:1",
+      "end_ayah_id": 2039,
+      "end_ayah": "17:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 241,
+      "start_ayah_id": 2040,
+      "start_ayah": "17:11",
+      "end_ayah_id": 2051,
+      "end_ayah": "17:22",
+      "ayah_count": 12
+    },
+    {
+      "number": 242,
+      "start_ayah_id": 2052,
+      "start_ayah": "17:23",
+      "end_ayah_id": 2059,
+      "end_ayah": "17:30",
+      "ayah_count": 8
+    },
+    {
+      "number": 243,
+      "start_ayah_id": 2060,
+      "start_ayah": "17:31",
+      "end_ayah_id": 2069,
+      "end_ayah": "17:40",
+      "ayah_count": 10
+    },
+    {
+      "number": 244,
+      "start_ayah_id": 2070,
+      "start_ayah": "17:41",
+      "end_ayah_id": 2081,
+      "end_ayah": "17:52",
+      "ayah_count": 12
+    },
+    {
+      "number": 245,
+      "start_ayah_id": 2082,
+      "start_ayah": "17:53",
+      "end_ayah_id": 2089,
+      "end_ayah": "17:60",
+      "ayah_count": 8
+    },
+    {
+      "number": 246,
+      "start_ayah_id": 2090,
+      "start_ayah": "17:61",
+      "end_ayah_id": 2099,
+      "end_ayah": "17:70",
+      "ayah_count": 10
+    },
+    {
+      "number": 247,
+      "start_ayah_id": 2100,
+      "start_ayah": "17:71",
+      "end_ayah_id": 2106,
+      "end_ayah": "17:77",
+      "ayah_count": 7
+    },
+    {
+      "number": 248,
+      "start_ayah_id": 2107,
+      "start_ayah": "17:78",
+      "end_ayah_id": 2113,
+      "end_ayah": "17:84",
+      "ayah_count": 7
+    },
+    {
+      "number": 249,
+      "start_ayah_id": 2114,
+      "start_ayah": "17:85",
+      "end_ayah_id": 2122,
+      "end_ayah": "17:93",
+      "ayah_count": 9
+    },
+    {
+      "number": 250,
+      "start_ayah_id": 2123,
+      "start_ayah": "17:94",
+      "end_ayah_id": 2129,
+      "end_ayah": "17:100",
+      "ayah_count": 7
+    },
+    {
+      "number": 251,
+      "start_ayah_id": 2130,
+      "start_ayah": "17:101",
+      "end_ayah_id": 2140,
+      "end_ayah": "17:111",
+      "ayah_count": 11
+    },
+    {
+      "number": 252,
+      "start_ayah_id": 2141,
+      "start_ayah": "18:1",
+      "end_ayah_id": 2152,
+      "end_ayah": "18:12",
+      "ayah_count": 12
+    },
+    {
+      "number": 253,
+      "start_ayah_id": 2153,
+      "start_ayah": "18:13",
+      "end_ayah_id": 2157,
+      "end_ayah": "18:17",
+      "ayah_count": 5
+    },
+    {
+      "number": 254,
+      "start_ayah_id": 2158,
+      "start_ayah": "18:18",
+      "end_ayah_id": 2162,
+      "end_ayah": "18:22",
+      "ayah_count": 5
+    },
+    {
+      "number": 255,
+      "start_ayah_id": 2163,
+      "start_ayah": "18:23",
+      "end_ayah_id": 2171,
+      "end_ayah": "18:31",
+      "ayah_count": 9
+    },
+    {
+      "number": 256,
+      "start_ayah_id": 2172,
+      "start_ayah": "18:32",
+      "end_ayah_id": 2184,
+      "end_ayah": "18:44",
+      "ayah_count": 13
+    },
+    {
+      "number": 257,
+      "start_ayah_id": 2185,
+      "start_ayah": "18:45",
+      "end_ayah_id": 2189,
+      "end_ayah": "18:49",
+      "ayah_count": 5
+    },
+    {
+      "number": 258,
+      "start_ayah_id": 2190,
+      "start_ayah": "18:50",
+      "end_ayah_id": 2193,
+      "end_ayah": "18:53",
+      "ayah_count": 4
+    },
+    {
+      "number": 259,
+      "start_ayah_id": 2194,
+      "start_ayah": "18:54",
+      "end_ayah_id": 2199,
+      "end_ayah": "18:59",
+      "ayah_count": 6
+    },
+    {
+      "number": 260,
+      "start_ayah_id": 2200,
+      "start_ayah": "18:60",
+      "end_ayah_id": 2210,
+      "end_ayah": "18:70",
+      "ayah_count": 11
+    },
+    {
+      "number": 261,
+      "start_ayah_id": 2211,
+      "start_ayah": "18:71",
+      "end_ayah_id": 2222,
+      "end_ayah": "18:82",
+      "ayah_count": 12
+    },
+    {
+      "number": 262,
+      "start_ayah_id": 2223,
+      "start_ayah": "18:83",
+      "end_ayah_id": 2241,
+      "end_ayah": "18:101",
+      "ayah_count": 19
+    },
+    {
+      "number": 263,
+      "start_ayah_id": 2242,
+      "start_ayah": "18:102",
+      "end_ayah_id": 2250,
+      "end_ayah": "18:110",
+      "ayah_count": 9
+    },
+    {
+      "number": 264,
+      "start_ayah_id": 2251,
+      "start_ayah": "19:1",
+      "end_ayah_id": 2265,
+      "end_ayah": "19:15",
+      "ayah_count": 15
+    },
+    {
+      "number": 265,
+      "start_ayah_id": 2266,
+      "start_ayah": "19:16",
+      "end_ayah_id": 2290,
+      "end_ayah": "19:40",
+      "ayah_count": 25
+    },
+    {
+      "number": 266,
+      "start_ayah_id": 2291,
+      "start_ayah": "19:41",
+      "end_ayah_id": 2300,
+      "end_ayah": "19:50",
+      "ayah_count": 10
+    },
+    {
+      "number": 267,
+      "start_ayah_id": 2301,
+      "start_ayah": "19:51",
+      "end_ayah_id": 2315,
+      "end_ayah": "19:65",
+      "ayah_count": 15
+    },
+    {
+      "number": 268,
+      "start_ayah_id": 2316,
+      "start_ayah": "19:66",
+      "end_ayah_id": 2332,
+      "end_ayah": "19:82",
+      "ayah_count": 17
+    },
+    {
+      "number": 269,
+      "start_ayah_id": 2333,
+      "start_ayah": "19:83",
+      "end_ayah_id": 2348,
+      "end_ayah": "19:98",
+      "ayah_count": 16
+    },
+    {
+      "number": 270,
+      "start_ayah_id": 2349,
+      "start_ayah": "20:1",
+      "end_ayah_id": 2372,
+      "end_ayah": "20:24",
+      "ayah_count": 24
+    },
+    {
+      "number": 271,
+      "start_ayah_id": 2373,
+      "start_ayah": "20:25",
+      "end_ayah_id": 2402,
+      "end_ayah": "20:54",
+      "ayah_count": 30
+    },
+    {
+      "number": 272,
+      "start_ayah_id": 2403,
+      "start_ayah": "20:55",
+      "end_ayah_id": 2424,
+      "end_ayah": "20:76",
+      "ayah_count": 22
+    },
+    {
+      "number": 273,
+      "start_ayah_id": 2425,
+      "start_ayah": "20:77",
+      "end_ayah_id": 2437,
+      "end_ayah": "20:89",
+      "ayah_count": 13
+    },
+    {
+      "number": 274,
+      "start_ayah_id": 2438,
+      "start_ayah": "20:90",
+      "end_ayah_id": 2452,
+      "end_ayah": "20:104",
+      "ayah_count": 15
+    },
+    {
+      "number": 275,
+      "start_ayah_id": 2453,
+      "start_ayah": "20:105",
+      "end_ayah_id": 2463,
+      "end_ayah": "20:115",
+      "ayah_count": 11
+    },
+    {
+      "number": 276,
+      "start_ayah_id": 2464,
+      "start_ayah": "20:116",
+      "end_ayah_id": 2476,
+      "end_ayah": "20:128",
+      "ayah_count": 13
+    },
+    {
+      "number": 277,
+      "start_ayah_id": 2477,
+      "start_ayah": "20:129",
+      "end_ayah_id": 2483,
+      "end_ayah": "20:135",
+      "ayah_count": 7
+    },
+    {
+      "number": 278,
+      "start_ayah_id": 2484,
+      "start_ayah": "21:1",
+      "end_ayah_id": 2493,
+      "end_ayah": "21:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 279,
+      "start_ayah_id": 2494,
+      "start_ayah": "21:11",
+      "end_ayah_id": 2512,
+      "end_ayah": "21:29",
+      "ayah_count": 19
+    },
+    {
+      "number": 280,
+      "start_ayah_id": 2513,
+      "start_ayah": "21:30",
+      "end_ayah_id": 2524,
+      "end_ayah": "21:41",
+      "ayah_count": 12
+    },
+    {
+      "number": 281,
+      "start_ayah_id": 2525,
+      "start_ayah": "21:42",
+      "end_ayah_id": 2533,
+      "end_ayah": "21:50",
+      "ayah_count": 9
+    },
+    {
+      "number": 282,
+      "start_ayah_id": 2534,
+      "start_ayah": "21:51",
+      "end_ayah_id": 2558,
+      "end_ayah": "21:75",
+      "ayah_count": 25
+    },
+    {
+      "number": 283,
+      "start_ayah_id": 2559,
+      "start_ayah": "21:76",
+      "end_ayah_id": 2576,
+      "end_ayah": "21:93",
+      "ayah_count": 18
+    },
+    {
+      "number": 284,
+      "start_ayah_id": 2577,
+      "start_ayah": "21:94",
+      "end_ayah_id": 2595,
+      "end_ayah": "21:112",
+      "ayah_count": 19
+    },
+    {
+      "number": 285,
+      "start_ayah_id": 2596,
+      "start_ayah": "22:1",
+      "end_ayah_id": 2605,
+      "end_ayah": "22:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 286,
+      "start_ayah_id": 2606,
+      "start_ayah": "22:11",
+      "end_ayah_id": 2617,
+      "end_ayah": "22:22",
+      "ayah_count": 12
+    },
+    {
+      "number": 287,
+      "start_ayah_id": 2618,
+      "start_ayah": "22:23",
+      "end_ayah_id": 2620,
+      "end_ayah": "22:25",
+      "ayah_count": 3
+    },
+    {
+      "number": 288,
+      "start_ayah_id": 2621,
+      "start_ayah": "22:26",
+      "end_ayah_id": 2628,
+      "end_ayah": "22:33",
+      "ayah_count": 8
+    },
+    {
+      "number": 289,
+      "start_ayah_id": 2629,
+      "start_ayah": "22:34",
+      "end_ayah_id": 2633,
+      "end_ayah": "22:38",
+      "ayah_count": 5
+    },
+    {
+      "number": 290,
+      "start_ayah_id": 2634,
+      "start_ayah": "22:39",
+      "end_ayah_id": 2643,
+      "end_ayah": "22:48",
+      "ayah_count": 10
+    },
+    {
+      "number": 291,
+      "start_ayah_id": 2644,
+      "start_ayah": "22:49",
+      "end_ayah_id": 2652,
+      "end_ayah": "22:57",
+      "ayah_count": 9
+    },
+    {
+      "number": 292,
+      "start_ayah_id": 2653,
+      "start_ayah": "22:58",
+      "end_ayah_id": 2659,
+      "end_ayah": "22:64",
+      "ayah_count": 7
+    },
+    {
+      "number": 293,
+      "start_ayah_id": 2660,
+      "start_ayah": "22:65",
+      "end_ayah_id": 2667,
+      "end_ayah": "22:72",
+      "ayah_count": 8
+    },
+    {
+      "number": 294,
+      "start_ayah_id": 2668,
+      "start_ayah": "22:73",
+      "end_ayah_id": 2673,
+      "end_ayah": "22:78",
+      "ayah_count": 6
+    },
+    {
+      "number": 295,
+      "start_ayah_id": 2674,
+      "start_ayah": "23:1",
+      "end_ayah_id": 2695,
+      "end_ayah": "23:22",
+      "ayah_count": 22
+    },
+    {
+      "number": 296,
+      "start_ayah_id": 2696,
+      "start_ayah": "23:23",
+      "end_ayah_id": 2705,
+      "end_ayah": "23:32",
+      "ayah_count": 10
+    },
+    {
+      "number": 297,
+      "start_ayah_id": 2706,
+      "start_ayah": "23:33",
+      "end_ayah_id": 2723,
+      "end_ayah": "23:50",
+      "ayah_count": 18
+    },
+    {
+      "number": 298,
+      "start_ayah_id": 2724,
+      "start_ayah": "23:51",
+      "end_ayah_id": 2750,
+      "end_ayah": "23:77",
+      "ayah_count": 27
+    },
+    {
+      "number": 299,
+      "start_ayah_id": 2751,
+      "start_ayah": "23:78",
+      "end_ayah_id": 2765,
+      "end_ayah": "23:92",
+      "ayah_count": 15
+    },
+    {
+      "number": 300,
+      "start_ayah_id": 2766,
+      "start_ayah": "23:93",
+      "end_ayah_id": 2791,
+      "end_ayah": "23:118",
+      "ayah_count": 26
+    },
+    {
+      "number": 301,
+      "start_ayah_id": 2792,
+      "start_ayah": "24:1",
+      "end_ayah_id": 2801,
+      "end_ayah": "24:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 302,
+      "start_ayah_id": 2802,
+      "start_ayah": "24:11",
+      "end_ayah_id": 2811,
+      "end_ayah": "24:20",
+      "ayah_count": 10
+    },
+    {
+      "number": 303,
+      "start_ayah_id": 2812,
+      "start_ayah": "24:21",
+      "end_ayah_id": 2817,
+      "end_ayah": "24:26",
+      "ayah_count": 6
+    },
+    {
+      "number": 304,
+      "start_ayah_id": 2818,
+      "start_ayah": "24:27",
+      "end_ayah_id": 2825,
+      "end_ayah": "24:34",
+      "ayah_count": 8
+    },
+    {
+      "number": 305,
+      "start_ayah_id": 2826,
+      "start_ayah": "24:35",
+      "end_ayah_id": 2831,
+      "end_ayah": "24:40",
+      "ayah_count": 6
+    },
+    {
+      "number": 306,
+      "start_ayah_id": 2832,
+      "start_ayah": "24:41",
+      "end_ayah_id": 2841,
+      "end_ayah": "24:50",
+      "ayah_count": 10
+    },
+    {
+      "number": 307,
+      "start_ayah_id": 2842,
+      "start_ayah": "24:51",
+      "end_ayah_id": 2848,
+      "end_ayah": "24:57",
+      "ayah_count": 7
+    },
+    {
+      "number": 308,
+      "start_ayah_id": 2849,
+      "start_ayah": "24:58",
+      "end_ayah_id": 2852,
+      "end_ayah": "24:61",
+      "ayah_count": 4
+    },
+    {
+      "number": 309,
+      "start_ayah_id": 2853,
+      "start_ayah": "24:62",
+      "end_ayah_id": 2855,
+      "end_ayah": "24:64",
+      "ayah_count": 3
+    },
+    {
+      "number": 310,
+      "start_ayah_id": 2856,
+      "start_ayah": "25:1",
+      "end_ayah_id": 2864,
+      "end_ayah": "25:9",
+      "ayah_count": 9
+    },
+    {
+      "number": 311,
+      "start_ayah_id": 2865,
+      "start_ayah": "25:10",
+      "end_ayah_id": 2875,
+      "end_ayah": "25:20",
+      "ayah_count": 11
+    },
+    {
+      "number": 312,
+      "start_ayah_id": 2876,
+      "start_ayah": "25:21",
+      "end_ayah_id": 2889,
+      "end_ayah": "25:34",
+      "ayah_count": 14
+    },
+    {
+      "number": 313,
+      "start_ayah_id": 2890,
+      "start_ayah": "25:35",
+      "end_ayah_id": 2899,
+      "end_ayah": "25:44",
+      "ayah_count": 10
+    },
+    {
+      "number": 314,
+      "start_ayah_id": 2900,
+      "start_ayah": "25:45",
+      "end_ayah_id": 2915,
+      "end_ayah": "25:60",
+      "ayah_count": 16
+    },
+    {
+      "number": 315,
+      "start_ayah_id": 2916,
+      "start_ayah": "25:61",
+      "end_ayah_id": 2932,
+      "end_ayah": "25:77",
+      "ayah_count": 17
+    },
+    {
+      "number": 316,
+      "start_ayah_id": 2933,
+      "start_ayah": "26:1",
+      "end_ayah_id": 2941,
+      "end_ayah": "26:9",
+      "ayah_count": 9
+    },
+    {
+      "number": 317,
+      "start_ayah_id": 2942,
+      "start_ayah": "26:10",
+      "end_ayah_id": 2965,
+      "end_ayah": "26:33",
+      "ayah_count": 24
+    },
+    {
+      "number": 318,
+      "start_ayah_id": 2966,
+      "start_ayah": "26:34",
+      "end_ayah_id": 2983,
+      "end_ayah": "26:51",
+      "ayah_count": 18
+    },
+    {
+      "number": 319,
+      "start_ayah_id": 2984,
+      "start_ayah": "26:52",
+      "end_ayah_id": 3000,
+      "end_ayah": "26:68",
+      "ayah_count": 17
+    },
+    {
+      "number": 320,
+      "start_ayah_id": 3001,
+      "start_ayah": "26:69",
+      "end_ayah_id": 3036,
+      "end_ayah": "26:104",
+      "ayah_count": 36
+    },
+    {
+      "number": 321,
+      "start_ayah_id": 3037,
+      "start_ayah": "26:105",
+      "end_ayah_id": 3054,
+      "end_ayah": "26:122",
+      "ayah_count": 18
+    },
+    {
+      "number": 322,
+      "start_ayah_id": 3055,
+      "start_ayah": "26:123",
+      "end_ayah_id": 3072,
+      "end_ayah": "26:140",
+      "ayah_count": 18
+    },
+    {
+      "number": 323,
+      "start_ayah_id": 3073,
+      "start_ayah": "26:141",
+      "end_ayah_id": 3091,
+      "end_ayah": "26:159",
+      "ayah_count": 19
+    },
+    {
+      "number": 324,
+      "start_ayah_id": 3092,
+      "start_ayah": "26:160",
+      "end_ayah_id": 3107,
+      "end_ayah": "26:175",
+      "ayah_count": 16
+    },
+    {
+      "number": 325,
+      "start_ayah_id": 3108,
+      "start_ayah": "26:176",
+      "end_ayah_id": 3123,
+      "end_ayah": "26:191",
+      "ayah_count": 16
+    },
+    {
+      "number": 326,
+      "start_ayah_id": 3124,
+      "start_ayah": "26:192",
+      "end_ayah_id": 3159,
+      "end_ayah": "26:227",
+      "ayah_count": 36
+    },
+    {
+      "number": 327,
+      "start_ayah_id": 3160,
+      "start_ayah": "27:1",
+      "end_ayah_id": 3173,
+      "end_ayah": "27:14",
+      "ayah_count": 14
+    },
+    {
+      "number": 328,
+      "start_ayah_id": 3174,
+      "start_ayah": "27:15",
+      "end_ayah_id": 3190,
+      "end_ayah": "27:31",
+      "ayah_count": 17
+    },
+    {
+      "number": 329,
+      "start_ayah_id": 3191,
+      "start_ayah": "27:32",
+      "end_ayah_id": 3203,
+      "end_ayah": "27:44",
+      "ayah_count": 13
+    },
+    {
+      "number": 330,
+      "start_ayah_id": 3204,
+      "start_ayah": "27:45",
+      "end_ayah_id": 3217,
+      "end_ayah": "27:58",
+      "ayah_count": 14
+    },
+    {
+      "number": 331,
+      "start_ayah_id": 3218,
+      "start_ayah": "27:59",
+      "end_ayah_id": 3225,
+      "end_ayah": "27:66",
+      "ayah_count": 8
+    },
+    {
+      "number": 332,
+      "start_ayah_id": 3226,
+      "start_ayah": "27:67",
+      "end_ayah_id": 3241,
+      "end_ayah": "27:82",
+      "ayah_count": 16
+    },
+    {
+      "number": 333,
+      "start_ayah_id": 3242,
+      "start_ayah": "27:83",
+      "end_ayah_id": 3252,
+      "end_ayah": "27:93",
+      "ayah_count": 11
+    },
+    {
+      "number": 334,
+      "start_ayah_id": 3253,
+      "start_ayah": "28:1",
+      "end_ayah_id": 3265,
+      "end_ayah": "28:13",
+      "ayah_count": 13
+    },
+    {
+      "number": 335,
+      "start_ayah_id": 3266,
+      "start_ayah": "28:14",
+      "end_ayah_id": 3273,
+      "end_ayah": "28:21",
+      "ayah_count": 8
+    },
+    {
+      "number": 336,
+      "start_ayah_id": 3274,
+      "start_ayah": "28:22",
+      "end_ayah_id": 3280,
+      "end_ayah": "28:28",
+      "ayah_count": 7
+    },
+    {
+      "number": 337,
+      "start_ayah_id": 3281,
+      "start_ayah": "28:29",
+      "end_ayah_id": 3294,
+      "end_ayah": "28:42",
+      "ayah_count": 14
+    },
+    {
+      "number": 338,
+      "start_ayah_id": 3295,
+      "start_ayah": "28:43",
+      "end_ayah_id": 3302,
+      "end_ayah": "28:50",
+      "ayah_count": 8
+    },
+    {
+      "number": 339,
+      "start_ayah_id": 3303,
+      "start_ayah": "28:51",
+      "end_ayah_id": 3312,
+      "end_ayah": "28:60",
+      "ayah_count": 10
+    },
+    {
+      "number": 340,
+      "start_ayah_id": 3313,
+      "start_ayah": "28:61",
+      "end_ayah_id": 3327,
+      "end_ayah": "28:75",
+      "ayah_count": 15
+    },
+    {
+      "number": 341,
+      "start_ayah_id": 3328,
+      "start_ayah": "28:76",
+      "end_ayah_id": 3334,
+      "end_ayah": "28:82",
+      "ayah_count": 7
+    },
+    {
+      "number": 342,
+      "start_ayah_id": 3335,
+      "start_ayah": "28:83",
+      "end_ayah_id": 3340,
+      "end_ayah": "28:88",
+      "ayah_count": 6
+    },
+    {
+      "number": 343,
+      "start_ayah_id": 3341,
+      "start_ayah": "29:1",
+      "end_ayah_id": 3353,
+      "end_ayah": "29:13",
+      "ayah_count": 13
+    },
+    {
+      "number": 344,
+      "start_ayah_id": 3354,
+      "start_ayah": "29:14",
+      "end_ayah_id": 3362,
+      "end_ayah": "29:22",
+      "ayah_count": 9
+    },
+    {
+      "number": 345,
+      "start_ayah_id": 3363,
+      "start_ayah": "29:23",
+      "end_ayah_id": 3370,
+      "end_ayah": "29:30",
+      "ayah_count": 8
+    },
+    {
+      "number": 346,
+      "start_ayah_id": 3371,
+      "start_ayah": "29:31",
+      "end_ayah_id": 3384,
+      "end_ayah": "29:44",
+      "ayah_count": 14
+    },
+    {
+      "number": 347,
+      "start_ayah_id": 3385,
+      "start_ayah": "29:45",
+      "end_ayah_id": 3391,
+      "end_ayah": "29:51",
+      "ayah_count": 7
+    },
+    {
+      "number": 348,
+      "start_ayah_id": 3392,
+      "start_ayah": "29:52",
+      "end_ayah_id": 3403,
+      "end_ayah": "29:63",
+      "ayah_count": 12
+    },
+    {
+      "number": 349,
+      "start_ayah_id": 3404,
+      "start_ayah": "29:64",
+      "end_ayah_id": 3409,
+      "end_ayah": "29:69",
+      "ayah_count": 6
+    },
+    {
+      "number": 350,
+      "start_ayah_id": 3410,
+      "start_ayah": "30:1",
+      "end_ayah_id": 3419,
+      "end_ayah": "30:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 351,
+      "start_ayah_id": 3420,
+      "start_ayah": "30:11",
+      "end_ayah_id": 3428,
+      "end_ayah": "30:19",
+      "ayah_count": 9
+    },
+    {
+      "number": 352,
+      "start_ayah_id": 3429,
+      "start_ayah": "30:20",
+      "end_ayah_id": 3436,
+      "end_ayah": "30:27",
+      "ayah_count": 8
+    },
+    {
+      "number": 353,
+      "start_ayah_id": 3437,
+      "start_ayah": "30:28",
+      "end_ayah_id": 3449,
+      "end_ayah": "30:40",
+      "ayah_count": 13
+    },
+    {
+      "number": 354,
+      "start_ayah_id": 3450,
+      "start_ayah": "30:41",
+      "end_ayah_id": 3462,
+      "end_ayah": "30:53",
+      "ayah_count": 13
+    },
+    {
+      "number": 355,
+      "start_ayah_id": 3463,
+      "start_ayah": "30:54",
+      "end_ayah_id": 3469,
+      "end_ayah": "30:60",
+      "ayah_count": 7
+    },
+    {
+      "number": 356,
+      "start_ayah_id": 3470,
+      "start_ayah": "31:1",
+      "end_ayah_id": 3480,
+      "end_ayah": "31:11",
+      "ayah_count": 11
+    },
+    {
+      "number": 357,
+      "start_ayah_id": 3481,
+      "start_ayah": "31:12",
+      "end_ayah_id": 3488,
+      "end_ayah": "31:19",
+      "ayah_count": 8
+    },
+    {
+      "number": 358,
+      "start_ayah_id": 3489,
+      "start_ayah": "31:20",
+      "end_ayah_id": 3499,
+      "end_ayah": "31:30",
+      "ayah_count": 11
+    },
+    {
+      "number": 359,
+      "start_ayah_id": 3500,
+      "start_ayah": "31:31",
+      "end_ayah_id": 3503,
+      "end_ayah": "31:34",
+      "ayah_count": 4
+    },
+    {
+      "number": 360,
+      "start_ayah_id": 3504,
+      "start_ayah": "32:1",
+      "end_ayah_id": 3514,
+      "end_ayah": "32:11",
+      "ayah_count": 11
+    },
+    {
+      "number": 361,
+      "start_ayah_id": 3515,
+      "start_ayah": "32:12",
+      "end_ayah_id": 3525,
+      "end_ayah": "32:22",
+      "ayah_count": 11
+    },
+    {
+      "number": 362,
+      "start_ayah_id": 3526,
+      "start_ayah": "32:23",
+      "end_ayah_id": 3533,
+      "end_ayah": "32:30",
+      "ayah_count": 8
+    },
+    {
+      "number": 363,
+      "start_ayah_id": 3534,
+      "start_ayah": "33:1",
+      "end_ayah_id": 3541,
+      "end_ayah": "33:8",
+      "ayah_count": 8
+    },
+    {
+      "number": 364,
+      "start_ayah_id": 3542,
+      "start_ayah": "33:9",
+      "end_ayah_id": 3553,
+      "end_ayah": "33:20",
+      "ayah_count": 12
+    },
+    {
+      "number": 365,
+      "start_ayah_id": 3554,
+      "start_ayah": "33:21",
+      "end_ayah_id": 3560,
+      "end_ayah": "33:27",
+      "ayah_count": 7
+    },
+    {
+      "number": 366,
+      "start_ayah_id": 3561,
+      "start_ayah": "33:28",
+      "end_ayah_id": 3567,
+      "end_ayah": "33:34",
+      "ayah_count": 7
+    },
+    {
+      "number": 367,
+      "start_ayah_id": 3568,
+      "start_ayah": "33:35",
+      "end_ayah_id": 3573,
+      "end_ayah": "33:40",
+      "ayah_count": 6
+    },
+    {
+      "number": 368,
+      "start_ayah_id": 3574,
+      "start_ayah": "33:41",
+      "end_ayah_id": 3585,
+      "end_ayah": "33:52",
+      "ayah_count": 12
+    },
+    {
+      "number": 369,
+      "start_ayah_id": 3586,
+      "start_ayah": "33:53",
+      "end_ayah_id": 3591,
+      "end_ayah": "33:58",
+      "ayah_count": 6
+    },
+    {
+      "number": 370,
+      "start_ayah_id": 3592,
+      "start_ayah": "33:59",
+      "end_ayah_id": 3601,
+      "end_ayah": "33:68",
+      "ayah_count": 10
+    },
+    {
+      "number": 371,
+      "start_ayah_id": 3602,
+      "start_ayah": "33:69",
+      "end_ayah_id": 3606,
+      "end_ayah": "33:73",
+      "ayah_count": 5
+    },
+    {
+      "number": 372,
+      "start_ayah_id": 3607,
+      "start_ayah": "34:1",
+      "end_ayah_id": 3615,
+      "end_ayah": "34:9",
+      "ayah_count": 9
+    },
+    {
+      "number": 373,
+      "start_ayah_id": 3616,
+      "start_ayah": "34:10",
+      "end_ayah_id": 3627,
+      "end_ayah": "34:21",
+      "ayah_count": 12
+    },
+    {
+      "number": 374,
+      "start_ayah_id": 3628,
+      "start_ayah": "34:22",
+      "end_ayah_id": 3636,
+      "end_ayah": "34:30",
+      "ayah_count": 9
+    },
+    {
+      "number": 375,
+      "start_ayah_id": 3637,
+      "start_ayah": "34:31",
+      "end_ayah_id": 3642,
+      "end_ayah": "34:36",
+      "ayah_count": 6
+    },
+    {
+      "number": 376,
+      "start_ayah_id": 3643,
+      "start_ayah": "34:37",
+      "end_ayah_id": 3651,
+      "end_ayah": "34:45",
+      "ayah_count": 9
+    },
+    {
+      "number": 377,
+      "start_ayah_id": 3652,
+      "start_ayah": "34:46",
+      "end_ayah_id": 3660,
+      "end_ayah": "34:54",
+      "ayah_count": 9
+    },
+    {
+      "number": 378,
+      "start_ayah_id": 3661,
+      "start_ayah": "35:1",
+      "end_ayah_id": 3667,
+      "end_ayah": "35:7",
+      "ayah_count": 7
+    },
+    {
+      "number": 379,
+      "start_ayah_id": 3668,
+      "start_ayah": "35:8",
+      "end_ayah_id": 3674,
+      "end_ayah": "35:14",
+      "ayah_count": 7
+    },
+    {
+      "number": 380,
+      "start_ayah_id": 3675,
+      "start_ayah": "35:15",
+      "end_ayah_id": 3686,
+      "end_ayah": "35:26",
+      "ayah_count": 12
+    },
+    {
+      "number": 381,
+      "start_ayah_id": 3687,
+      "start_ayah": "35:27",
+      "end_ayah_id": 3697,
+      "end_ayah": "35:37",
+      "ayah_count": 11
+    },
+    {
+      "number": 382,
+      "start_ayah_id": 3698,
+      "start_ayah": "35:38",
+      "end_ayah_id": 3705,
+      "end_ayah": "35:45",
+      "ayah_count": 8
+    },
+    {
+      "number": 383,
+      "start_ayah_id": 3706,
+      "start_ayah": "36:1",
+      "end_ayah_id": 3717,
+      "end_ayah": "36:12",
+      "ayah_count": 12
+    },
+    {
+      "number": 384,
+      "start_ayah_id": 3718,
+      "start_ayah": "36:13",
+      "end_ayah_id": 3737,
+      "end_ayah": "36:32",
+      "ayah_count": 20
+    },
+    {
+      "number": 385,
+      "start_ayah_id": 3738,
+      "start_ayah": "36:33",
+      "end_ayah_id": 3755,
+      "end_ayah": "36:50",
+      "ayah_count": 18
+    },
+    {
+      "number": 386,
+      "start_ayah_id": 3756,
+      "start_ayah": "36:51",
+      "end_ayah_id": 3772,
+      "end_ayah": "36:67",
+      "ayah_count": 17
+    },
+    {
+      "number": 387,
+      "start_ayah_id": 3773,
+      "start_ayah": "36:68",
+      "end_ayah_id": 3788,
+      "end_ayah": "36:83",
+      "ayah_count": 16
+    },
+    {
+      "number": 388,
+      "start_ayah_id": 3789,
+      "start_ayah": "37:1",
+      "end_ayah_id": 3809,
+      "end_ayah": "37:21",
+      "ayah_count": 21
+    },
+    {
+      "number": 389,
+      "start_ayah_id": 3810,
+      "start_ayah": "37:22",
+      "end_ayah_id": 3862,
+      "end_ayah": "37:74",
+      "ayah_count": 53
+    },
+    {
+      "number": 390,
+      "start_ayah_id": 3863,
+      "start_ayah": "37:75",
+      "end_ayah_id": 3901,
+      "end_ayah": "37:113",
+      "ayah_count": 39
+    },
+    {
+      "number": 391,
+      "start_ayah_id": 3902,
+      "start_ayah": "37:114",
+      "end_ayah_id": 3926,
+      "end_ayah": "37:138",
+      "ayah_count": 25
+    },
+    {
+      "number": 392,
+      "start_ayah_id": 3927,
+      "start_ayah": "37:139",
+      "end_ayah_id": 3970,
+      "end_ayah": "37:182",
+      "ayah_count": 44
+    },
+    {
+      "number": 393,
+      "start_ayah_id": 3971,
+      "start_ayah": "38:1",
+      "end_ayah_id": 3984,
+      "end_ayah": "38:14",
+      "ayah_count": 14
+    },
+    {
+      "number": 394,
+      "start_ayah_id": 3985,
+      "start_ayah": "38:15",
+      "end_ayah_id": 3996,
+      "end_ayah": "38:26",
+      "ayah_count": 12
+    },
+    {
+      "number": 395,
+      "start_ayah_id": 3997,
+      "start_ayah": "38:27",
+      "end_ayah_id": 4010,
+      "end_ayah": "38:40",
+      "ayah_count": 14
+    },
+    {
+      "number": 396,
+      "start_ayah_id": 4011,
+      "start_ayah": "38:41",
+      "end_ayah_id": 4034,
+      "end_ayah": "38:64",
+      "ayah_count": 24
+    },
+    {
+      "number": 397,
+      "start_ayah_id": 4035,
+      "start_ayah": "38:65",
+      "end_ayah_id": 4058,
+      "end_ayah": "38:88",
+      "ayah_count": 24
+    },
+    {
+      "number": 398,
+      "start_ayah_id": 4059,
+      "start_ayah": "39:1",
+      "end_ayah_id": 4067,
+      "end_ayah": "39:9",
+      "ayah_count": 9
+    },
+    {
+      "number": 399,
+      "start_ayah_id": 4068,
+      "start_ayah": "39:10",
+      "end_ayah_id": 4079,
+      "end_ayah": "39:21",
+      "ayah_count": 12
+    },
+    {
+      "number": 400,
+      "start_ayah_id": 4080,
+      "start_ayah": "39:22",
+      "end_ayah_id": 4089,
+      "end_ayah": "39:31",
+      "ayah_count": 10
+    },
+    {
+      "number": 401,
+      "start_ayah_id": 4090,
+      "start_ayah": "39:32",
+      "end_ayah_id": 4099,
+      "end_ayah": "39:41",
+      "ayah_count": 10
+    },
+    {
+      "number": 402,
+      "start_ayah_id": 4100,
+      "start_ayah": "39:42",
+      "end_ayah_id": 4110,
+      "end_ayah": "39:52",
+      "ayah_count": 11
+    },
+    {
+      "number": 403,
+      "start_ayah_id": 4111,
+      "start_ayah": "39:53",
+      "end_ayah_id": 4121,
+      "end_ayah": "39:63",
+      "ayah_count": 11
+    },
+    {
+      "number": 404,
+      "start_ayah_id": 4122,
+      "start_ayah": "39:64",
+      "end_ayah_id": 4128,
+      "end_ayah": "39:70",
+      "ayah_count": 7
+    },
+    {
+      "number": 405,
+      "start_ayah_id": 4129,
+      "start_ayah": "39:71",
+      "end_ayah_id": 4133,
+      "end_ayah": "39:75",
+      "ayah_count": 5
+    },
+    {
+      "number": 406,
+      "start_ayah_id": 4134,
+      "start_ayah": "40:1",
+      "end_ayah_id": 4142,
+      "end_ayah": "40:9",
+      "ayah_count": 9
+    },
+    {
+      "number": 407,
+      "start_ayah_id": 4143,
+      "start_ayah": "40:10",
+      "end_ayah_id": 4153,
+      "end_ayah": "40:20",
+      "ayah_count": 11
+    },
+    {
+      "number": 408,
+      "start_ayah_id": 4154,
+      "start_ayah": "40:21",
+      "end_ayah_id": 4160,
+      "end_ayah": "40:27",
+      "ayah_count": 7
+    },
+    {
+      "number": 409,
+      "start_ayah_id": 4161,
+      "start_ayah": "40:28",
+      "end_ayah_id": 4170,
+      "end_ayah": "40:37",
+      "ayah_count": 10
+    },
+    {
+      "number": 410,
+      "start_ayah_id": 4171,
+      "start_ayah": "40:38",
+      "end_ayah_id": 4183,
+      "end_ayah": "40:50",
+      "ayah_count": 13
+    },
+    {
+      "number": 411,
+      "start_ayah_id": 4184,
+      "start_ayah": "40:51",
+      "end_ayah_id": 4193,
+      "end_ayah": "40:60",
+      "ayah_count": 10
+    },
+    {
+      "number": 412,
+      "start_ayah_id": 4194,
+      "start_ayah": "40:61",
+      "end_ayah_id": 4201,
+      "end_ayah": "40:68",
+      "ayah_count": 8
+    },
+    {
+      "number": 413,
+      "start_ayah_id": 4202,
+      "start_ayah": "40:69",
+      "end_ayah_id": 4211,
+      "end_ayah": "40:78",
+      "ayah_count": 10
+    },
+    {
+      "number": 414,
+      "start_ayah_id": 4212,
+      "start_ayah": "40:79",
+      "end_ayah_id": 4218,
+      "end_ayah": "40:85",
+      "ayah_count": 7
+    },
+    {
+      "number": 415,
+      "start_ayah_id": 4219,
+      "start_ayah": "41:1",
+      "end_ayah_id": 4226,
+      "end_ayah": "41:8",
+      "ayah_count": 8
+    },
+    {
+      "number": 416,
+      "start_ayah_id": 4227,
+      "start_ayah": "41:9",
+      "end_ayah_id": 4236,
+      "end_ayah": "41:18",
+      "ayah_count": 10
+    },
+    {
+      "number": 417,
+      "start_ayah_id": 4237,
+      "start_ayah": "41:19",
+      "end_ayah_id": 4243,
+      "end_ayah": "41:25",
+      "ayah_count": 7
+    },
+    {
+      "number": 418,
+      "start_ayah_id": 4244,
+      "start_ayah": "41:26",
+      "end_ayah_id": 4250,
+      "end_ayah": "41:32",
+      "ayah_count": 7
+    },
+    {
+      "number": 419,
+      "start_ayah_id": 4251,
+      "start_ayah": "41:33",
+      "end_ayah_id": 4262,
+      "end_ayah": "41:44",
+      "ayah_count": 12
+    },
+    {
+      "number": 420,
+      "start_ayah_id": 4263,
+      "start_ayah": "41:45",
+      "end_ayah_id": 4272,
+      "end_ayah": "41:54",
+      "ayah_count": 10
+    },
+    {
+      "number": 421,
+      "start_ayah_id": 4273,
+      "start_ayah": "42:1",
+      "end_ayah_id": 4281,
+      "end_ayah": "42:9",
+      "ayah_count": 9
+    },
+    {
+      "number": 422,
+      "start_ayah_id": 4282,
+      "start_ayah": "42:10",
+      "end_ayah_id": 4291,
+      "end_ayah": "42:19",
+      "ayah_count": 10
+    },
+    {
+      "number": 423,
+      "start_ayah_id": 4292,
+      "start_ayah": "42:20",
+      "end_ayah_id": 4301,
+      "end_ayah": "42:29",
+      "ayah_count": 10
+    },
+    {
+      "number": 424,
+      "start_ayah_id": 4302,
+      "start_ayah": "42:30",
+      "end_ayah_id": 4315,
+      "end_ayah": "42:43",
+      "ayah_count": 14
+    },
+    {
+      "number": 425,
+      "start_ayah_id": 4316,
+      "start_ayah": "42:44",
+      "end_ayah_id": 4325,
+      "end_ayah": "42:53",
+      "ayah_count": 10
+    },
+    {
+      "number": 426,
+      "start_ayah_id": 4326,
+      "start_ayah": "43:1",
+      "end_ayah_id": 4340,
+      "end_ayah": "43:15",
+      "ayah_count": 15
+    },
+    {
+      "number": 427,
+      "start_ayah_id": 4341,
+      "start_ayah": "43:16",
+      "end_ayah_id": 4350,
+      "end_ayah": "43:25",
+      "ayah_count": 10
+    },
+    {
+      "number": 428,
+      "start_ayah_id": 4351,
+      "start_ayah": "43:26",
+      "end_ayah_id": 4360,
+      "end_ayah": "43:35",
+      "ayah_count": 10
+    },
+    {
+      "number": 429,
+      "start_ayah_id": 4361,
+      "start_ayah": "43:36",
+      "end_ayah_id": 4370,
+      "end_ayah": "43:45",
+      "ayah_count": 10
+    },
+    {
+      "number": 430,
+      "start_ayah_id": 4371,
+      "start_ayah": "43:46",
+      "end_ayah_id": 4381,
+      "end_ayah": "43:56",
+      "ayah_count": 11
+    },
+    {
+      "number": 431,
+      "start_ayah_id": 4382,
+      "start_ayah": "43:57",
+      "end_ayah_id": 4392,
+      "end_ayah": "43:67",
+      "ayah_count": 11
+    },
+    {
+      "number": 432,
+      "start_ayah_id": 4393,
+      "start_ayah": "43:68",
+      "end_ayah_id": 4414,
+      "end_ayah": "43:89",
+      "ayah_count": 22
+    },
+    {
+      "number": 433,
+      "start_ayah_id": 4415,
+      "start_ayah": "44:1",
+      "end_ayah_id": 4443,
+      "end_ayah": "44:29",
+      "ayah_count": 29
+    },
+    {
+      "number": 434,
+      "start_ayah_id": 4444,
+      "start_ayah": "44:30",
+      "end_ayah_id": 4456,
+      "end_ayah": "44:42",
+      "ayah_count": 13
+    },
+    {
+      "number": 435,
+      "start_ayah_id": 4457,
+      "start_ayah": "44:43",
+      "end_ayah_id": 4473,
+      "end_ayah": "44:59",
+      "ayah_count": 17
+    },
+    {
+      "number": 436,
+      "start_ayah_id": 4474,
+      "start_ayah": "45:1",
+      "end_ayah_id": 4484,
+      "end_ayah": "45:11",
+      "ayah_count": 11
+    },
+    {
+      "number": 437,
+      "start_ayah_id": 4485,
+      "start_ayah": "45:12",
+      "end_ayah_id": 4494,
+      "end_ayah": "45:21",
+      "ayah_count": 10
+    },
+    {
+      "number": 438,
+      "start_ayah_id": 4495,
+      "start_ayah": "45:22",
+      "end_ayah_id": 4499,
+      "end_ayah": "45:26",
+      "ayah_count": 5
+    },
+    {
+      "number": 439,
+      "start_ayah_id": 4500,
+      "start_ayah": "45:27",
+      "end_ayah_id": 4510,
+      "end_ayah": "45:37",
+      "ayah_count": 11
+    },
+    {
+      "number": 440,
+      "start_ayah_id": 4511,
+      "start_ayah": "46:1",
+      "end_ayah_id": 4520,
+      "end_ayah": "46:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 441,
+      "start_ayah_id": 4521,
+      "start_ayah": "46:11",
+      "end_ayah_id": 4530,
+      "end_ayah": "46:20",
+      "ayah_count": 10
+    },
+    {
+      "number": 442,
+      "start_ayah_id": 4531,
+      "start_ayah": "46:21",
+      "end_ayah_id": 4536,
+      "end_ayah": "46:26",
+      "ayah_count": 6
+    },
+    {
+      "number": 443,
+      "start_ayah_id": 4537,
+      "start_ayah": "46:27",
+      "end_ayah_id": 4545,
+      "end_ayah": "46:35",
+      "ayah_count": 9
+    },
+    {
+      "number": 444,
+      "start_ayah_id": 4546,
+      "start_ayah": "47:1",
+      "end_ayah_id": 4556,
+      "end_ayah": "47:11",
+      "ayah_count": 11
+    },
+    {
+      "number": 445,
+      "start_ayah_id": 4557,
+      "start_ayah": "47:12",
+      "end_ayah_id": 4564,
+      "end_ayah": "47:19",
+      "ayah_count": 8
+    },
+    {
+      "number": 446,
+      "start_ayah_id": 4565,
+      "start_ayah": "47:20",
+      "end_ayah_id": 4573,
+      "end_ayah": "47:28",
+      "ayah_count": 9
+    },
+    {
+      "number": 447,
+      "start_ayah_id": 4574,
+      "start_ayah": "47:29",
+      "end_ayah_id": 4583,
+      "end_ayah": "47:38",
+      "ayah_count": 10
+    },
+    {
+      "number": 448,
+      "start_ayah_id": 4584,
+      "start_ayah": "48:1",
+      "end_ayah_id": 4593,
+      "end_ayah": "48:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 449,
+      "start_ayah_id": 4594,
+      "start_ayah": "48:11",
+      "end_ayah_id": 4600,
+      "end_ayah": "48:17",
+      "ayah_count": 7
+    },
+    {
+      "number": 450,
+      "start_ayah_id": 4601,
+      "start_ayah": "48:18",
+      "end_ayah_id": 4609,
+      "end_ayah": "48:26",
+      "ayah_count": 9
+    },
+    {
+      "number": 451,
+      "start_ayah_id": 4610,
+      "start_ayah": "48:27",
+      "end_ayah_id": 4612,
+      "end_ayah": "48:29",
+      "ayah_count": 3
+    },
+    {
+      "number": 452,
+      "start_ayah_id": 4613,
+      "start_ayah": "49:1",
+      "end_ayah_id": 4622,
+      "end_ayah": "49:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 453,
+      "start_ayah_id": 4623,
+      "start_ayah": "49:11",
+      "end_ayah_id": 4630,
+      "end_ayah": "49:18",
+      "ayah_count": 8
+    },
+    {
+      "number": 454,
+      "start_ayah_id": 4631,
+      "start_ayah": "50:1",
+      "end_ayah_id": 4645,
+      "end_ayah": "50:15",
+      "ayah_count": 15
+    },
+    {
+      "number": 455,
+      "start_ayah_id": 4646,
+      "start_ayah": "50:16",
+      "end_ayah_id": 4659,
+      "end_ayah": "50:29",
+      "ayah_count": 14
+    },
+    {
+      "number": 456,
+      "start_ayah_id": 4660,
+      "start_ayah": "50:30",
+      "end_ayah_id": 4675,
+      "end_ayah": "50:45",
+      "ayah_count": 16
+    },
+    {
+      "number": 457,
+      "start_ayah_id": 4676,
+      "start_ayah": "51:1",
+      "end_ayah_id": 4698,
+      "end_ayah": "51:23",
+      "ayah_count": 23
+    },
+    {
+      "number": 458,
+      "start_ayah_id": 4699,
+      "start_ayah": "51:24",
+      "end_ayah_id": 4721,
+      "end_ayah": "51:46",
+      "ayah_count": 23
+    },
+    {
+      "number": 459,
+      "start_ayah_id": 4722,
+      "start_ayah": "51:47",
+      "end_ayah_id": 4735,
+      "end_ayah": "51:60",
+      "ayah_count": 14
+    },
+    {
+      "number": 460,
+      "start_ayah_id": 4736,
+      "start_ayah": "52:1",
+      "end_ayah_id": 4763,
+      "end_ayah": "52:28",
+      "ayah_count": 28
+    },
+    {
+      "number": 461,
+      "start_ayah_id": 4764,
+      "start_ayah": "52:29",
+      "end_ayah_id": 4784,
+      "end_ayah": "52:49",
+      "ayah_count": 21
+    },
+    {
+      "number": 462,
+      "start_ayah_id": 4785,
+      "start_ayah": "53:1",
+      "end_ayah_id": 4809,
+      "end_ayah": "53:25",
+      "ayah_count": 25
+    },
+    {
+      "number": 463,
+      "start_ayah_id": 4810,
+      "start_ayah": "53:26",
+      "end_ayah_id": 4816,
+      "end_ayah": "53:32",
+      "ayah_count": 7
+    },
+    {
+      "number": 464,
+      "start_ayah_id": 4817,
+      "start_ayah": "53:33",
+      "end_ayah_id": 4846,
+      "end_ayah": "53:62",
+      "ayah_count": 30
+    },
+    {
+      "number": 465,
+      "start_ayah_id": 4847,
+      "start_ayah": "54:1",
+      "end_ayah_id": 4868,
+      "end_ayah": "54:22",
+      "ayah_count": 22
+    },
+    {
+      "number": 466,
+      "start_ayah_id": 4869,
+      "start_ayah": "54:23",
+      "end_ayah_id": 4886,
+      "end_ayah": "54:40",
+      "ayah_count": 18
+    },
+    {
+      "number": 467,
+      "start_ayah_id": 4887,
+      "start_ayah": "54:41",
+      "end_ayah_id": 4901,
+      "end_ayah": "54:55",
+      "ayah_count": 15
+    },
+    {
+      "number": 468,
+      "start_ayah_id": 4902,
+      "start_ayah": "55:1",
+      "end_ayah_id": 4926,
+      "end_ayah": "55:25",
+      "ayah_count": 25
+    },
+    {
+      "number": 469,
+      "start_ayah_id": 4927,
+      "start_ayah": "55:26",
+      "end_ayah_id": 4946,
+      "end_ayah": "55:45",
+      "ayah_count": 20
+    },
+    {
+      "number": 470,
+      "start_ayah_id": 4947,
+      "start_ayah": "55:46",
+      "end_ayah_id": 4979,
+      "end_ayah": "55:78",
+      "ayah_count": 33
+    },
+    {
+      "number": 471,
+      "start_ayah_id": 4980,
+      "start_ayah": "56:1",
+      "end_ayah_id": 5017,
+      "end_ayah": "56:38",
+      "ayah_count": 38
+    },
+    {
+      "number": 472,
+      "start_ayah_id": 5018,
+      "start_ayah": "56:39",
+      "end_ayah_id": 5053,
+      "end_ayah": "56:74",
+      "ayah_count": 36
+    },
+    {
+      "number": 473,
+      "start_ayah_id": 5054,
+      "start_ayah": "56:75",
+      "end_ayah_id": 5075,
+      "end_ayah": "56:96",
+      "ayah_count": 22
+    },
+    {
+      "number": 474,
+      "start_ayah_id": 5076,
+      "start_ayah": "57:1",
+      "end_ayah_id": 5085,
+      "end_ayah": "57:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 475,
+      "start_ayah_id": 5086,
+      "start_ayah": "57:11",
+      "end_ayah_id": 5094,
+      "end_ayah": "57:19",
+      "ayah_count": 9
+    },
+    {
+      "number": 476,
+      "start_ayah_id": 5095,
+      "start_ayah": "57:20",
+      "end_ayah_id": 5100,
+      "end_ayah": "57:25",
+      "ayah_count": 6
+    },
+    {
+      "number": 477,
+      "start_ayah_id": 5101,
+      "start_ayah": "57:26",
+      "end_ayah_id": 5104,
+      "end_ayah": "57:29",
+      "ayah_count": 4
+    },
+    {
+      "number": 478,
+      "start_ayah_id": 5105,
+      "start_ayah": "58:1",
+      "end_ayah_id": 5110,
+      "end_ayah": "58:6",
+      "ayah_count": 6
+    },
+    {
+      "number": 479,
+      "start_ayah_id": 5111,
+      "start_ayah": "58:7",
+      "end_ayah_id": 5117,
+      "end_ayah": "58:13",
+      "ayah_count": 7
+    },
+    {
+      "number": 480,
+      "start_ayah_id": 5118,
+      "start_ayah": "58:14",
+      "end_ayah_id": 5126,
+      "end_ayah": "58:22",
+      "ayah_count": 9
+    },
+    {
+      "number": 481,
+      "start_ayah_id": 5127,
+      "start_ayah": "59:1",
+      "end_ayah_id": 5136,
+      "end_ayah": "59:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 482,
+      "start_ayah_id": 5137,
+      "start_ayah": "59:11",
+      "end_ayah_id": 5143,
+      "end_ayah": "59:17",
+      "ayah_count": 7
+    },
+    {
+      "number": 483,
+      "start_ayah_id": 5144,
+      "start_ayah": "59:18",
+      "end_ayah_id": 5150,
+      "end_ayah": "59:24",
+      "ayah_count": 7
+    },
+    {
+      "number": 484,
+      "start_ayah_id": 5151,
+      "start_ayah": "60:1",
+      "end_ayah_id": 5156,
+      "end_ayah": "60:6",
+      "ayah_count": 6
+    },
+    {
+      "number": 485,
+      "start_ayah_id": 5157,
+      "start_ayah": "60:7",
+      "end_ayah_id": 5163,
+      "end_ayah": "60:13",
+      "ayah_count": 7
+    },
+    {
+      "number": 486,
+      "start_ayah_id": 5164,
+      "start_ayah": "61:1",
+      "end_ayah_id": 5172,
+      "end_ayah": "61:9",
+      "ayah_count": 9
+    },
+    {
+      "number": 487,
+      "start_ayah_id": 5173,
+      "start_ayah": "61:10",
+      "end_ayah_id": 5177,
+      "end_ayah": "61:14",
+      "ayah_count": 5
+    },
+    {
+      "number": 488,
+      "start_ayah_id": 5178,
+      "start_ayah": "62:1",
+      "end_ayah_id": 5185,
+      "end_ayah": "62:8",
+      "ayah_count": 8
+    },
+    {
+      "number": 489,
+      "start_ayah_id": 5186,
+      "start_ayah": "62:9",
+      "end_ayah_id": 5188,
+      "end_ayah": "62:11",
+      "ayah_count": 3
+    },
+    {
+      "number": 490,
+      "start_ayah_id": 5189,
+      "start_ayah": "63:1",
+      "end_ayah_id": 5196,
+      "end_ayah": "63:8",
+      "ayah_count": 8
+    },
+    {
+      "number": 491,
+      "start_ayah_id": 5197,
+      "start_ayah": "63:9",
+      "end_ayah_id": 5199,
+      "end_ayah": "63:11",
+      "ayah_count": 3
+    },
+    {
+      "number": 492,
+      "start_ayah_id": 5200,
+      "start_ayah": "64:1",
+      "end_ayah_id": 5209,
+      "end_ayah": "64:10",
+      "ayah_count": 10
+    },
+    {
+      "number": 493,
+      "start_ayah_id": 5210,
+      "start_ayah": "64:11",
+      "end_ayah_id": 5217,
+      "end_ayah": "64:18",
+      "ayah_count": 8
+    },
+    {
+      "number": 494,
+      "start_ayah_id": 5218,
+      "start_ayah": "65:1",
+      "end_ayah_id": 5224,
+      "end_ayah": "65:7",
+      "ayah_count": 7
+    },
+    {
+      "number": 495,
+      "start_ayah_id": 5225,
+      "start_ayah": "65:8",
+      "end_ayah_id": 5229,
+      "end_ayah": "65:12",
+      "ayah_count": 5
+    },
+    {
+      "number": 496,
+      "start_ayah_id": 5230,
+      "start_ayah": "66:1",
+      "end_ayah_id": 5236,
+      "end_ayah": "66:7",
+      "ayah_count": 7
+    },
+    {
+      "number": 497,
+      "start_ayah_id": 5237,
+      "start_ayah": "66:8",
+      "end_ayah_id": 5241,
+      "end_ayah": "66:12",
+      "ayah_count": 5
+    },
+    {
+      "number": 498,
+      "start_ayah_id": 5242,
+      "start_ayah": "67:1",
+      "end_ayah_id": 5255,
+      "end_ayah": "67:14",
+      "ayah_count": 14
+    },
+    {
+      "number": 499,
+      "start_ayah_id": 5256,
+      "start_ayah": "67:15",
+      "end_ayah_id": 5271,
+      "end_ayah": "67:30",
+      "ayah_count": 16
+    },
+    {
+      "number": 500,
+      "start_ayah_id": 5272,
+      "start_ayah": "68:1",
+      "end_ayah_id": 5304,
+      "end_ayah": "68:33",
+      "ayah_count": 33
+    },
+    {
+      "number": 501,
+      "start_ayah_id": 5305,
+      "start_ayah": "68:34",
+      "end_ayah_id": 5323,
+      "end_ayah": "68:52",
+      "ayah_count": 19
+    },
+    {
+      "number": 502,
+      "start_ayah_id": 5324,
+      "start_ayah": "69:1",
+      "end_ayah_id": 5360,
+      "end_ayah": "69:37",
+      "ayah_count": 37
+    },
+    {
+      "number": 503,
+      "start_ayah_id": 5361,
+      "start_ayah": "69:38",
+      "end_ayah_id": 5375,
+      "end_ayah": "69:52",
+      "ayah_count": 15
+    },
+    {
+      "number": 504,
+      "start_ayah_id": 5376,
+      "start_ayah": "70:1",
+      "end_ayah_id": 5410,
+      "end_ayah": "70:35",
+      "ayah_count": 35
+    },
+    {
+      "number": 505,
+      "start_ayah_id": 5411,
+      "start_ayah": "70:36",
+      "end_ayah_id": 5419,
+      "end_ayah": "70:44",
+      "ayah_count": 9
+    },
+    {
+      "number": 506,
+      "start_ayah_id": 5420,
+      "start_ayah": "71:1",
+      "end_ayah_id": 5439,
+      "end_ayah": "71:20",
+      "ayah_count": 20
+    },
+    {
+      "number": 507,
+      "start_ayah_id": 5440,
+      "start_ayah": "71:21",
+      "end_ayah_id": 5447,
+      "end_ayah": "71:28",
+      "ayah_count": 8
+    },
+    {
+      "number": 508,
+      "start_ayah_id": 5448,
+      "start_ayah": "72:1",
+      "end_ayah_id": 5466,
+      "end_ayah": "72:19",
+      "ayah_count": 19
+    },
+    {
+      "number": 509,
+      "start_ayah_id": 5467,
+      "start_ayah": "72:20",
+      "end_ayah_id": 5475,
+      "end_ayah": "72:28",
+      "ayah_count": 9
+    },
+    {
+      "number": 510,
+      "start_ayah_id": 5476,
+      "start_ayah": "73:1",
+      "end_ayah_id": 5494,
+      "end_ayah": "73:19",
+      "ayah_count": 19
+    },
+    {
+      "number": 511,
+      "start_ayah_id": 5495,
+      "start_ayah": "73:20",
+      "end_ayah_id": 5495,
+      "end_ayah": "73:20",
+      "ayah_count": 1
+    },
+    {
+      "number": 512,
+      "start_ayah_id": 5496,
+      "start_ayah": "74:1",
+      "end_ayah_id": 5526,
+      "end_ayah": "74:31",
+      "ayah_count": 31
+    },
+    {
+      "number": 513,
+      "start_ayah_id": 5527,
+      "start_ayah": "74:32",
+      "end_ayah_id": 5551,
+      "end_ayah": "74:56",
+      "ayah_count": 25
+    },
+    {
+      "number": 514,
+      "start_ayah_id": 5552,
+      "start_ayah": "75:1",
+      "end_ayah_id": 5581,
+      "end_ayah": "75:30",
+      "ayah_count": 30
+    },
+    {
+      "number": 515,
+      "start_ayah_id": 5582,
+      "start_ayah": "75:31",
+      "end_ayah_id": 5591,
+      "end_ayah": "75:40",
+      "ayah_count": 10
+    },
+    {
+      "number": 516,
+      "start_ayah_id": 5592,
+      "start_ayah": "76:1",
+      "end_ayah_id": 5613,
+      "end_ayah": "76:22",
+      "ayah_count": 22
+    },
+    {
+      "number": 517,
+      "start_ayah_id": 5614,
+      "start_ayah": "76:23",
+      "end_ayah_id": 5622,
+      "end_ayah": "76:31",
+      "ayah_count": 9
+    },
+    {
+      "number": 518,
+      "start_ayah_id": 5623,
+      "start_ayah": "77:1",
+      "end_ayah_id": 5662,
+      "end_ayah": "77:40",
+      "ayah_count": 40
+    },
+    {
+      "number": 519,
+      "start_ayah_id": 5663,
+      "start_ayah": "77:41",
+      "end_ayah_id": 5672,
+      "end_ayah": "77:50",
+      "ayah_count": 10
+    },
+    {
+      "number": 520,
+      "start_ayah_id": 5673,
+      "start_ayah": "78:1",
+      "end_ayah_id": 5702,
+      "end_ayah": "78:30",
+      "ayah_count": 30
+    },
+    {
+      "number": 521,
+      "start_ayah_id": 5703,
+      "start_ayah": "78:31",
+      "end_ayah_id": 5712,
+      "end_ayah": "78:40",
+      "ayah_count": 10
+    },
+    {
+      "number": 522,
+      "start_ayah_id": 5713,
+      "start_ayah": "79:1",
+      "end_ayah_id": 5738,
+      "end_ayah": "79:26",
+      "ayah_count": 26
+    },
+    {
+      "number": 523,
+      "start_ayah_id": 5739,
+      "start_ayah": "79:27",
+      "end_ayah_id": 5758,
+      "end_ayah": "79:46",
+      "ayah_count": 20
+    },
+    {
+      "number": 524,
+      "start_ayah_id": 5759,
+      "start_ayah": "80:1",
+      "end_ayah_id": 5800,
+      "end_ayah": "80:42",
+      "ayah_count": 42
+    },
+    {
+      "number": 525,
+      "start_ayah_id": 5801,
+      "start_ayah": "81:1",
+      "end_ayah_id": 5829,
+      "end_ayah": "81:29",
+      "ayah_count": 29
+    },
+    {
+      "number": 526,
+      "start_ayah_id": 5830,
+      "start_ayah": "82:1",
+      "end_ayah_id": 5848,
+      "end_ayah": "82:19",
+      "ayah_count": 19
+    },
+    {
+      "number": 527,
+      "start_ayah_id": 5849,
+      "start_ayah": "83:1",
+      "end_ayah_id": 5884,
+      "end_ayah": "83:36",
+      "ayah_count": 36
+    },
+    {
+      "number": 528,
+      "start_ayah_id": 5885,
+      "start_ayah": "84:1",
+      "end_ayah_id": 5909,
+      "end_ayah": "84:25",
+      "ayah_count": 25
+    },
+    {
+      "number": 529,
+      "start_ayah_id": 5910,
+      "start_ayah": "85:1",
+      "end_ayah_id": 5931,
+      "end_ayah": "85:22",
+      "ayah_count": 22
+    },
+    {
+      "number": 530,
+      "start_ayah_id": 5932,
+      "start_ayah": "86:1",
+      "end_ayah_id": 5948,
+      "end_ayah": "86:17",
+      "ayah_count": 17
+    },
+    {
+      "number": 531,
+      "start_ayah_id": 5949,
+      "start_ayah": "87:1",
+      "end_ayah_id": 5967,
+      "end_ayah": "87:19",
+      "ayah_count": 19
+    },
+    {
+      "number": 532,
+      "start_ayah_id": 5968,
+      "start_ayah": "88:1",
+      "end_ayah_id": 5993,
+      "end_ayah": "88:26",
+      "ayah_count": 26
+    },
+    {
+      "number": 533,
+      "start_ayah_id": 5994,
+      "start_ayah": "89:1",
+      "end_ayah_id": 6023,
+      "end_ayah": "89:30",
+      "ayah_count": 30
+    },
+    {
+      "number": 534,
+      "start_ayah_id": 6024,
+      "start_ayah": "90:1",
+      "end_ayah_id": 6043,
+      "end_ayah": "90:20",
+      "ayah_count": 20
+    },
+    {
+      "number": 535,
+      "start_ayah_id": 6044,
+      "start_ayah": "91:1",
+      "end_ayah_id": 6058,
+      "end_ayah": "91:15",
+      "ayah_count": 15
+    },
+    {
+      "number": 536,
+      "start_ayah_id": 6059,
+      "start_ayah": "92:1",
+      "end_ayah_id": 6079,
+      "end_ayah": "92:21",
+      "ayah_count": 21
+    },
+    {
+      "number": 537,
+      "start_ayah_id": 6080,
+      "start_ayah": "93:1",
+      "end_ayah_id": 6090,
+      "end_ayah": "93:11",
+      "ayah_count": 11
+    },
+    {
+      "number": 538,
+      "start_ayah_id": 6091,
+      "start_ayah": "94:1",
+      "end_ayah_id": 6098,
+      "end_ayah": "94:8",
+      "ayah_count": 8
+    },
+    {
+      "number": 539,
+      "start_ayah_id": 6099,
+      "start_ayah": "95:1",
+      "end_ayah_id": 6106,
+      "end_ayah": "95:8",
+      "ayah_count": 8
+    },
+    {
+      "number": 540,
+      "start_ayah_id": 6107,
+      "start_ayah": "96:1",
+      "end_ayah_id": 6125,
+      "end_ayah": "96:19",
+      "ayah_count": 19
+    },
+    {
+      "number": 541,
+      "start_ayah_id": 6126,
+      "start_ayah": "97:1",
+      "end_ayah_id": 6130,
+      "end_ayah": "97:5",
+      "ayah_count": 5
+    },
+    {
+      "number": 542,
+      "start_ayah_id": 6131,
+      "start_ayah": "98:1",
+      "end_ayah_id": 6138,
+      "end_ayah": "98:8",
+      "ayah_count": 8
+    },
+    {
+      "number": 543,
+      "start_ayah_id": 6139,
+      "start_ayah": "99:1",
+      "end_ayah_id": 6146,
+      "end_ayah": "99:8",
+      "ayah_count": 8
+    },
+    {
+      "number": 544,
+      "start_ayah_id": 6147,
+      "start_ayah": "100:1",
+      "end_ayah_id": 6157,
+      "end_ayah": "100:11",
+      "ayah_count": 11
+    },
+    {
+      "number": 545,
+      "start_ayah_id": 6158,
+      "start_ayah": "101:1",
+      "end_ayah_id": 6168,
+      "end_ayah": "101:11",
+      "ayah_count": 11
+    },
+    {
+      "number": 546,
+      "start_ayah_id": 6169,
+      "start_ayah": "102:1",
+      "end_ayah_id": 6176,
+      "end_ayah": "102:8",
+      "ayah_count": 8
+    },
+    {
+      "number": 547,
+      "start_ayah_id": 6177,
+      "start_ayah": "103:1",
+      "end_ayah_id": 6179,
+      "end_ayah": "103:3",
+      "ayah_count": 3
+    },
+    {
+      "number": 548,
+      "start_ayah_id": 6180,
+      "start_ayah": "104:1",
+      "end_ayah_id": 6188,
+      "end_ayah": "104:9",
+      "ayah_count": 9
+    },
+    {
+      "number": 549,
+      "start_ayah_id": 6189,
+      "start_ayah": "105:1",
+      "end_ayah_id": 6193,
+      "end_ayah": "105:5",
+      "ayah_count": 5
+    },
+    {
+      "number": 550,
+      "start_ayah_id": 6194,
+      "start_ayah": "106:1",
+      "end_ayah_id": 6197,
+      "end_ayah": "106:4",
+      "ayah_count": 4
+    },
+    {
+      "number": 551,
+      "start_ayah_id": 6198,
+      "start_ayah": "107:1",
+      "end_ayah_id": 6204,
+      "end_ayah": "107:7",
+      "ayah_count": 7
+    },
+    {
+      "number": 552,
+      "start_ayah_id": 6205,
+      "start_ayah": "108:1",
+      "end_ayah_id": 6207,
+      "end_ayah": "108:3",
+      "ayah_count": 3
+    },
+    {
+      "number": 553,
+      "start_ayah_id": 6208,
+      "start_ayah": "109:1",
+      "end_ayah_id": 6213,
+      "end_ayah": "109:6",
+      "ayah_count": 6
+    },
+    {
+      "number": 554,
+      "start_ayah_id": 6214,
+      "start_ayah": "110:1",
+      "end_ayah_id": 6216,
+      "end_ayah": "110:3",
+      "ayah_count": 3
+    },
+    {
+      "number": 555,
+      "start_ayah_id": 6217,
+      "start_ayah": "111:1",
+      "end_ayah_id": 6221,
+      "end_ayah": "111:5",
+      "ayah_count": 5
+    },
+    {
+      "number": 556,
+      "start_ayah_id": 6222,
+      "start_ayah": "112:1",
+      "end_ayah_id": 6225,
+      "end_ayah": "112:4",
+      "ayah_count": 4
+    },
+    {
+      "number": 557,
+      "start_ayah_id": 6226,
+      "start_ayah": "113:1",
+      "end_ayah_id": 6230,
+      "end_ayah": "113:5",
+      "ayah_count": 5
+    },
+    {
+      "number": 558,
+      "start_ayah_id": 6231,
+      "start_ayah": "114:1",
+      "end_ayah_id": 6236,
+      "end_ayah": "114:6",
+      "ayah_count": 6
+    }
+  ]
+}

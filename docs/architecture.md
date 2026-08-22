@@ -48,6 +48,9 @@ rather than assumed to be byte-for-byte or DDL-equivalent.
 | `scripts/export_schema.py` | Regenerates those references |
 | `manifest/quran-arabic.manifest.json` | Verse-level SHA-256 hashes of the Arabic text |
 | `scripts/checksum_text.py` | Generates and verifies that manifest |
+| `data/rukus.json` | Supplemental Ruku boundary dataset (Quran Foundation convention) |
+| `data/README.md` | Format, provenance, and licensing notes for supplemental datasets |
+| `scripts/export_rukus.py` | Fetches and regenerates `data/rukus.json` |
 | `tests/` | Unit tests for the converters and the checksum tooling |
 | `docs/` | Design and operational documentation |
 | `output/` | Ignored location reserved for generated output |
