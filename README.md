@@ -430,3 +430,6 @@ Ported or built something? Open an issue and we'll list it.
 The code and packaging in this repository are [MIT licensed](LICENSE). The Quran
 text is in the public domain; individual translations remain under the terms set
 by their translators and publishers — see [`docs/provenance.md`](docs/provenance.md).
+`data/rukus.json` is derived from Quran Foundation API metadata and is subject to
+their [developer terms](https://api-docs.quran.foundation/legal/developer-terms/),
+not the MIT license — see [`data/README.md`](data/README.md).

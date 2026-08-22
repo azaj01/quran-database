@@ -31,12 +31,16 @@ all 6,236 ayahs by the Quran.com API v4 `by_page` endpoint. The ignored source
 file is a JSON object with one ordered `verses` array containing `id`,
 `verse_key`, and `ruku_number` for every ayah.
 
-Regenerate the tracked file from that saved response with:
+Download that response (604 requests) and regenerate the tracked file with:
 
 ```sh
-python3 scripts/export_rukus.py \
-  --source output/quran-foundation-verses-by-page.json
+python3 scripts/export_rukus.py --fetch
 ```
+
+Omit `--fetch` to reuse an existing `output/quran-foundation-verses-by-page.json`.
+`meta.retrieved` defaults to the source file's modification date; pass
+`--retrieved YYYY-MM-DD` to set it explicitly. Every `verse_key` is checked
+against `manifest/quran-arabic.manifest.json`.
 
 The [field reference][fields] documents `ruku_number`. The current
 [Quran Foundation developer terms][qf-terms] define returned metadata as Quran

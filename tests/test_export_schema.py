@@ -1,28 +1,16 @@
 from __future__ import annotations
 
-import importlib.util
 import sqlite3
-import types
 import unittest
 from pathlib import Path
+
+from tests import load_script
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_TABLES = {"surahs", "ayahs", "editions", "ayah_edition", "juzs", "hizbs"}
 EXPECTED_VIEWS = {"surah_stats", "ayah_with_translation"}
 
-
-def load_module() -> types.ModuleType:
-    spec = importlib.util.spec_from_file_location(
-        "export_schema", ROOT / "scripts" / "export_schema.py"
-    )
-    if spec is None or spec.loader is None:
-        raise RuntimeError("unable to load scripts/export_schema.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-export_schema = load_module()
+export_schema = load_script("export_schema")
 
 
 def read(name: str) -> str:

@@ -1,28 +1,16 @@
 from __future__ import annotations
 
-import importlib.util
 import json
-import types
 import unittest
 from pathlib import Path
+
+from tests import load_script
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "rukus.json"
 
-
-def load_module() -> types.ModuleType:
-    spec = importlib.util.spec_from_file_location(
-        "export_rukus", ROOT / "scripts" / "export_rukus.py"
-    )
-    if spec is None or spec.loader is None:
-        raise RuntimeError("unable to load scripts/export_rukus.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-exporter = load_module()
+exporter = load_script("export_rukus")
 
 
 class RukuDataTests(unittest.TestCase):
@@ -37,7 +25,7 @@ class RukuDataTests(unittest.TestCase):
         self.assertEqual(
             meta["convention"], "Quran Foundation global Ruku numbering"
         )
-        self.assertEqual(meta["retrieved"], "2026-08-10")
+        self.assertRegex(meta["retrieved"], r"^\d{4}-\d{2}-\d{2}$")
         self.assertEqual(meta["ruku_count"], 558)
         self.assertEqual(meta["ayah_count"], 6236)
 
@@ -60,6 +48,18 @@ class RukuDataTests(unittest.TestCase):
             self.assertEqual(
                 ruku["ayah_count"], ruku["end_ayah_id"] - ruku["start_ayah_id"] + 1
             )
+
+    def test_validation_rejects_a_shifted_interior_key(self) -> None:
+        verses = [
+            {"id": i, "verse_key": key, "ruku_number": 1}
+            for i, key in enumerate(exporter.json.loads(
+                exporter.MANIFEST.read_text(encoding="utf-8")
+            )["verses"], start=1)
+        ]
+        exporter.validate_verses(verses)
+        verses[99]["verse_key"] = "999:99"
+        with self.assertRaisesRegex(ValueError, "Ayah 100 has key 999:99"):
+            exporter.validate_verses(verses)
 
     def test_builder_groups_contiguous_source_metadata(self) -> None:
         verses = [
