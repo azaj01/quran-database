@@ -1,3 +1,5 @@
+<p align="center"><img src="art/banner.png" alt="Quran Database — A complete, structured Quran database — verses, translations and metadata, free to use." width="100%"></p>
+
 # Quran Database
 
 A comprehensive Quran database for MySQL, PostgreSQL, and SQLite containing the complete text with multiple translations and editions.
